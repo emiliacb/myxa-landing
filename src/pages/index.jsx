@@ -23,9 +23,9 @@ export default function Home() {
             ]}
           />
         </section>
-        <section id="nosotros" className="flex flex-col h-screen items-center justify-center">
+        <section id="nosotros" className="flex flex-col h-screen items-center justify-center max-w-[1200px]">
           <Card title="Nosotros" subtitle="Texto resaltado">
-            <div class="flex max-w-[1000px]">
+            <div class="flex">
               <div class="flex-1 p-4">
                 <h3 className="text-lg font-bold mb-4">Texto resaltado</h3>
                 <p>
