@@ -21,18 +21,18 @@ export default function Navbar() {
             Tableros
           </Link>
           <Link
-            className="pointer-events-none px-3 py-1 text-gray-300"
-            href="#"
+            className="px-3 py-1"
+            href="#mantenimiento"
           >
             Mantenimiento
           </Link>
           <Link
-            className="pointer-events-none px-3 py-1 text-gray-300"
-            href="#"
+            className="px-3 py-1"
+            href="#instalaciones"
           >
             Instalaciones
           </Link>
-          <Link className="btn-primary ml-10 pr-4" href="#">
+          <Link className="btn-primary ml-10 pr-4 pointer-events-none" href="#">
             Contacto <ChevronRight className="h-5 w-5" />
           </Link>
         </div>
