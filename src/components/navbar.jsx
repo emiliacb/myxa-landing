@@ -1,41 +1,36 @@
+import { useEffect, useState } from "react";
+
 import Link from "next/link";
 
-import Logo from "./logo";
-import ChevronRight from "./chevronRight";
+import NavLinks from "./navLinks";
+import Bottomsheet from "./bottomsheet";
+
+import LogoIcon from "../icons/logoIcon";
+import HamburguerIcon from "../icons/hamburguerIcon";
 
 export default function Navbar() {
+  const [isOpen, toggleIsOpen] = useState(false);
+
   return (
-    <nav className="fixed top-0 z-40 w-full bg-white px-10 py-3 shadow">
-      <div className="flex w-full m-auto justify-between gap-6 max-w-[1200px]">
-        <Link href="/">
-          <Logo width={50} />
+    <nav className="fixed top-0 z-40 w-full bg-white px-4 py-3 shadow md:px-10">
+      <div className="m-auto flex w-full max-w-[1200px] justify-between gap-6">
+        <Link className="flex items-center gap-3" href="/">
+          <LogoIcon width={50} />
+          {/* <span className="text-2xl font-black text-red-drtb md:hidden">
+            DRTB
+          </span> */}
         </Link>
-        <div className="flex w-full max-w-[700px] items-center justify-between gap-2">
-          <Link className="px-3 py-1" href="#nosotros">
-            Nosotros
-          </Link>
-          <Link
-            className="pointer-events-none px-3 py-1 text-gray-300"
-            href="#"
-          >
-            Tableros
-          </Link>
-          <Link
-            className="px-3 py-1"
-            href="#mantenimiento"
-          >
-            Mantenimiento
-          </Link>
-          <Link
-            className="px-3 py-1"
-            href="#instalaciones"
-          >
-            Instalaciones
-          </Link>
-          <Link className="btn-primary ml-10 pr-4 pointer-events-none" href="#">
-            Contacto <ChevronRight className="h-5 w-5" />
-          </Link>
+        <button onClick={() => toggleIsOpen(true)}>
+          <HamburguerIcon className="h-10 w-10 text-gray-600 md:hidden" />
+        </button>
+        <div className="hidden w-full max-w-[700px] items-center justify-between gap-2 md:flex">
+          <NavLinks />
         </div>
+        <Bottomsheet isOpen={isOpen} onClose={() => toggleIsOpen(false)}>
+          <div className="flex flex-col items-center justify-center gap-6">
+            <NavLinks closeBottomSheet={() => toggleIsOpen(false)} vertical />
+          </div>
+        </Bottomsheet>
       </div>
     </nav>
   );

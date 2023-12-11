@@ -3,7 +3,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Plus Jakarta Sans'],
+        sans: ["Plus Jakarta Sans"],
+      },
+      colors: {
+        "red-drtb": "#C11711",
       },
     },
   },

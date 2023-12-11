@@ -4,15 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes moveLeft {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
 @layer components {
   .btn-primary {
     @apply flex px-6 py-2 h-fit w-fit gap-2 justify-center items-center rounded-md bg-gradient-to-r from-red-500 to-purple-700 text-white;

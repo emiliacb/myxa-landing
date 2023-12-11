@@ -1,4 +1,4 @@
-export default function Logo({width}) {
+export default function LogoIcon({width}) {
   return (
     <svg
     xmlns="http://www.w3.org/2000/svg"
