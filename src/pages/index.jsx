@@ -13,7 +13,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <main className="flex flex-col items-center justify-center px-4 md:px-10">
+      <main className="flex flex-col items-center justify-center px-4 pb-12 md:pb-24 md:px-10">
         <section className="flex min-h-screen flex-col items-center justify-center">
           <Title
             contents={[
