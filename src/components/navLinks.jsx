@@ -12,7 +12,7 @@ export default function NavLinks({
         Nosotros
       </Link>
       <Link
-        className="pointer-events-none px-3 py-1 text-gray-300"
+        className=" px-3 py-1"
         href="#"
         onClick={closeBottomSheet}
       >
@@ -33,7 +33,7 @@ export default function NavLinks({
         Instalaciones
       </Link>
       <Link
-        className="btn-primary pointer-events-none pr-4"
+        className="btn-primary  pr-4"
         style={{
           marginLeft: vertical ? "0" : "25px",
           marginTop: vertical ? "25px" : "0",
