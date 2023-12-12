@@ -27,7 +27,7 @@ export default function Home() {
         </section>
         <section
           id="nosotros"
-          className="flex min-h-screen max-w-[1200px] w-full flex-col items-center justify-center py-16 md:py-24"
+          className="flex min-h-screen max-w-[1200px] w-full flex-col items-center justify-center pt-28 md:py-24"
         >
           <Card title="Nosotros">
             <div className="flex flex-col md:flex-row gap-2">
@@ -56,7 +56,7 @@ export default function Home() {
         </section>
         <section
           id="mantenimiento"
-          className="flex min-h-screen max-w-[1200px] w-full flex-col items-center justify-center gap-16 py-16 md:py-24"
+          className="flex min-h-screen max-w-[1200px] w-full flex-col items-center justify-center gap-16 pt-28 md:py-24"
         >
           <Title contents={"Mantenimiento"} duration={90} delta={10} />
           <Card>
@@ -83,7 +83,7 @@ export default function Home() {
 
         <section
           id="instalaciones"
-          className="flex min-h-screen max-w-[1200px] w-full flex-col items-center justify-center gap-16 py-16 md:py-24"
+          className="flex min-h-screen max-w-[1200px] w-full flex-col items-center justify-center gap-16 pt-28 md:py-24"
         >
           <Title contents={"Instalaciones"} duration={90} delta={10}/>
           <Card>
