@@ -1,15 +1,30 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { useAnimate } from "framer-motion";
+import { useAnimate, motion, useDragControls, useInView } from "framer-motion";
 
 export function ContentComponent({ isOpen, onClose, children }) {
   const [scope, animate] = useAnimate();
+  const isVisible = useInView(scope, { amount: 0.1 });
+  const controls = useDragControls();
+
+  const handleDragEnd = (e, info) => {
+    const dragDistance = window.innerHeight - info.point.y;
+    const mustClose = dragDistance < 50 || info.velocity.y > 400;
+
+    if (mustClose) {
+      onClose();
+    }
+  };
+  
+  useEffect(() => {
+    if(!isVisible) onClose()
+  }, [isVisible])
 
   useEffect(() => {
     animate(
       scope.current,
       { y: isOpen ? "0%" : "100%", opacity: isOpen ? 1 : 0 },
-      { duration: 0.2 }
+      { duration: 0.3 }
     );
 
     document.body.style.height = isOpen ? "100vh" : "auto";
@@ -20,17 +35,21 @@ export function ContentComponent({ isOpen, onClose, children }) {
     <>
       {isOpen && (
         <div
-          className="op absolute top-0 z-50 h-screen w-screen bg-gray-900 opacity-30"
+          className="fixed top-0 z-50 h-screen w-screen bg-gray-900 opacity-60"
           onClick={() => onClose()}
         />
       )}
-      <div
+      <motion.div
         ref={scope}
-        className="bg-red-30 fixed top-1/3 z-50  flex h-2/3 w-screen flex-col items-center justify-center gap-12 overflow-hidden rounded-t-3xl bg-gray-100 py-16"
+        drag="y"
+        dragControls={controls}
+        dragConstraints={{ top: -150 }}
+        onDragEnd={handleDragEnd}
+        className="bg-red-30 fixed top-1/3 z-50 pb-[100vh] flex h-fit w-screen flex-col items-center justify-center gap-12 overflow-hidden rounded-t-3xl bg-gray-100 py-16"
       >
         <div className="absolute top-5 m-auto h-1 w-24 rounded-xl bg-gray-200" />
         {children}
-      </div>
+      </motion.div>
     </>
   );
 }
