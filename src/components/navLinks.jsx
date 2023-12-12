@@ -34,7 +34,10 @@ export default function NavLinks({
       </Link>
       <Link
         className="btn-primary pointer-events-none pr-4"
-        style={{ marginLeft: vertical ? "0" : "25px" }}
+        style={{
+          marginLeft: vertical ? "0" : "25px",
+          marginTop: vertical ? "25px" : "0",
+        }}
         href="#"
         onClick={closeBottomSheet && closeBottomSheet}
       >

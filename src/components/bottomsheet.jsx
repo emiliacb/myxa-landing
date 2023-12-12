@@ -9,7 +9,7 @@ export function ContentComponent({ isOpen, onClose, children }) {
 
   const handleDragEnd = (e, info) => {
     const dragDistance = window.innerHeight - info.point.y;
-    const mustClose = dragDistance < 50 || info.velocity.y > 400;
+    const mustClose = dragDistance < 50 || info.velocity.y > 500;
 
     if (mustClose) {
       onClose();
