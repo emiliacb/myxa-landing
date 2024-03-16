@@ -253,7 +253,7 @@ export default function Home() {
                     <span>Linkedin: </span>
                     <a
                       className="rounded-md px-1 text-blue-300 hover:underline  hover:underline-offset-4"
-                      href="https://linkedin.com/in/drtb"
+                      href="https://linkedin.com/in/drtb-ar"
                     >
                       in/drtb
                     </a>
