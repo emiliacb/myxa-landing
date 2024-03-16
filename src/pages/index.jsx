@@ -23,11 +23,15 @@ export default function Home() {
   async function handleSubmit(e) {
     e.preventDefault();
     if (isLoading || !input) return;
+    
     setIsLoading(true);
     const fetchPromise = fetch(`/api/send?phone=${input}`, { method: "POST" });
     toast.promise(fetchPromise, {
       loading: "Enviando...",
-      success: "Gracias!",
+      success: () => {
+        setInput("");
+        return "Gracias!";
+      },
       error: "Hubo un error!",
       description: (d) =>
         d?.ok
@@ -50,7 +54,7 @@ export default function Home() {
           <img
             alt=""
             src="/cover.png"
-            className="pointer-events-none absolute md:right-20 top-32 h-[70vh] opacity-25 mix-blend-darken"
+            className="pointer-events-none absolute top-32 h-[70vh] opacity-25 mix-blend-darken md:right-20"
           />
           <h1 className="m-auto text-6xl italic lg:hidden">DRTB</h1>
           <Title
@@ -157,7 +161,7 @@ export default function Home() {
         </section>
         <section
           id="mantenimiento"
-          className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center gap-16 py-12 md:py-24"
+          className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center gap-16 py-12 pt-16 md:py-24"
         >
           <Title contents={"Mantenimiento"} duration={90} delta={10} />
           <Card>
@@ -210,7 +214,7 @@ export default function Home() {
         </section>
         <section
           id="contacto"
-          className="flex min-h-screen w-screen flex-col items-center justify-center bg-black pt-20 text-white"
+          className="flex min-h-screen w-screen flex-col items-center justify-center bg-black pt-16 text-white"
         >
           <h2 className="text-4xl md:text-6xl lg:text-8xl">Contacto</h2>
           <div className="mt-10 w-full max-w-[1200px] items-center px-4 md:px-10 lg:mt-20">
@@ -268,10 +272,14 @@ export default function Home() {
                       value={input}
                       placeholder="+54 112345678"
                       onInput={handleInput}
-                      className="w-full rounded-md px-3 py-2 focus-visible:ring-2"
+                      className="w-full rounded-md px-3 py-2 text-black focus-visible:ring-2"
                     ></input>
                   </label>
-                  <button className="btn-primary" type="submit">
+                  <button
+                    disabled={isLoading}
+                    className="btn-primary disabled:contrast-50"
+                    type="submit"
+                  >
                     Enviar
                   </button>
                 </form>
