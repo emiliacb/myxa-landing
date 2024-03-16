@@ -233,27 +233,29 @@ export default function Home() {
                     <span>Whatsapp: </span>
                     <a
                       className="rounded-md px-1 text-blue-300 hover:underline hover:underline-offset-4"
-                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://wa.me/+541125756572"
                     >
-                      12345678910
+                      +54 11 2575-6572
                     </a>
                   </li>
                   <li className="mb-2 ">
                     <span>Email: </span>
                     <a
                       className="rounded-md px-1 text-blue-300 hover:underline hover:underline-offset-4"
-                      href="#"
+                      href="mailto:info@drtb.com.ar"
                     >
-                      hola@drtb.com
+                      info@drtb.com.ar
                     </a>
                   </li>
                   <li>
                     <span>Linkedin: </span>
                     <a
                       className="rounded-md px-1 text-blue-300 hover:underline  hover:underline-offset-4"
-                      href="#"
+                      href="https://linkedin.com/in/drtb"
                     >
-                      in/tururu
+                      in/drtb
                     </a>
                   </li>
                 </ul>
