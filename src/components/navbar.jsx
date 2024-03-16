@@ -22,7 +22,7 @@ export default function Navbar() {
     <nav className="fixed top-0 z-40 w-full bg-white px-4 py-3 shadow md:px-10">
       <div className="m-auto flex w-full max-w-[1200px] justify-between gap-6">
         <Link className="flex items-center gap-2 rounded-md p-1" href="/" >
-          <div className="hover:animate-spin">
+          <div className="md:hover:animate-spin">
             <LogoIcon width={50} className={`${!isScrolled ? 'scale-150 py-2 md:py-8' : 'scale-100'} transition-all duration-150`} />
           </div>
           <span className={`${!isScrolled ? 'md:scale-150 md:translate-x-8' : 'scale-100'} text-2xl font-black text-red-drtb transition-all duration-150 hidden md:block`}>DRTB</span>
