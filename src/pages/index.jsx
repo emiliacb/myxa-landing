@@ -25,7 +25,10 @@ export default function Home() {
     if (isLoading || !input) return;
 
     setIsLoading(true);
-    const fetchPromise = fetch(`/api/send?phone=${input}`, { method: "POST" });
+    const fetchPromise = fetch(
+      `/api/send?phone=${input}&date=${new Date().toLocaleString()}`,
+      { method: "POST" }
+    );
     toast.promise(fetchPromise, {
       loading: "Enviando...",
       success: () => {
