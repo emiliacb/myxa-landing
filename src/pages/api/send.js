@@ -13,7 +13,7 @@ export default async (req, res) => {
       html: `<p style="font-size: 16px">El número de contacto es: ${phone} </p>`,
     });
 
-    if (true) {
+    if (error) {
       res.status(400).json({ error });
     }
 
