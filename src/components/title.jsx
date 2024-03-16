@@ -18,12 +18,18 @@ export default function Title({ contents, duration, delta, white }) {
   }, []);
 
   useEffect(() => {
-    if (isLastInView)
+    if (isLastInView) {
       animate(
         scope.current,
         { x: "0%" },
-        { duration, ease: "linear", repeat: Infinity }
       );
+    } else {
+      animate(
+        scope.current,
+        { x: "-100%" },
+        { duration, ease: "linear", repeat: Infinity, delay: 0.2 }
+      );
+    }
   }, [isLastInView]);
 
   return (
