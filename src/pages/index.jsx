@@ -8,6 +8,7 @@ import Title from "../components/title";
 
 export default function Home() {
   const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleInput(e) {
     const { value } = e.target;
@@ -18,7 +19,8 @@ export default function Home() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-
+    if (isLoading || !input) return;
+    setIsLoading(true);
     const fetchPromise = fetch(`/api/send?phone=${input}`);
     toast.promise(fetchPromise, {
       loading: "Enviando...",
@@ -28,6 +30,7 @@ export default function Home() {
         d?.ok
           ? "Nos comunicaremos en menos de 48 horas."
           : "Podés reintentar o comunicarte por otro canal.",
+      finally: () => setIsLoading(false),
     });
   }
 
@@ -53,7 +56,7 @@ export default function Home() {
         </section>
         <section
           id="nosotros"
-          className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center pt-28 py-12 md:py-24"
+          className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center py-12 pt-28 md:py-24"
         >
           <Card title="Nosotros">
             <div className="flex flex-col gap-2 lg:flex-row">
@@ -166,7 +169,7 @@ export default function Home() {
 
         <section
           id="instalaciones"
-          className="flex min-h-screen w-full max-w-[1200px] flex-col  items-center items-center justify-center gap-16 pt-28 py-12 md:py-24"
+          className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center gap-16 py-12 pt-28 md:py-24"
         >
           <Title contents={"Instalaciones"} duration={90} delta={10} />
           <Card>
