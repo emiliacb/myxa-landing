@@ -21,7 +21,7 @@ export default function Home() {
     e.preventDefault();
     if (isLoading || !input) return;
     setIsLoading(true);
-    const fetchPromise = fetch(`/api/send?phone=${input}`);
+    const fetchPromise = fetch(`/api/send?phone=${input}`, { method: "POST" });
     toast.promise(fetchPromise, {
       loading: "Enviando...",
       success: "Gracias!",
@@ -45,9 +45,9 @@ export default function Home() {
       <main className="flex flex-col items-center justify-center bg-gradient-to-b from-gray-50 to-gray-200 px-4 md:px-10">
         <section className="items-left flex min-h-screen flex-col justify-center py-32">
           <img
-          alt=""
-          src="/cover.png"
-          className="absolute right-20 top-32 mix-blend-darken h-[70vh]"
+            alt=""
+            src="/cover.png"
+            className="absolute right-20 top-32 h-[70vh] mix-blend-darken"
           />
           <Title
             contents={[

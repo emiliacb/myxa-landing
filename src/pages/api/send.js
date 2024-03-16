@@ -14,11 +14,11 @@ export default async (req, res) => {
     });
 
     if (error) {
-      res.status(400).json({ error });
+      return res.status(400).json({ error });
     }
 
-    res.status(200).json({ data });
+    return res.status(200).json({ data });
   } catch (error) {
-    res.status(400).json({ error });
+    return res.status(400).json({ error });
   }
 };
