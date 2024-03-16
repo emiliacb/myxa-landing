@@ -20,7 +20,7 @@ export default async (req, res) => {
                     <p style="font-size: 16px;">Hora: ${date}</p>
                     <p style="font-size: 16px;">Número: ${phone}</p>
                 </div>
-                <img width="100" src="https://drtb.com.ar/phone.png">
+                <img width="200" style="margin-left: 16px; object-fit: cover" src="https://drtb.com.ar/phone.png">
             </div>
         </div>
       `,
