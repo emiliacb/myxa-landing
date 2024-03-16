@@ -203,7 +203,7 @@ export default function Home() {
           className="flex min-h-screen w-screen flex-col items-center justify-center bg-black text-white"
         >
           <h2 className="text-4xl md:text-6xl lg:text-8xl">Contacto</h2>
-          <div className="mt-20 w-full max-w-[1200px] items-center text-black">
+          <div className="mt-20 w-full max-w-[1200px] items-center text-black  px-4 md:px-10">
             <Card>
               <div className="flex w-full flex-col justify-between md:gap-10 lg:flex-row lg:gap-16">
                 <div className="max-w-2xl flex-1 border p-4">
