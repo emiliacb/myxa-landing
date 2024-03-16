@@ -44,6 +44,11 @@ export default function Home() {
       <Navbar />
       <main className="flex flex-col items-center justify-center bg-gradient-to-b from-gray-50 to-gray-200 px-4 md:px-10">
         <section className="items-left flex min-h-screen flex-col justify-center py-32">
+          <img
+          alt=""
+          src="/cover.png"
+          className="absolute right-20 top-32 mix-blend-darken h-[70vh]"
+          />
           <Title
             contents={[
               "DRTB",
@@ -100,12 +105,12 @@ export default function Home() {
             </div>
             <img
               alt="Picture of the author"
-              src="https://placehold.co/600x400"
+              src="/tablero-1.png"
               width={600}
               height={400}
             />
           </div>
-          <div className="my-24 flex max-w-[1200px] flex-col  items-center gap-12 lg:flex-row">
+          {/* <div className="my-24 flex max-w-[1200px] flex-col  items-center gap-12 lg:flex-row">
             <img
               alt="Picture of the author"
               src="https://placehold.co/600x400"
@@ -138,7 +143,7 @@ export default function Home() {
               width={600}
               height={400}
             />
-          </div>
+          </div> */}
         </section>
         <section
           id="mantenimiento"
