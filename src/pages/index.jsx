@@ -50,7 +50,7 @@ export default function Home() {
           <img
             alt=""
             src="/cover.png"
-            className="absolute right-20 top-32 h-[70vh] opacity-25 mix-blend-darken pointer-events-none"
+            className="pointer-events-none absolute right-20 top-32 h-[70vh] opacity-25 mix-blend-darken"
           />
           <h1 className="m-auto text-6xl italic lg:hidden">DRTB</h1>
           <Title
@@ -61,7 +61,10 @@ export default function Home() {
             duration={200}
             delta={15}
           />
-          <Link className="btn-primary m-auto pr-4 lg:hidden" href="#contacto">
+          <Link
+            className="btn-primary m-auto to-red-drtb/80 py-4 pl-10 pr-8 text-xl text-white lg:hidden"
+            href="#contacto"
+          >
             Contacto
             <ChevronRightIcon className="h-5 w-5" />
           </Link>
@@ -207,14 +210,14 @@ export default function Home() {
         </section>
         <section
           id="contacto"
-          className="flex min-h-screen w-screen flex-col items-center justify-center bg-black text-white pt-20"
+          className="flex min-h-screen w-screen flex-col items-center justify-center bg-black pt-20 text-white"
         >
           <h2 className="text-4xl md:text-6xl lg:text-8xl">Contacto</h2>
-          <div className="mt-10 lg:mt-20 w-full max-w-[1200px] items-center px-4 md:px-10">
+          <div className="mt-10 w-full max-w-[1200px] items-center px-4 md:px-10 lg:mt-20">
             <div className="flex w-full flex-col justify-between md:gap-10 lg:flex-row lg:gap-16">
               <div className="max-w-2xl flex-1 p-4">
                 <h3 className="mb-4 text-xl font-extrabold">Consultas</h3>
-                <p className="mb-6 text-justify">
+                <p className="mb-6 md:text-justify">
                   Para resolver tus dudas o pedir un presupuesto comunicate con
                   nosotros por:
                 </p>
@@ -250,7 +253,7 @@ export default function Home() {
               </div>
               <div className="flex-1 p-4">
                 <h3 className="mb-4 text-lg">...O dejanos tu número</h3>
-                <p className="mb-6 text-justify">
+                <p className="mb-6 md:text-justify">
                   Y nos comunicamos con vos en menos de 48 horas.
                 </p>
                 <form

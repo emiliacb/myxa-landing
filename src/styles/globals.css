@@ -7,7 +7,7 @@
 @layer components {
   .btn-primary {
     @apply flex h-fit w-fit items-center justify-center gap-2 rounded-md bg-gradient-to-r from-red-500 to-purple-700 px-6 py-2 text-white;
-    @apply transition-all duration-200 hover:rotate-1 active:scale-[.98] active:to-purple-800;
+    @apply transition-all duration-200 lg:hover:rotate-1 lg:active:scale-[.98] lg:active:to-purple-800;
   }
 }
 
