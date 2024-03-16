@@ -50,7 +50,7 @@ export default function Home() {
           <img
             alt=""
             src="/cover.png"
-            className="pointer-events-none absolute right-20 top-32 h-[70vh] opacity-25 mix-blend-darken"
+            className="pointer-events-none absolute md:right-20 top-32 h-[70vh] opacity-25 mix-blend-darken"
           />
           <h1 className="m-auto text-6xl italic lg:hidden">DRTB</h1>
           <Title
