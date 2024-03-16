@@ -23,12 +23,13 @@ export default function Navbar() {
       <div className="m-auto flex w-full max-w-[1200px] justify-between gap-6">
         <Link className="flex items-center gap-2 rounded-md p-1" href="/" >
           <div className="hover:animate-spin">
-            <LogoIcon width={50} className={`${!isScrolled ? 'md:scale-150' : 'scale-100'} transition-all duration-150`} />
+            <LogoIcon width={50} className={`${!isScrolled ? 'scale-150 py-2 md:py-8' : 'scale-100'} transition-all duration-150`} />
           </div>
-          <span className={`${!isScrolled ? 'md:scale-150 md:translate-x-8 md:py-8' : 'scale-100'} text-2xl font-black text-red-drtb  transition-all duration-150`}>DRTB</span>
+          <span className={`${!isScrolled ? 'md:scale-150 md:translate-x-8' : 'scale-100'} text-2xl font-black text-red-drtb transition-all duration-150 hidden md:block`}>DRTB</span>
         </Link>
         <button className="lg:hidden" onClick={() => toggleIsOpen(true)}>
-          <HamburguerIcon className="h-10 w-10 text-gray-600 lg:hidden" />
+          <HamburguerIcon className={` text-gray-600 lg:hidden ${!isScrolled ? 'h-12 w-12' : 'h-10 w-10'}`} />
+          <span className={`text-xs block opacity-70 ${!isScrolled ? '' : 'hidden'}`}>Menú</span>
         </button>
         <div className="hidden w-full max-w-[700px] items-center justify-between gap-2 lg:flex">
           <NavLinks />

@@ -1,10 +1,13 @@
 import { useState } from "react";
 import Head from "next/head";
 import { toast } from "sonner";
+import Link from "next/link";
 
 import Navbar from "../components/navbar";
 import Card from "../components/card";
 import Title from "../components/title";
+
+import ChevronRightIcon from "../icons/chevronRightIcon";
 
 export default function Home() {
   const [input, setInput] = useState("");
@@ -43,21 +46,25 @@ export default function Home() {
       </Head>
       <Navbar />
       <main className="flex flex-col items-center justify-center bg-gradient-to-b from-gray-50 to-gray-200 px-4 md:px-10">
-        <section className="items-left flex min-h-screen flex-col justify-center py-32">
+        <section className="items-left flex min-h-screen flex-col py-32 lg:justify-center">
           <img
             alt=""
             src="/cover.png"
-            className="absolute right-20 top-32 h-[70vh] mix-blend-darken"
+            className="absolute right-20 top-32 h-[70vh] opacity-25 mix-blend-darken pointer-events-none"
           />
+          <h1 className="m-auto text-6xl italic lg:hidden">DRTB</h1>
           <Title
             contents={[
-              "DRTB",
               "Especialistas en tableros",
               "Instalaciones contra incendio",
             ]}
             duration={200}
-            delta={5}
+            delta={15}
           />
+          <Link className="btn-primary m-auto pr-4 lg:hidden" href="#contacto">
+            Contacto
+            <ChevronRightIcon className="h-5 w-5" />
+          </Link>
         </section>
         <section
           id="nosotros"
@@ -200,75 +207,73 @@ export default function Home() {
         </section>
         <section
           id="contacto"
-          className="flex min-h-screen w-screen flex-col items-center justify-center bg-black text-white"
+          className="flex min-h-screen w-screen flex-col items-center justify-center bg-black text-white pt-20"
         >
           <h2 className="text-4xl md:text-6xl lg:text-8xl">Contacto</h2>
-          <div className="mt-20 w-full max-w-[1200px] items-center text-black  px-4 md:px-10">
-            <Card>
-              <div className="flex w-full flex-col justify-between md:gap-10 lg:flex-row lg:gap-16">
-                <div className="max-w-2xl flex-1 border p-4">
-                  <h3 className="mb-4 text-xl font-extrabold">Consultas</h3>
-                  <p className="mb-6 text-justify">
-                    Para resolver tus dudas o pedir un presupuesto comunicate
-                    con nosotros por:
-                  </p>
-                  <ul>
-                    <li className="mb-2">
-                      <span>Whatsapp: </span>
-                      <a
-                        className="text-blue-600 hover:underline hover:underline-offset-4"
-                        href="#"
-                      >
-                        12345678910
-                      </a>
-                    </li>
-                    <li className="mb-2">
-                      <span>Email: </span>{" "}
-                      <a
-                        className="text-blue-600 hover:underline hover:underline-offset-4"
-                        href="#"
-                      >
-                        hola@drtb.com
-                      </a>
-                    </li>
-                    <li>
-                      <span>Linkedin: </span>
-                      <a
-                        className="text-blue-600 hover:underline hover:underline-offset-4"
-                        href="#"
-                      >
-                        in/tururu
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="flex-1 border p-4">
-                  <h3 className="mb-4 text-lg">...O dejanos tu número</h3>
-                  <p className="mb-6 text-justify">
-                    Y nos comunicamos con vos en menos de 48 horas.
-                  </p>
-                  <form
-                    onSubmit={handleSubmit}
-                    className="flex items-end justify-start gap-4"
-                  >
-                    <label className="flex flex-col">
-                      <span className="mb-1 text-xs font-light text-gray-800">
-                        Número
-                      </span>
-                      <input
-                        value={input}
-                        placeholder="+54 112345678"
-                        onInput={handleInput}
-                        className="rounded-md px-3 py-2 focus-visible:ring-2"
-                      ></input>
-                    </label>
-                    <button className="btn-primary" type="submit">
-                      Enviar
-                    </button>
-                  </form>
-                </div>
+          <div className="mt-10 lg:mt-20 w-full max-w-[1200px] items-center px-4 md:px-10">
+            <div className="flex w-full flex-col justify-between md:gap-10 lg:flex-row lg:gap-16">
+              <div className="max-w-2xl flex-1 p-4">
+                <h3 className="mb-4 text-xl font-extrabold">Consultas</h3>
+                <p className="mb-6 text-justify">
+                  Para resolver tus dudas o pedir un presupuesto comunicate con
+                  nosotros por:
+                </p>
+                <ul>
+                  <li className="mb-2">
+                    <span>Whatsapp: </span>
+                    <a
+                      className="text-blue-300 hover:underline hover:underline-offset-4"
+                      href="#"
+                    >
+                      12345678910
+                    </a>
+                  </li>
+                  <li className="mb-2">
+                    <span>Email: </span>{" "}
+                    <a
+                      className="text-blue-300 hover:underline hover:underline-offset-4"
+                      href="#"
+                    >
+                      hola@drtb.com
+                    </a>
+                  </li>
+                  <li>
+                    <span>Linkedin: </span>
+                    <a
+                      className="text-blue-300 hover:underline hover:underline-offset-4"
+                      href="#"
+                    >
+                      in/tururu
+                    </a>
+                  </li>
+                </ul>
               </div>
-            </Card>
+              <div className="flex-1 p-4">
+                <h3 className="mb-4 text-lg">...O dejanos tu número</h3>
+                <p className="mb-6 text-justify">
+                  Y nos comunicamos con vos en menos de 48 horas.
+                </p>
+                <form
+                  onSubmit={handleSubmit}
+                  className="m-auto flex max-w-lg items-end  justify-start gap-4"
+                >
+                  <label className="flex w-full flex-col">
+                    <span className="mb-1 text-xs font-light text-gray-400">
+                      Número
+                    </span>
+                    <input
+                      value={input}
+                      placeholder="+54 112345678"
+                      onInput={handleInput}
+                      className="w-full rounded-md px-3 py-2 focus-visible:ring-2"
+                    ></input>
+                  </label>
+                  <button className="btn-primary" type="submit">
+                    Enviar
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
         </section>
       </main>

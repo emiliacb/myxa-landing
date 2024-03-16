@@ -8,7 +8,7 @@ export default async (req, res) => {
 
     const { data, error } = await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: "cabralmarce@hotmail.com",
+      to: "emiliacabralb@gmail.com",
       subject: "DRTB - Pedido de contacto",
       html: `<p style="font-size: 16px">El número de contacto es: ${phone} </p>`,
     });
