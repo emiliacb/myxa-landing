@@ -23,7 +23,7 @@ export default function Home() {
   async function handleSubmit(e) {
     e.preventDefault();
     if (isLoading || !input) return;
-    
+
     setIsLoading(true);
     const fetchPromise = fetch(`/api/send?phone=${input}`, { method: "POST" });
     toast.promise(fetchPromise, {
@@ -229,16 +229,16 @@ export default function Home() {
                   <li className="mb-2">
                     <span>Whatsapp: </span>
                     <a
-                      className="text-blue-300 hover:underline hover:underline-offset-4"
+                      className="rounded-md px-1 text-blue-300 hover:underline hover:underline-offset-4"
                       href="#"
                     >
                       12345678910
                     </a>
                   </li>
-                  <li className="mb-2">
-                    <span>Email: </span>{" "}
+                  <li className="mb-2 ">
+                    <span>Email: </span>
                     <a
-                      className="text-blue-300 hover:underline hover:underline-offset-4"
+                      className="rounded-md px-1 text-blue-300 hover:underline hover:underline-offset-4"
                       href="#"
                     >
                       hola@drtb.com
@@ -247,7 +247,7 @@ export default function Home() {
                   <li>
                     <span>Linkedin: </span>
                     <a
-                      className="text-blue-300 hover:underline hover:underline-offset-4"
+                      className="rounded-md px-1 text-blue-300 hover:underline  hover:underline-offset-4"
                       href="#"
                     >
                       in/tururu
@@ -272,7 +272,7 @@ export default function Home() {
                       value={input}
                       placeholder="+54 112345678"
                       onInput={handleInput}
-                      className="w-full rounded-md px-3 py-2 text-black focus-visible:ring-2"
+                      className="w-full rounded-md px-3 py-2 text-black ring-offset-black focus-visible:ring-2 focus-visible:ring-offset-2  "
                     ></input>
                   </label>
                   <button
