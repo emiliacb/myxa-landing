@@ -49,7 +49,12 @@ export default function Home() {
       <Head>
         <title>DRTB</title>
         <meta name="description" content="DRTB" />
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          type="image/svg+xml"
+          href="/favicon.svg"
+        />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       <Navbar />
       <main className="flex flex-col items-center justify-center bg-gradient-to-b from-gray-50 to-gray-200 px-4 md:px-10">
@@ -164,7 +169,7 @@ export default function Home() {
         </section>
         <section
           id="mantenimiento"
-          className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center gap-16 py-12 pt-16 md:py-24"
+          className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center gap-16 py-16 md:py-24"
         >
           <Title contents={"Mantenimiento"} duration={90} delta={10} />
           <Card>
@@ -191,7 +196,7 @@ export default function Home() {
 
         <section
           id="instalaciones"
-          className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center gap-16 py-12 pt-28 md:py-24"
+          className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center gap-16 py-12 md:py-24"
         >
           <Title contents={"Instalaciones"} duration={90} delta={10} />
           <Card>
@@ -217,7 +222,7 @@ export default function Home() {
         </section>
         <section
           id="contacto"
-          className="flex min-h-screen w-screen flex-col items-center justify-center bg-black pt-16 text-white"
+          className="flex min-h-screen w-screen flex-col items-center justify-center bg-black py-12 text-white"
         >
           <h2 className="text-4xl md:text-6xl lg:text-8xl">Contacto</h2>
           <div className="mt-10 w-full max-w-[1200px] items-center px-4 md:px-10 lg:mt-20">

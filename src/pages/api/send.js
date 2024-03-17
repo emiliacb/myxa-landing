@@ -8,7 +8,7 @@ export default async (req, res) => {
 
     const { data, error } = await resend.emails.send({
       from: "info@drtb.com.ar",
-      to: "cabralmarce@hotmail.com",
+      to: 'emiliacabralb@gmail.com',//"cabralmarce@hotmail.com",
       cc: "info@drtb.com.ar",
       subject: `DRTB - Pedido de contacto - ${date}`,
       html: `
@@ -17,10 +17,10 @@ export default async (req, res) => {
             <div style="display: flex;">
                 <div>
                     <p style="font-size: 20px;">Una persona llenó el formulario para ser contactada.</p>
-                    <p style="font-size: 16px;">Hora: ${date}</p>
+                    <p style="font-size: 16px;">Fecha y Hora: ${date}</p>
                     <p style="font-size: 16px;">Número: ${phone}</p>
                 </div>
-                <img width="200" style="margin-left: 16px; object-fit: cover" src="https://drtb.com.ar/phone.png">
+                <img width="100" height="80" style="margin-left: 32px; object-fit: cover" src="https://drtb.com.ar/phone.png">
             </div>
         </div>
       `,
