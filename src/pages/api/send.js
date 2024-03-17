@@ -8,7 +8,7 @@ export default async (req, res) => {
 
     const { data, error } = await resend.emails.send({
       from: "info@drtb.com.ar",
-      to: 'emiliacabralb@gmail.com',//"cabralmarce@hotmail.com",
+      to: "cabralmarce@hotmail.com",
       cc: "info@drtb.com.ar",
       subject: `DRTB - Pedido de contacto - ${date}`,
       html: `
