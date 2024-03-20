@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Head from "next/head";
-import { toast } from "sonner";
 import Link from "next/link";
+import { toast } from "sonner";
+import {motion, useScroll , useMotionValueEvent} from "framer-motion";
 
 import Navbar from "../components/navbar";
 import Card from "../components/card";
@@ -12,6 +13,28 @@ import ChevronRightIcon from "../icons/chevronRightIcon";
 export default function Home() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [navbarInvert, setNavbarInvert] = useState(false);
+  const [navbarInvert2, setNavbarInvert2] = useState(false);
+  
+  const darkSection1Ref = useRef(null);
+  const { scrollYProgress: scrollYProgress1 } = useScroll({
+    target: darkSection1Ref,
+    offset: ["start 66px", 'end 66px']
+  });
+
+  useMotionValueEvent(scrollYProgress1, "change", (latest) => {
+    setNavbarInvert(latest > 0 && latest < 1)
+  })
+
+  const darkSection2Ref = useRef(null);
+  const { scrollYProgress: scrollYProgress2 } = useScroll({
+    target: darkSection2Ref,
+    offset: ["start 66px", 'end 66px']
+  });
+
+  useMotionValueEvent(scrollYProgress2, "change", (latest) => {
+    setNavbarInvert2(latest > 0 && latest < 1)
+  })
 
   function handleInput(e) {
     const { value } = e.target;
@@ -48,16 +71,15 @@ export default function Home() {
     <>
       <Head>
         <title>DRTB</title>
-        <meta name="description" content="DRTB" />
-        <link
-          rel="icon"
-          type="image/svg+xml"
-          href="/favicon.svg"
+        <meta
+          name="description"
+          content="DRTB. Tableros, mantenimiento e instalaciones contra incendio. Montaje industrial."
         />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
-      <Navbar />
-      <main className="flex flex-col items-center justify-center bg-gradient-to-b from-gray-50 to-gray-200 px-4 md:px-10">
+      <Navbar isInvert={navbarInvert || navbarInvert2} />
+      <main className="flex flex-col items-center justify-center px-4 md:px-10">
         <section className="items-left flex min-h-screen flex-col py-32 lg:justify-center">
           <img
             alt=""
@@ -112,6 +134,7 @@ export default function Home() {
         </section>
         <section
           id="tableros"
+          ref={darkSection1Ref}
           className="flex min-h-screen w-screen flex-col items-center justify-center bg-black pt-28 text-white "
         >
           <Title contents={"Tableros"} duration={90} delta={10} white />
@@ -222,7 +245,8 @@ export default function Home() {
         </section>
         <section
           id="contacto"
-          className="flex min-h-screen w-screen flex-col items-center justify-center bg-black py-12 text-white"
+          ref={darkSection2Ref}
+          className="relative flex min-h-screen w-screen flex-col items-center justify-center bg-black py-12 text-white"
         >
           <h2 className="text-4xl md:text-6xl lg:text-8xl">Contacto</h2>
           <div className="mt-10 w-full max-w-[1200px] items-center px-4 md:px-10 lg:mt-20">
