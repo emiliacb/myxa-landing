@@ -21,7 +21,7 @@ export default async (req, res) => {
               <p style="font-size: 16px;">Fecha y Hora: ${date}</p>
               <p style="font-size: 16px;">Número: ${phone}</p>
             </div>
-            <div style="min-width: 150px; width: 50%; max-width: 50vw; border: 1px solid red; display: grid; place-content: center;">
+            <div style="min-width: 150px; width: 50%; max-width: 50vw; display: grid; place-content: center;">
               <img width="50" style="width: 100%; object-fit: cover;" src="https://drtb.com.ar/phone.png">
             </div>
           </div>
