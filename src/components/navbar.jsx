@@ -25,7 +25,7 @@ export default function Navbar({ isInvert }) {
           <div className="md:hover:animate-spin">
             <LogoIcon width={40} className={`${!isScrolled ? 'scale-150 py-2 md:py-8' : 'scale-100'} transition-all duration-150`} />
           </div>
-          <span className={`${!isScrolled ? 'md:scale-150 md:translate-x-8' : 'scale-100'} text-2xl text-red-drtb transition-all duration-150 font-bold hidden md:block`}>DRTB</span>
+          <span className={`${!isScrolled ? 'md:scale-150 translate-x-8' : 'scale-100'} text-2xl text-red-drtb transition-all duration-150 font-bold`}>MYXA</span>
         </Link>
         <button className="lg:hidden" onClick={() => toggleIsOpen(true)}>
           <HamburguerIcon className={` text-gray-600 lg:hidden ${!isScrolled ? 'h-12 w-12' : 'h-10 w-10'}`} />

@@ -8,29 +8,36 @@ export default function NavLinks({
 }) {
   return (
     <>
-      <Link className="px-3 py-1 hover-rotate rounded-md" href="#nosotros" onClick={closeBottomSheet}>
+      {/* <Link className="px-3 py-1 hover-rotate rounded-md" href="#nosotros" onClick={closeBottomSheet}>
         Nosotros
-      </Link>
+      </Link> */}
       <Link
-        className="px-3 py-1 hover-rotate rounded-md"
+        className="hover-rotate rounded-md px-3 py-1"
         href="#tableros"
         onClick={closeBottomSheet}
       >
         Tableros
       </Link>
       <Link
-        className="px-3 py-1 hover-rotate rounded-md"
+        className="hover-rotate rounded-md px-3 py-1"
         href="#mantenimiento"
         onClick={closeBottomSheet}
       >
         Mantenimiento
       </Link>
       <Link
-        className="px-3 py-1 hover-rotate rounded-md"
-        href="#instalaciones"
+        className="hover-rotate rounded-md px-3 py-1"
+        href="#reparacion"
         onClick={closeBottomSheet}
       >
-        Instalaciones
+        Reparación
+      </Link>
+      <Link
+        className="hover-rotate rounded-md px-3 py-1"
+        href="#instalacion"
+        onClick={closeBottomSheet}
+      >
+        Instalación
       </Link>
       <Link
         className="btn-primary pr-4"

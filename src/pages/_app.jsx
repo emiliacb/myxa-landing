@@ -1,4 +1,6 @@
 import "../styles/globals.css";
+import "../features/carousel/style.css"
+
 import { Toaster } from "sonner";
 
 const MyApp = ({ Component, pageProps }) => {

@@ -1,0 +1,39 @@
+.carousel {
+  position: relative;
+  background-color: white;
+  width: 100%;
+}
+
+.holder {
+  display: flex;
+  gap: 0.7rem;
+  height: 100%;
+  margin: auto;
+  overflow-x: scroll;
+  overscroll-behavior: contain;
+  padding: 1rem 0;
+  width: 100%;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.holder::-webkit-scrollbar {
+  display: none;
+}
+
+.element {
+  flex-grow: 0;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.element img {
+  -webkit-user-drag: none;
+  display: flex;
+  width: 100vw;
+  object-fit: cover;
+}
