@@ -20,6 +20,13 @@ export default function NavLinks({
       </Link>
       <Link
         className="hover-rotate rounded-md px-3 py-1"
+        href="#instalacion"
+        onClick={closeBottomSheet}
+      >
+        Instalación
+      </Link>
+      <Link
+        className="hover-rotate rounded-md px-3 py-1"
         href="#mantenimiento"
         onClick={closeBottomSheet}
       >
@@ -32,13 +39,7 @@ export default function NavLinks({
       >
         Reparación
       </Link>
-      <Link
-        className="hover-rotate rounded-md px-3 py-1"
-        href="#instalacion"
-        onClick={closeBottomSheet}
-      >
-        Instalación
-      </Link>
+
       <Link
         className="btn-primary pr-4"
         style={{

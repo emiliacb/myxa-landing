@@ -83,9 +83,9 @@ export default function Home() {
       <main className="flex flex-col items-center justify-center px-4 md:px-10">
         <section
           id="nosotros"
-          className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center py-12 pt-32 md:py-32"
+          className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center py-12 pt-32 md:py-40"
         >
-        <Carousel className="h-32 mb-2" />
+          <Carousel className="mb-2 h-32" />
           <Card>
             <div className="flex flex-col lg:flex-row">
               <div className="flex-1 p-4">
@@ -188,7 +188,7 @@ export default function Home() {
           id="instalacion"
           className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center gap-16 py-12 md:py-24"
         >
-          <Card title="Instalaciones">
+          <Card title="Instalación, capacitación y puesta en marcha">
             <div className="flex flex-col gap-12 lg:flex-row">
               <div className="flex-1 p-4 md:w-2/3 lg:w-1/2">
                 <h3 className="mb-4 text-lg font-bold">
@@ -218,7 +218,7 @@ export default function Home() {
           id="mantenimiento"
           className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center gap-16 py-16 md:py-24"
         >
-          <Card title="Mantenimiento">
+          <Card title="Revisión y mantenimiento">
             <div className="flex flex-col gap-12 lg:flex-row">
               <div className="flex-1 p-4 md:w-2/3 lg:w-1/2">
                 <h3 className="mb-4 text-lg font-bold">
@@ -238,7 +238,7 @@ export default function Home() {
                 alt="Picture of the author"
                 src="/tablero-3.jpg"
                 className="m-auto rounded-lg brightness-110 contrast-[.9]"
-                width={350}
+                width={380}
               />
             </div>
           </Card>
@@ -253,7 +253,7 @@ export default function Home() {
                 alt="Picture of the author"
                 src="/tablero-4.jpeg"
                 width={380}
-                className="rounded-lg"
+                className="m-auto rounded-lg"
               />
               <div className="flex-1 p-4 md:w-2/3 lg:w-1/2">
                 <h3 className="mb-4 text-lg font-bold">
