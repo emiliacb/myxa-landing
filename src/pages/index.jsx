@@ -207,7 +207,7 @@ export default function Home() {
               </div>
               <img
                 alt="Picture of the author"
-                src="/instalaciones.png"
+                src="/instalaciones.jpg"
                 width={600}
                 className="m-auto rounded-lg"
               />

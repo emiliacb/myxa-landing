@@ -3,15 +3,15 @@ import { motion } from "framer-motion";
 import { Element } from "./element";
 
 const defaultElements = [
-  "instalaciones.png",
+  "instalaciones.jpg",
   "/tablero-2.jpg",
   "/tablero-3.jpg",
   "/tablero-4.jpeg",
-  "instalaciones.png",
+  "instalaciones.jpg",
   "/tablero-2.jpg",
   "/tablero-3.jpg",
   "/tablero-4.jpeg",
-  "instalaciones.png",
+  "instalaciones.jpg",
   "/tablero-2.jpg",
   "/tablero-3.jpg",
   "/tablero-4.jpeg",
