@@ -245,7 +245,7 @@ export default function Home() {
           className="relative flex min-h-screen w-screen flex-col items-center justify-center bg-black py-12 pt-24 text-white"
         >
           <h2 className="text-4xl md:text-6xl lg:text-8xl">Contacto</h2>
-          <div className="mt-10 w-full max-w-[1200px] items-center px-4 md:px-10 lg:mt-20">
+          <div className="mt-8 w-full max-w-[1200px] items-center px-4 md:px-10 lg:mt-20">
             <div className="flex w-full flex-col justify-between md:gap-10 lg:flex-row lg:gap-16">
               <div className="max-w-2xl flex-1 p-4">
                 <h3 className="mb-4 text-xl font-extrabold">Consultas</h3>
@@ -273,7 +273,7 @@ export default function Home() {
                       className="rounded-md px-1 text-blue-300 hover:underline hover:underline-offset-4"
                       href="mailto:info@drtb.com.ar"
                     >
-                      info@drtb.com.ar
+                      info@myxa.com.ar
                     </a>
                   </li>
                   <li className="mb-2">
@@ -284,7 +284,7 @@ export default function Home() {
                       rel="noopener noreferrer"
                       href="https://www.linkedin.com/in/marcelo-alejandro-cabral-1780151ab/"
                     >
-                      in/drtb
+                      in/myxa
                     </a>
                   </li>
                   <li>
