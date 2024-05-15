@@ -71,7 +71,7 @@ export default function Home() {
 
   useEffect(() => {
     if(typeof window === 'undefined') return;
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const mediaQuery = window.matchMedia("(max-width: 1024px)");
     const handleResize = () => setIsMobile(mediaQuery.matches);
 
     mediaQuery.addListener(handleResize);
