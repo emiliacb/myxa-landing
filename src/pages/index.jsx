@@ -278,10 +278,10 @@ export default function Home() {
               <div className="max-w-2xl flex-1 p-4">
                 <h3 className="mb-4 text-xl font-extrabold">Consultas</h3>
                 <p className="mb-6 md:text-justify">
-                  En <span className="text-red-500">MYXA</span>, estamos dedicados a proteger lo que más importa: su tranquilidad, su gente y su patrimonio. Contáctenos hoy para descubrir cómo podemos ayudarlo a asegurar un ambiente más seguro contra el riesgo de incendios.
+                  En <span className="text-red-500">MYXA</span>, estamos dedicados a proteger lo que más importa: su tranquilidad, su gente y su patrimonio. Contáctenos hoy para descubrir cómo podemos ayudarlo.
                 </p>
                 <p className="hidden md:block">
-                  Para resolver tus dudas o pedir un presupuesto comunícate con nosotros por:
+                  Para resolver sus dudas o pedir un presupuesto comuníquese con nosotros por:
                 </p>
                 <ul className="mt-5 border-l border-gray-100 pl-4">
                   <li className="my-2">
@@ -329,10 +329,10 @@ export default function Home() {
                 </ul>
               </div>
               <div className="flex-1 p-4">
-                <h3 className="mb-4 text-lg">...O dejanos tu número</h3>
+                <h3 className="mb-4 text-lg">...O déjenos su número</h3>
 
                 <p className="mb-6 md:text-justify">
-                  Y nos comunicamos con vos en menos de 48 horas.
+                  Y nos comunicamos con usted en menos de 48 horas.
                 </p>
                 <form
                   onSubmit={handleSubmit}
