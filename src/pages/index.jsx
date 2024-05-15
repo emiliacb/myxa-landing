@@ -83,7 +83,7 @@ export default function Home() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "url": "http://www.myxa.com.ar",
+              "url": "http://www.drtb.com.ar",
               "name": "MYXA - Tableros de sistemas contra incendio",
               "contactPoint": {
                 "@type": "ContactPoint",
@@ -96,17 +96,17 @@ export default function Home() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.myxa.com.ar/" />
+        <meta property="og:url" content="https://www.drtb.com.ar/" />
         <meta property="og:title" content="MYXA - Soluciones Contra Incendios" />
         <meta property="og:description" content="MYXA: Expertos en soluciones contra incendios con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de tableros de control y sistemas contra incendios conforme a normas NFPA 20 e IRAM 3597." />
-        <meta property="og:image" content="https://www.myxa.com.ar/logo.png" />
+        <meta property="og:image" content="https://www.drtb.com.ar/logo.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://www.myxa.com.ar/" />
+        <meta property="twitter:url" content="https://www.drtb.com.ar/" />
         <meta property="twitter:title" content="MYXA - Soluciones Contra Incendios" />
         <meta property="twitter:description" content="MYXA: Expertos en soluciones contra incendios con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de tableros de control y sistemas contra incendios conforme a normas NFPA 20 e IRAM 3597." />
-        <meta property="twitter:image" content="https://www.myxa.com.ar/logo.png" />
+        <meta property="twitter:image" content="https://www.drtb.com.ar/logo.png" />
       </Head>
       <Navbar isInvert={navbarInvert || navbarInvert2} />
       <main className="flex flex-col items-center justify-center px-4 md:px-10">
@@ -299,7 +299,7 @@ export default function Home() {
                     <span>Email: </span>
                     <a
                       className="rounded-md px-1 text-blue-300 hover:underline hover:underline-offset-4"
-                      href="mailto:info@drtb.com.ar"
+                      href="mailto:info@myxa.com.ar"
                     >
                       info@myxa.com.ar
                     </a>
@@ -323,7 +323,7 @@ export default function Home() {
                       rel="noopener noreferrer"
                       href="https://www.linkedin.com/in/marcelo-alejandro-cabral-1780151ab/"
                     >
-                      @drtb
+                      @myxa
                     </a>
                   </li>
                 </ul>
