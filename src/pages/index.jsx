@@ -90,37 +90,25 @@ export default function Home() {
             <div className="flex flex-col lg:flex-row">
               <div className="flex-1 p-4">
                 <h3 className="mb-4 text-xl font-bold">
-                  Excelencia en sistemas contra incendio
+                  Tableros de sistemas contra incendio
                 </h3>
                 <p className="text-justify">
-                  Brindamos soluciones integrales que abarcan el diseño, la
-                  fabricación, instalación, mantenimiento y reparacion de
-                  tableros de instalaciones contra incendios.
+                  Brindamos soluciones integrales que abarcan el diseño, la fabricación, instalación, mantenimiento y reparación de tableros de instalaciones contra incendios.
+                  Contamos con más de veinte años de experiencia en el diseño y fabricación de tableros según norma NFPA 20 e IRAM 3597
                 </p>
                 <p className="mt-4 text-justify">
-                  Fundada por expertos con más de veinte años de experiencia,
-                  nos posicionamos como su aliado en la vital tarea de
-                  automatizar la protección de su gente y su patrimonio.
+                  Contamos con más de veinte años de experiencia en el diseño y fabricación de tableros según norma NFPA 20 e IRAM 3597
                 </p>
               </div>
               <div className="flex-1 px-4 text-justify lg:p-4">
                 <p>
-                  Nuestro enfoque está impulsado por la tecnología y la
-                  innovación, lo que nos permite posicionarnos como líderes en
-                  la protección contra incendios.
-                </p>
-                <p className="mt-4">
-                  En MYXA, nos apasiona brindar un servicio excepcional a cada
-                  cliente, garantizando productos de la más alta calidad,
-                  acompañados de un asesoramiento personalizado, provisión
-                  eficiente, instalación precisa y un mantenimiento preventivo
-                  que asegura la máxima operatividad de los equipos.
+                  En MYXA, nos apasiona brindar el mejor servicio a cada cliente, garantizando un producto de alta calidad, acompañados de un asesoramiento personalizado, provisión eficiente, instalación precisa y un mantenimiento preventivo que asegura la máxima operatividad de los equipos.
                 </p>
               </div>
             </div>
           </Card>
           <Link
-            className="mt-16 flex animate-pulse items-center justify-center bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-lg text-transparent"
+            className="mt-16 hidden md:flex animate-pulse items-center justify-center bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-lg text-transparent"
             href="#tableros"
           >
             Ver Tableros
@@ -136,13 +124,11 @@ export default function Home() {
           <div className="mt-24 flex max-w-[1200px] flex-col items-center gap-12 lg:flex-row">
             <div className="flex-1 p-4 md:w-2/3 lg:w-1/2">
               <h3 className="mb-4 text-lg font-bold">
-                Innovación y Seguridad a tu Medida
+                Diseño y fabricación de tableros
               </h3>
               <p className="mb-2 text-justify">
-                Nuestra gama de productos incluye una variedad de tableros de
-                comando, diseñados para cumplir con los más altos estándares de
-                seguridad y eficiencia. Cada modelo ha sido cuidadosamente
-                estandarizado para satisfacer diversas necesidades operativas:
+                Nuestros tableros están diseñados para cumplir las normativas vigentes (NFPA 20 e IRAM 3597) y diseñados de acuerdo con las diversas necesidades operativas.
+                Proporcionando una gran variedad de productos estandarizados más la opción del diseño especifico en el caso de necesitarlo
               </p>
             </div>
           </div>
@@ -192,17 +178,10 @@ export default function Home() {
             <div className="flex flex-col gap-12 lg:flex-row">
               <div className="flex-1 p-4 md:w-2/3 lg:w-1/2">
                 <h3 className="mb-4 text-lg font-bold">
-                  Excelencia desde el Inicio
+                  Instalación, capacitación y puesta en marcha
                 </h3>
                 <p className="text-justify">
-                  Entendemos la importancia de una instalación adecuada para el
-                  éxito operativo de cualquier sistema contraincendios. Por
-                  ello, aseguramos que la instalación de nuestros tableros de
-                  comando se realice de manera estratégica, promoviendo un
-                  acceso fácil para mantenimientos y reparaciones futuras.
-                  Además, ofrecemos programas de capacitación detallados para
-                  que su equipo esté plenamente preparado para manejar y
-                  mantener el sistema eficientemente desde el día uno.
+                  Entendemos la importancia de una instalación adecuada para el éxito operativo de cualquier sistema contra incendios. Por ello, aseguramos que la instalación de nuestros tableros de comando se realice de manera estratégica, promoviendo un acceso fácil para mantenimientos y reparaciones futuras. Además, ofrecemos una capacitación detallada para que su equipo esté plenamente preparado para manejar y mantener el sistema eficientemente desde el día uno.
                 </p>
               </div>
               <img
@@ -222,16 +201,10 @@ export default function Home() {
             <div className="flex flex-col gap-12 lg:flex-row">
               <div className="flex-1 p-4 md:w-2/3 lg:w-1/2">
                 <h3 className="mb-4 text-lg font-bold">
-                  Prevención y Durabilidad
+                  Revisión y mantenimiento
                 </h3>
                 <p className="text-justify">
-                  Nuestro servicio de mantenimiento está diseñado para asegurar
-                  que su sistema contraincendios esté siempre en condiciones
-                  óptimas de funcionamiento. A través de revisiones técnicas
-                  regulares, anticipamos cualquier problema potencial,
-                  minimizando costos y extendiendo la vida útil de su inversión.
-                  La prevención es nuestra prioridad, garantizando su
-                  tranquilidad.
+                  Nuestro servicio de mantenimiento está diseñado para asegurar que su sistema contraincendios esté siempre en condiciones óptimas de funcionamiento. A través de revisiones técnicas regulares, anticipamos cualquier problema potencial, extendiendo la vida útil de su inversión y garantizando que su sistema se encuentre operativo ante cualquier situación que lo requiera.
                 </p>
               </div>
               <img
@@ -260,14 +233,7 @@ export default function Home() {
                   Respuesta Rápida y Efectiva
                 </h3>
                 <p className="text-justify">
-                  En el evento de una disfunción, nuestro equipo técnico está
-                  listo para diagnosticar y resolver cualquier problema con
-                  rapidez y eficacia. Coordinamos visitas técnicas para evaluar
-                  el sistema, identificar la causa de la falla y, si es
-                  necesario, proporcionar una cotización transparente y justa
-                  para la reparación. Nuestro objetivo es restablecer la
-                  operatividad de su sistema contraincendios con la mínima
-                  interrupción posible.
+                  En el evento de una disfunción, nuestro equipo técnico está listo para diagnosticar y resolver cualquier problema con rapidez y eficacia. Coordinamos visitas técnicas para evaluar el sistema, identificar la causa de la falla y, si es necesario, proporcionar una cotización transparente y justa para la reparación. Nuestro objetivo es restablecer la operatividad de su sistema contra incendios con la mínima interrupción posible.
                 </p>
               </div>
             </div>
