@@ -37,3 +37,13 @@
   width: 100vw;
   object-fit: cover;
 }
+
+/* Adding margin-left to the first .element */
+.holder > .element:first-child {
+  margin-left: 16px;
+}
+
+/* Adding margin-right to the last .element */
+.holder > .element:last-child {
+  margin-right: 16px;
+}

@@ -114,7 +114,7 @@ export default function Home() {
           id="nosotros"
           className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center py-12 pt-32 md:py-40"
         >
-          <Carousel className="mb-2 h-32" />
+          <Carousel className="mb-2 h-32 -ml-2 -mr-2" style={{ width: 'calc(100% + 32px)' }} />
           <Card>
             <div className="flex flex-col lg:flex-row">
               <div className="flex-1 p-4">

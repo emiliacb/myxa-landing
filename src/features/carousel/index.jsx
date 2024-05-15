@@ -17,7 +17,7 @@ const defaultElements = [
   "/tablero-4.jpeg",
 ];
 
-export function Carousel({ className, elements = defaultElements }) {
+export function Carousel({ className, style, elements = defaultElements }) {
   const ref = useRef(null);
   const [currentWidth, setCurrentWidth] = useState();
 
@@ -27,7 +27,7 @@ export function Carousel({ className, elements = defaultElements }) {
   }, []);
 
   return (
-    <div className={`${className} carousel`}>
+    <div className={`${className} carousel`} style={style}>
       <motion.div ref={ref} className="holder">
         {currentWidth &&
           elements.map((src, i) => (
