@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { toast } from "sonner";
@@ -16,6 +16,9 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [navbarInvert, setNavbarInvert] = useState(false);
   const [navbarInvert2, setNavbarInvert2] = useState(false);
+  const [isMobile, setIsMobile] = useState(
+    window.matchMedia("(max-width: 1024px)").matches
+  );
 
   const darkSection1Ref = useRef(null);
   const { scrollYProgress: scrollYProgress1 } = useScroll({
@@ -68,6 +71,14 @@ export default function Home() {
     });
   }
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const handleResize = () => setIsMobile(mediaQuery.matches);
+
+    mediaQuery.addListener(handleResize);
+    return () => mediaQuery.removeListener(handleResize);
+  }, []);
+
   return (
     <>
       <Head>
@@ -114,7 +125,12 @@ export default function Home() {
           id="nosotros"
           className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center py-12 pt-32 md:py-40"
         >
-          <Carousel className="mb-2 h-32 -ml-2 -mr-2" style={{ width: 'calc(100% + 32px)' }} />
+          <Carousel
+            className="mb-2 h-32 -ml-2 -mr-2 lg:ml-0 lg:mr-0"
+            style={{
+              width: isMobile ? 'calc(100% + 32px)' : '100%',
+            }}
+          />
           <Card>
             <div className="flex flex-col lg:flex-row">
               <div className="flex-1 p-4">
