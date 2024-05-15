@@ -99,14 +99,14 @@ export default function Home() {
         <meta property="og:url" content="https://www.drtb.com.ar/" />
         <meta property="og:title" content="MYXA - Soluciones Contra Incendios" />
         <meta property="og:description" content="MYXA: Expertos en soluciones contra incendios con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de tableros de control y sistemas contra incendios conforme a normas NFPA 20 e IRAM 3597." />
-        <meta property="og:image" content="https://www.drtb.com.ar/logo.png" />
+        <meta property="og:image" content="https://www.drtb.com.ar/logo.jpeg" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://www.drtb.com.ar/" />
         <meta property="twitter:title" content="MYXA - Soluciones Contra Incendios" />
         <meta property="twitter:description" content="MYXA: Expertos en soluciones contra incendios con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de tableros de control y sistemas contra incendios conforme a normas NFPA 20 e IRAM 3597." />
-        <meta property="twitter:image" content="https://www.drtb.com.ar/logo.png" />
+        <meta property="twitter:image" content="https://www.drtb.com.ar/logo.jpeg" />
       </Head>
       <Navbar isInvert={navbarInvert || navbarInvert2} />
       <main className="flex flex-col items-center justify-center px-4 md:px-10">
