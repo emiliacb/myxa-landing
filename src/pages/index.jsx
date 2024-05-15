@@ -16,9 +16,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [navbarInvert, setNavbarInvert] = useState(false);
   const [navbarInvert2, setNavbarInvert2] = useState(false);
-  const [isMobile, setIsMobile] = useState(
-    window.matchMedia("(max-width: 1024px)").matches
-  );
+  const [isMobile, setIsMobile] = useState(false);
 
   const darkSection1Ref = useRef(null);
   const { scrollYProgress: scrollYProgress1 } = useScroll({
@@ -72,6 +70,7 @@ export default function Home() {
   }
 
   useEffect(() => {
+    if(typeof window === 'undefined') return;
     const mediaQuery = window.matchMedia("(max-width: 768px)");
     const handleResize = () => setIsMobile(mediaQuery.matches);
 
