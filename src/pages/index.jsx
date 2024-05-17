@@ -93,7 +93,7 @@ export default function Home() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "url": "http://www.drtb.com.ar",
+              "url": "http://www.myxa.com.ar",
               "name": "MYXA - Tableros de sistemas contra incendio",
               "contactPoint": {
                 "@type": "ContactPoint",
@@ -106,17 +106,17 @@ export default function Home() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.drtb.com.ar/" />
+        <meta property="og:url" content="https://www.myxa.com.ar/" />
         <meta property="og:title" content="MYXA - Soluciones Contra Incendios" />
         <meta property="og:description" content="MYXA: Expertos en soluciones contra incendios con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de tableros de control y sistemas contra incendios conforme a normas NFPA 20 e IRAM 3597." />
-        <meta property="og:image" content="https://www.drtb.com.ar/logo.jpeg" />
+        <meta property="og:image" content="https://www.myxa.com.ar/logo.jpeg" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://www.drtb.com.ar/" />
+        <meta property="twitter:url" content="https://www.myxa.com.ar/" />
         <meta property="twitter:title" content="MYXA - Soluciones Contra Incendios" />
         <meta property="twitter:description" content="MYXA: Expertos en soluciones contra incendios con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de tableros de control y sistemas contra incendios conforme a normas NFPA 20 e IRAM 3597." />
-        <meta property="twitter:image" content="https://www.drtb.com.ar/logo.jpeg" />
+        <meta property="twitter:image" content="https://www.myxa.com.ar/logo.jpeg" />
       </Head>
       <Navbar isInvert={navbarInvert || navbarInvert2} />
       <main className="flex flex-col items-center justify-center px-4 md:px-10">
