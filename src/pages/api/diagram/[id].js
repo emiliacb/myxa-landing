@@ -17,9 +17,9 @@ export default async (req, res) => {
       return {
         title: cells[0].trim(),
         version: cells[1].trim(),
+        fileUrl: cells[4].trim(),
         id: cells[2].trim(),
         publicUrl: cells[3].trim(),
-        fileUrl: cells[4].trim(),
       };
     });
 
