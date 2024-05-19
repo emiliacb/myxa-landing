@@ -1,8 +1,40 @@
-<xml version="1.0" encoding="UTF-8">
-   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-     <url>
-       <loc>http://www.myxa.com.ar</loc>
-       <lastmod>2024-05-14</lastmod>
-     </url>
-   </urlset>
-</xml>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+   <url>
+      <loc>http://www.myxa.com.ar</loc>
+      <lastmod>2024-05-19</lastmod>
+   </url>
+   <url>
+      <loc>http://www.myxa.com.ar#tableros</loc>
+      <lastmod>2024-05-19</lastmod>
+      <priority>1.0</priority>
+      <image:image>
+         <image:loc>http://www.myxa.com.ar/tablero-1.png</image:loc>
+         <image:title>Tablero de comando - Bomba individual</image:title>
+      </image:image>
+      <image:image>
+         <image:loc>http://www.myxa.com.ar/tablero-2.jpg</image:loc>
+         <image:title>Tablero de comando - Equipo de tres bombas</image:title>
+      </image:image>
+   </url>
+   <url>
+      <loc>http://www.myxa.com.ar#nosotros</loc>
+      <lastmod>2024-05-19</lastmod>
+   </url>
+   <url>
+      <loc>http://www.myxa.com.ar#instalacion</loc>
+      <lastmod>2024-05-19</lastmod>
+   </url>
+   <url>
+      <loc>http://www.myxa.com.ar#mantenimiento</loc>
+      <lastmod>2024-05-19</lastmod>
+   </url>
+   <url>
+      <loc>http://www.myxa.com.ar#reparacion</loc>
+      <lastmod>2024-05-19</lastmod>
+   </url>
+   <url>
+      <loc>http://www.myxa.com.ar#contacto</loc>
+      <lastmod>2024-05-19</lastmod>
+   </url>
+</urlset>
