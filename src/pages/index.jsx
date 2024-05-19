@@ -82,9 +82,10 @@ export default function Home() {
     <>
       <Head>
         <title>MYXA - Tableros de sistemas contra incendio</title>
-        <meta name="description" content="MYXA - Tableros de sistemas contra incendio" />
+        <meta name="description" content="MYXA: Expertos en tableros contra incendios con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de tableros de control y sistemas contra incendios conforme a normas NFPA 20 e IRAM 3597." />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="canonical" href="https://www.myxa.com.ar" />
 
         {/* Schema Markup */}
         <script
@@ -107,15 +108,15 @@ export default function Home() {
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.myxa.com.ar/" />
-        <meta property="og:title" content="MYXA - Soluciones Contra Incendios" />
-        <meta property="og:description" content="MYXA: Expertos en soluciones contra incendios con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de tableros de control y sistemas contra incendios conforme a normas NFPA 20 e IRAM 3597." />
+        <meta property="og:title" content="MYXA - Tableros de sistemas contra incendio" />
+        <meta property="og:description" content="MYXA: Expertos en tableros contra incendios con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de tableros de control y sistemas contra incendios conforme a normas NFPA 20 e IRAM 3597." />
         <meta property="og:image" content="https://www.myxa.com.ar/logo.jpeg" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://www.myxa.com.ar/" />
-        <meta property="twitter:title" content="MYXA - Soluciones Contra Incendios" />
-        <meta property="twitter:description" content="MYXA: Expertos en soluciones contra incendios con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de tableros de control y sistemas contra incendios conforme a normas NFPA 20 e IRAM 3597." />
+        <meta property="twitter:title" content="MYXA - Tableros de sistemas contra incendio" />
+        <meta property="twitter:description" content="MYXA: Expertos en tableros contra incendios con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de tableros de control y sistemas contra incendios conforme a normas NFPA 20 e IRAM 3597." />
         <meta property="twitter:image" content="https://www.myxa.com.ar/logo.jpeg" />
       </Head>
       <Navbar isInvert={navbarInvert || navbarInvert2} />
