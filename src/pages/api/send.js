@@ -7,7 +7,7 @@ export default async (req, res) => {
     const { phone, date } = req.query;
 
     const { data, error } = await resend.emails.send({
-      from: "info@myxa.com.ar",
+      from: "info@drtb.com.ar",
       to: "cabralmarce@hotmail.com",
       cc: "info@myxa.com.ar",
       subject: `MYXA - Pedido de contacto - ${date}`,
