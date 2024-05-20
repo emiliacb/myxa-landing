@@ -33,12 +33,12 @@ export default async (req, res) => {
           <title>Error</title>
         </head>
         <body style="display: flex; flex-direction: column; width: 100%; padding: 3rem; justify-items: center; align-items: center;">
-          <div>
+          <div style="display: flex; flex-direction: column;">
               ${
                 diagrams.reduce((a, d) => {
                   return `
                   ${a}
-                  <a src="${d.publicUrl}">${d.title}</a>
+                  <a href="${d.publicUrl}">${d.title}</a>
                   `
                 }, '')
               }
