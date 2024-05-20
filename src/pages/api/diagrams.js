@@ -30,10 +30,11 @@ export default async (req, res) => {
           <meta charset="UTF-8">
           <meta http-equiv="X-UA-Compatible" content="IE=edge">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Error</title>
+          <title>Unifilares</title>
         </head>
         <body style="display: flex; flex-direction: column; width: 100%; padding: 3rem; justify-items: center; align-items: center;">
           <div style="display: flex; flex-direction: column;">
+              <h1>Unifilares</h1>
               ${
                 diagrams.reduce((a, d) => {
                   return `
