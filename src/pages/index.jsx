@@ -70,7 +70,7 @@ export default function Home() {
   }
 
   useEffect(() => {
-    if(typeof window === 'undefined') return;
+    if (typeof window === 'undefined') return;
     const mediaQuery = window.matchMedia("(max-width: 1024px)");
     const handleResize = () => setIsMobile(mediaQuery.matches);
 
@@ -378,6 +378,52 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <footer className='bg-black text-white w-full py-8 px-4'>
+        <div className='max-w-[1200px] m-auto flex flex-col md:flex-row justify-between items-center text-sm'>
+          <div className='flex flex-col gap-4 md:flex-row md:items-center w-full justify-between  '>
+            <nav className='mb-4 md:mb-0'>
+              <ul className='flex flex-row md:space-x-4 md:items-center gap-4 flex-wrap justify-center'>
+                <li>
+                  <a href='#nosotros' className='hover:underline'>
+                    Nosotros
+                  </a>
+                </li>
+                <li>
+                  <a href='#tableros' className='hover:underline'>
+                    Tableros
+                  </a>
+                </li>
+                <li>
+                  <a href='#instalacion' className='hover:underline'>
+                    Instalación
+                  </a>
+                </li>
+                <li>
+                  <a href='#mantenimiento' className='hover:underline'>
+                    Mantenimiento
+                  </a>
+                </li>
+                <li>
+                  <a href='#reparacion' className='hover:underline'>
+                    Reparación
+                  </a>
+                </li>
+                <li>
+                  <a href='#contacto' className='hover:underline'>
+                    Contacto
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <div className='text-center md:text-left md:ml-8 mb-4 md:mb-0'>
+              <p>
+                © {new Date().getFullYear()} MYXA - Todos los derechos reservados.
+              </p>
+              <p className='mt-2'>Dr. Enrique Finochietto 5345</p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }
