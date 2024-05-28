@@ -378,7 +378,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className='bg-black text-white w-full py-8 px-4'>
+      <footer className='bg-black text-neutral-100 w-full py-8 px-4'>
         <div className='max-w-[1200px] m-auto flex flex-col md:flex-row justify-between items-center text-sm'>
           <div className='flex flex-col gap-4 md:flex-row md:items-center w-full justify-between  '>
             <nav className='mb-4 md:mb-0'>
@@ -415,7 +415,7 @@ export default function Home() {
                 </li>
               </ul>
             </nav>
-            <div className='text-center md:text-left md:ml-8 mb-4 md:mb-0'>
+            <div className='text-center md:text-left md:ml-8 mb-4 md:mb-0 text-xs'>
               <p>
                 © {new Date().getFullYear()} MYXA - Todos los derechos reservados.
               </p>
