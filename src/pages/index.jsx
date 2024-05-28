@@ -419,7 +419,7 @@ export default function Home() {
               <p>
                 © {new Date().getFullYear()} MYXA - Todos los derechos reservados.
               </p>
-              <p className='mt-2'>Dr. Enrique Finochietto 5345</p>
+              <p className='mt-2'>Dr. Enrique Finochietto 5345, José C. Paz, Buenos Aires</p>
             </div>
           </div>
         </div>
