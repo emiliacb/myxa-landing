@@ -326,22 +326,22 @@ export default function Home() {
                       className="rounded-md px-1 text-blue-300 hover:underline  hover:underline-offset-4"
                       target="_blank"
                       rel="noopener noreferrer"
-                      href="https://www.linkedin.com/in/marcelo-alejandro-cabral-1780151ab/"
+                      href="https://linkedin.com/company/myxa-incendio"
                     >
-                      in/myxa
+                      /myxa-incendio
                     </a>
                   </li>
-                  <li>
+                  {/* <li>
                     <span>Instagram: </span>
                     <a
                       className="rounded-md px-1 text-blue-300 hover:underline  hover:underline-offset-4"
                       target="_blank"
                       rel="noopener noreferrer"
-                      href="https://www.linkedin.com/in/marcelo-alejandro-cabral-1780151ab/"
+                      href="https://linkedin.com/company/myxa-incendio"
                     >
                       @myxa
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
               <div className="flex-1 p-4">
