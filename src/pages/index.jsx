@@ -9,14 +9,12 @@ import Card from "../components/card";
 import Title from "../components/title";
 
 import ChevronRightIcon from "../icons/chevronRightIcon";
-import { Carousel } from "../features/carousel";
 
 export default function Home() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [navbarInvert, setNavbarInvert] = useState(false);
   const [navbarInvert2, setNavbarInvert2] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   const darkSection1Ref = useRef(null);
   const { scrollYProgress: scrollYProgress1 } = useScroll({
@@ -69,15 +67,6 @@ export default function Home() {
     });
   }
 
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const mediaQuery = window.matchMedia("(max-width: 1024px)");
-    const handleResize = () => setIsMobile(mediaQuery.matches);
-
-    mediaQuery.addListener(handleResize);
-    return () => mediaQuery.removeListener(handleResize);
-  }, []);
-
   return (
     <>
       <Head>
@@ -123,36 +112,37 @@ export default function Home() {
       <main className="flex flex-col items-center justify-center px-4 md:px-10">
         <section
           id="nosotros"
-          className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center py-12 pt-32 md:py-40"
+          className="flex min-h-[75vh] w-full max-w-[1200px] flex-col items-center justify-center py-12 pt-32 md:py-40"
+          style={{
+            backgroundImage: "url('/instalaciones.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
         >
-          <Carousel
-            className="mb-2 h-32 -ml-2 -mr-2 lg:ml-0 lg:mr-0"
-            style={{
-              width: isMobile ? 'calc(100% + 32px)' : '100%',
-            }}
-          />
           <Card>
-            <div className="flex flex-col lg:flex-row">
-              <div className="flex-1 p-4">
-                <h3 className="mb-4 text-xl font-bold">
-                  Tableros de sistemas contra incendio
-                </h3>
-                <p className="text-justify">
-                  Brindamos soluciones integrales que abarcan el diseño, la fabricación, instalación, mantenimiento y reparación de tableros de instalaciones contra incendios.
-                </p>
-                <p className="mt-4 text-justify">
-                  Contamos con más de veinte años de experiencia en el diseño y fabricación de tableros según norma NFPA 20 e IRAM 3597
-                </p>
-              </div>
-              <div className="flex-1 px-4 text-justify lg:p-4">
-                <p>
-                  En MYXA, nos apasiona brindar el mejor servicio a cada cliente, garantizando un producto de alta calidad, acompañados de un asesoramiento personalizado, provisión eficiente, instalación precisa y un mantenimiento preventivo que asegura la máxima operatividad de los equipos.
-                </p>
-              </div>
+            <div className="flex flex-col p-4">
+              <h3 className="mb-4 text-2xl font-bold text-center">
+                MYXA: Liderazgo y Experiencia en Sistemas Contra Incendio
+              </h3>
+              <p className="text-center text-lg">
+                Desde hace más de 20 años, MYXA se especializa en el diseño, fabricación, instalación y mantenimiento de tableros para sistemas contra incendio, cumpliendo con las normativas NFPA 20 e IRAM 3597. Nuestro compromiso es garantizar su seguridad con productos de alta calidad, asesoramiento experto y un servicio confiable.
+              </p>
             </div>
           </Card>
+          <div className="mt-8 max-w-xl text-sm text-gray-700 dark:text-gray-300">
+            <p className="mb-3 text-justify">
+              Brindamos soluciones integrales que abarcan el diseño, la fabricación, instalación, mantenimiento y reparación de tableros de instalaciones contra incendios.
+            </p>
+            <p className="mb-3 text-justify">
+              Contamos con más de veinte años de experiencia en el diseño y fabricación de tableros según norma NFPA 20 e IRAM 3597.
+            </p>
+            <p className="mb-3 text-justify">
+              En MYXA, nos apasiona brindar el mejor servicio a cada cliente, garantizando un producto de alta calidad, acompañados de un asesoramiento personalizado, provisión eficiente, instalación precisa y un mantenimiento preventivo que asegura la máxima operatividad de los equipos.
+            </p>
+          </div>
           <Link
-            className="mt-16 hidden md:flex animate-pulse items-center justify-center bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-lg text-transparent"
+            className="mt-12 hidden md:flex items-center justify-center text-lg text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-slate-50 font-semibold py-2 px-4 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
             href="#tableros"
           >
             Ver Tableros
