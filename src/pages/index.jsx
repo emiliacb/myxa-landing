@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import Head from "next/head";
-import Link from "next/link";
+import Image from "next/image";
 import { toast } from "sonner";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 
@@ -9,14 +9,12 @@ import Card from "../components/card";
 import Title from "../components/title";
 
 import ChevronRightIcon from "../icons/chevronRightIcon";
-import { Carousel } from "../features/carousel";
 
 export default function Home() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [navbarInvert, setNavbarInvert] = useState(false);
   const [navbarInvert2, setNavbarInvert2] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   const darkSection1Ref = useRef(null);
   const { scrollYProgress: scrollYProgress1 } = useScroll({
@@ -69,20 +67,14 @@ export default function Home() {
     });
   }
 
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const mediaQuery = window.matchMedia("(max-width: 1024px)");
-    const handleResize = () => setIsMobile(mediaQuery.matches);
-
-    mediaQuery.addListener(handleResize);
-    return () => mediaQuery.removeListener(handleResize);
-  }, []);
-
   return (
     <>
       <Head>
         <title>MYXA - Tableros de sistemas contra incendio</title>
-        <meta name="description" content="MYXA: Expertos en tableros contra incendios con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de tableros de control y sistemas contra incendios conforme a normas NFPA 20 e IRAM 3597." />
+        <meta
+          name="description"
+          content="MYXA: Expertos en tableros contra incendios con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de tableros de control y sistemas contra incendios conforme a normas NFPA 20 e IRAM 3597."
+        />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="canonical" href="https://www.myxa.com.ar" />
@@ -94,70 +86,91 @@ export default function Home() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "url": "http://www.myxa.com.ar",
-              "name": "MYXA - Tableros de sistemas contra incendio",
-              "contactPoint": {
+              url: "http://www.myxa.com.ar",
+              name: "MYXA - Tableros de sistemas contra incendio",
+              contactPoint: {
                 "@type": "ContactPoint",
-                "telephone": "+54-11-2575-6572",
-                "contactType": "customer service"
-              }
-            })
+                telephone: "+54-11-2575-6572",
+                contactType: "customer service",
+              },
+            }),
           }}
         />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.myxa.com.ar/" />
-        <meta property="og:title" content="MYXA - Tableros de sistemas contra incendio" />
-        <meta property="og:description" content="MYXA: Expertos en tableros contra incendios con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de tableros de control y sistemas contra incendios conforme a normas NFPA 20 e IRAM 3597." />
+        <meta
+          property="og:title"
+          content="MYXA - Tableros de sistemas contra incendio"
+        />
+        <meta
+          property="og:description"
+          content="MYXA: Expertos en tableros contra incendios con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de tableros de control y sistemas contra incendios conforme a normas NFPA 20 e IRAM 3597."
+        />
         <meta property="og:image" content="https://www.myxa.com.ar/logo.jpeg" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://www.myxa.com.ar/" />
-        <meta property="twitter:title" content="MYXA - Tableros de sistemas contra incendio" />
-        <meta property="twitter:description" content="MYXA: Expertos en tableros contra incendios con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de tableros de control y sistemas contra incendios conforme a normas NFPA 20 e IRAM 3597." />
-        <meta property="twitter:image" content="https://www.myxa.com.ar/logo.jpeg" />
+        <meta
+          property="twitter:title"
+          content="MYXA - Tableros de sistemas contra incendio"
+        />
+        <meta
+          property="twitter:description"
+          content="MYXA: Expertos en tableros contra incendios con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de tableros de control y sistemas contra incendios conforme a normas NFPA 20 e IRAM 3597."
+        />
+        <meta
+          property="twitter:image"
+          content="https://www.myxa.com.ar/logo.jpeg"
+        />
       </Head>
       <Navbar isInvert={navbarInvert || navbarInvert2} />
       <main className="flex flex-col items-center justify-center px-4 md:px-10">
         <section
           id="nosotros"
-          className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center py-12 pt-32 md:py-40"
+          className="md:py-22 relative flex max-h-[90vh] min-h-[90vh] w-full max-w-[1200px] flex-col items-center justify-center pt-32 lg:min-h-[90vh] lg:flex-row"
         >
-          <Carousel
-            className="mb-2 h-32 -ml-2 -mr-2 lg:ml-0 lg:mr-0"
-            style={{
-              width: isMobile ? 'calc(100% + 32px)' : '100%',
-            }}
-          />
-          <Card>
-            <div className="flex flex-col lg:flex-row">
-              <div className="flex-1 p-4">
-                <h3 className="mb-4 text-xl font-bold">
-                  Tableros de sistemas contra incendio
-                </h3>
-                <p className="text-justify">
-                  Brindamos soluciones integrales que abarcan el diseño, la fabricación, instalación, mantenimiento y reparación de tableros de instalaciones contra incendios.
-                </p>
-                <p className="mt-4 text-justify">
-                  Contamos con más de veinte años de experiencia en el diseño y fabricación de tableros según norma NFPA 20 e IRAM 3597
-                </p>
-              </div>
-              <div className="flex-1 px-4 text-justify lg:p-4">
-                <p>
-                  En MYXA, nos apasiona brindar el mejor servicio a cada cliente, garantizando un producto de alta calidad, acompañados de un asesoramiento personalizado, provisión eficiente, instalación precisa y un mantenimiento preventivo que asegura la máxima operatividad de los equipos.
-                </p>
-              </div>
-            </div>
-          </Card>
-          <Link
-            className="mt-16 hidden md:flex animate-pulse items-center justify-center bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-lg text-transparent"
-            href="#tableros"
-          >
-            Ver Tableros
-            <ChevronRightIcon className="h-5 w-5 rotate-90" />
-          </Link>
+          <div className="left-0 z-10 flex max-w-md flex-col rounded-[30px] bg-white/70 backdrop-blur-sm lg:absolute lg:top-[30vh] lg:mb-0 lg:mr-auto lg:p-8 lg:shadow-sm">
+            <h3 className="mb-4 text-center lg:mb-8">
+              <span className="text-xl">Liderazgo y Experiencia en</span>
+              <br />
+              <strong className="text-2xl lg:text-3xl">
+                Sistemas Contra Incendio
+              </strong>
+            </h3>
+            <p
+              className="lg:text-md text-pretty text-small text-center"
+              style={{ textWrap: "pretty" }}
+            >
+              Con más de 20 años de experiencia, MYXA se especializa en el
+              diseño, fabricación, instalación y mantenimiento de sistemas
+              contra incendio, cumpliendo con NFPA 20 e IRAM 3597.
+            </p>
+          </div>
+          <div className="relative -mb-12 -ml-8 -mr-8 flex h-[60vh] min-w-[calc(100%+32px)] items-center justify-center overflow-hidden lg:h-[100vh] lg:justify-end">
+            <Image
+              src="/hero.webp"
+              alt="Hero"
+              width={1200}
+              height={600}
+              className="-mx-30 lg:max-w-auto absolute m-auto max-h-[400px] min-w-[300px] max-w-[750px] object-contain pl-[5%] md:max-h-[600px] lg:-mt-10 lg:ml-auto lg:mr-0 lg:max-h-[2000px] lg:max-w-[900px]"
+            />
+          </div>
+          {/*
+            <div className="mt-8 max-w-xl text-sm text-gray-700 dark:text-gray-300">
+            <p className="mb-3 text-justify">
+              Brindamos soluciones integrales que abarcan el diseño, la fabricación, instalación, mantenimiento y reparación de tableros de instalaciones contra incendios.
+            </p>
+            <p className="mb-3 text-justify">
+              Contamos con más de veinte años de experiencia en el diseño y fabricación de tableros según norma NFPA 20 e IRAM 3597.
+            </p>
+            <p className="mb-3 text-justify">
+              En MYXA, nos apasiona brindar el mejor servicio a cada cliente, garantizando un producto de alta calidad, acompañados de un asesoramiento personalizado, provisión eficiente, instalación precisa y un mantenimiento preventivo que asegura la máxima operatividad de los equipos.
+            </p>
+          </div>
+          */}
         </section>
         <section
           id="tableros"
@@ -171,8 +184,11 @@ export default function Home() {
                 Diseño y fabricación de tableros
               </h3>
               <p className="mb-2 text-justify">
-                Nuestros tableros están diseñados para cumplir las normativas vigentes (NFPA 20 e IRAM 3597) y diseñados de acuerdo con las diversas necesidades operativas.
-                Proporcionando una gran variedad de productos estandarizados más la opción del diseño especifico en el caso de necesitarlo
+                Nuestros tableros están diseñados para cumplir las normativas
+                vigentes (NFPA 20 e IRAM 3597) y diseñados de acuerdo con las
+                diversas necesidades operativas. Proporcionando una gran
+                variedad de productos estandarizados más la opción del diseño
+                especifico en el caso de necesitarlo
               </p>
             </div>
           </div>
@@ -225,7 +241,14 @@ export default function Home() {
                   Instalación, capacitación y puesta en marcha
                 </h3>
                 <p className="text-justify">
-                  Entendemos la importancia de una instalación adecuada para el éxito operativo de cualquier sistema contra incendios. Por ello, aseguramos que la instalación de nuestros tableros de comando se realice de manera estratégica, promoviendo un acceso fácil para mantenimientos y reparaciones futuras. Además, ofrecemos una capacitación detallada para que su equipo esté plenamente preparado para manejar y mantener el sistema eficientemente desde el día uno.
+                  Entendemos la importancia de una instalación adecuada para el
+                  éxito operativo de cualquier sistema contra incendios. Por
+                  ello, aseguramos que la instalación de nuestros tableros de
+                  comando se realice de manera estratégica, promoviendo un
+                  acceso fácil para mantenimientos y reparaciones futuras.
+                  Además, ofrecemos una capacitación detallada para que su
+                  equipo esté plenamente preparado para manejar y mantener el
+                  sistema eficientemente desde el día uno.
                 </p>
               </div>
               <img
@@ -248,7 +271,13 @@ export default function Home() {
                   Revisión y mantenimiento
                 </h3>
                 <p className="text-justify">
-                  Nuestro servicio de mantenimiento está diseñado para asegurar que su sistema contraincendios esté siempre en condiciones óptimas de funcionamiento. A través de revisiones técnicas regulares, anticipamos cualquier problema potencial, extendiendo la vida útil de su inversión y garantizando que su sistema se encuentre operativo ante cualquier situación que lo requiera.
+                  Nuestro servicio de mantenimiento está diseñado para asegurar
+                  que su sistema contraincendios esté siempre en condiciones
+                  óptimas de funcionamiento. A través de revisiones técnicas
+                  regulares, anticipamos cualquier problema potencial,
+                  extendiendo la vida útil de su inversión y garantizando que su
+                  sistema se encuentre operativo ante cualquier situación que lo
+                  requiera.
                 </p>
               </div>
               <img
@@ -277,7 +306,14 @@ export default function Home() {
                   Respuesta Rápida y Efectiva
                 </h3>
                 <p className="text-justify">
-                  En el evento de una disfunción, nuestro equipo técnico está listo para diagnosticar y resolver cualquier problema con rapidez y eficacia. Coordinamos visitas técnicas para evaluar el sistema, identificar la causa de la falla y, si es necesario, proporcionar una cotización transparente y justa para la reparación. Nuestro objetivo es restablecer la operatividad de su sistema contra incendios con la mínima interrupción posible.
+                  En el evento de una disfunción, nuestro equipo técnico está
+                  listo para diagnosticar y resolver cualquier problema con
+                  rapidez y eficacia. Coordinamos visitas técnicas para evaluar
+                  el sistema, identificar la causa de la falla y, si es
+                  necesario, proporcionar una cotización transparente y justa
+                  para la reparación. Nuestro objetivo es restablecer la
+                  operatividad de su sistema contra incendios con la mínima
+                  interrupción posible.
                 </p>
               </div>
             </div>
@@ -294,10 +330,14 @@ export default function Home() {
               <div className="max-w-2xl flex-1 p-4">
                 <h3 className="mb-4 text-xl font-extrabold">Consultas</h3>
                 <p className="mb-6 md:text-justify">
-                  En <span className="text-red-500">MYXA</span>, estamos dedicados a proteger lo que más importa: su tranquilidad, su gente y su patrimonio. Contáctenos hoy para descubrir cómo podemos ayudarlo.
+                  En <span className="text-red-500">MYXA</span>, estamos
+                  dedicados a proteger lo que más importa: su tranquilidad, su
+                  gente y su patrimonio. Contáctenos hoy para descubrir cómo
+                  podemos ayudarlo.
                 </p>
                 <p className="hidden md:block">
-                  Para resolver sus dudas o pedir un presupuesto comuníquese con nosotros por:
+                  Para resolver sus dudas o pedir un presupuesto comuníquese con
+                  nosotros por:
                 </p>
                 <ul className="mt-5 border-l border-gray-100 pl-4">
                   <li className="my-2">
@@ -378,48 +418,51 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className='bg-black text-neutral-100 w-full py-8 px-4'>
-        <div className='max-w-[1200px] m-auto flex flex-col md:flex-row justify-between items-center text-sm'>
-          <div className='flex flex-col gap-4 md:flex-row md:items-center w-full justify-between  '>
-            <nav className='mb-4 md:mb-0'>
-              <ul className='flex flex-row md:space-x-4 md:items-center gap-4 flex-wrap justify-center'>
+      <footer className="w-full bg-black px-4 py-8 text-neutral-100">
+        <div className="m-auto flex max-w-[1200px] flex-col items-center justify-between text-sm md:flex-row">
+          <div className="flex w-full flex-col justify-between gap-4 md:flex-row md:items-center  ">
+            <nav className="mb-4 md:mb-0">
+              <ul className="flex flex-row flex-wrap justify-center gap-4 md:items-center md:space-x-4">
                 <li>
-                  <a href='#nosotros' className='hover:underline'>
+                  <a href="#nosotros" className="hover:underline">
                     Nosotros
                   </a>
                 </li>
                 <li>
-                  <a href='#tableros' className='hover:underline'>
+                  <a href="#tableros" className="hover:underline">
                     Tableros
                   </a>
                 </li>
                 <li>
-                  <a href='#instalacion' className='hover:underline'>
+                  <a href="#instalacion" className="hover:underline">
                     Instalación
                   </a>
                 </li>
                 <li>
-                  <a href='#mantenimiento' className='hover:underline'>
+                  <a href="#mantenimiento" className="hover:underline">
                     Mantenimiento
                   </a>
                 </li>
                 <li>
-                  <a href='#reparacion' className='hover:underline'>
+                  <a href="#reparacion" className="hover:underline">
                     Reparación
                   </a>
                 </li>
                 <li>
-                  <a href='#contacto' className='hover:underline'>
+                  <a href="#contacto" className="hover:underline">
                     Contacto
                   </a>
                 </li>
               </ul>
             </nav>
-            <div className='text-center md:text-left md:ml-8 mb-4 md:mb-0 text-xs'>
+            <div className="mb-4 text-center text-xs md:mb-0 md:ml-8 md:text-left">
               <p>
-                © {new Date().getFullYear()} MYXA - Todos los derechos reservados.
+                © {new Date().getFullYear()} MYXA - Todos los derechos
+                reservados.
               </p>
-              <p className='mt-2'>Dr. Enrique Finochietto 5345, José C. Paz, Buenos Aires</p>
+              <p className="mt-2">
+                Dr. Enrique Finochietto 5345, José C. Paz, Buenos Aires
+              </p>
             </div>
           </div>
         </div>
