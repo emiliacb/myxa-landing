@@ -144,9 +144,7 @@ export default function Home() {
               className="lg:text-md text-pretty text-small text-center"
               style={{ textWrap: "pretty" }}
             >
-              Con más de 20 años de experiencia, MYXA se especializa en el
-              diseño, fabricación, instalación y mantenimiento de sistemas
-              contra incendio, cumpliendo con NFPA 20 e IRAM 3597.
+              Con más de 20 años de experiencia, MYXA se especializa en tableros de comando y equipos de presurizacion para sistemas contra incendios.
             </p>
           </div>
           <div className="relative -mb-12 -ml-8 -mr-8 flex h-[60vh] min-w-[calc(100%+32px)] items-center justify-center overflow-hidden lg:h-[100vh] lg:justify-end">
