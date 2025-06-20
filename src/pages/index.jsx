@@ -171,7 +171,7 @@ export default function Home() {
               Más información
             </Link>
           </div>
-          <div className="relative -mb-12 -ml-6 -mr-10 flex h-[60vh] min-w-[calc(100%+32px)] items-center justify-center overflow-hidden lg:h-[100vh] lg:justify-end">
+          <div className="relative -mb-12 -ml-8 -mr-8 flex h-[60vh] min-w-[calc(100%+32px)] items-center justify-center overflow-hidden md:-ml-6 md:-mr-10 lg:h-[100vh] lg:justify-end">
             <Image
               src="/hero.webp"
               alt="Hero"
