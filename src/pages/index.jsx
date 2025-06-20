@@ -38,6 +38,19 @@ export default function Home() {
     setNavbarInvert2(latest > 0 && latest < 1);
   });
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const themeColor = navbarInvert || navbarInvert2 ? "#000000" : "#ffffff";
+    let metaThemeColor = document.querySelector("meta[name=theme-color]");
+    if (!metaThemeColor) {
+      metaThemeColor = document.createElement("meta");
+      metaThemeColor.setAttribute("name", "theme-color");
+      document.head.appendChild(metaThemeColor);
+    }
+    metaThemeColor.setAttribute("content", themeColor);
+  }, [navbarInvert, navbarInvert2]);
+
   function handleInput(e) {
     const { value, name } = e.target;
 
