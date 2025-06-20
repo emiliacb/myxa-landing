@@ -162,7 +162,7 @@ export default function Home() {
             >
               Nuestro equipo con 20 años en el rubro brinda equipos de
               <strong> alta calidad</strong> acompañados de un asesoramiento
-              personalizado que aseguran la máxima operatividad de los equipos.
+              personalizado que aseguran la máxima operatividad.
             </p>
             <Link
               className="mx-auto mt-6 flex w-fit items-center rounded-md border border-red-drtb px-2 py-1 text-red-drtb hover:bg-red-drtb hover:text-white md:mx-0 lg:mt-8"
