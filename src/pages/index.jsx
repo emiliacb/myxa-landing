@@ -146,7 +146,7 @@ export default function Home() {
           property="twitter:image"
           content="https://www.myxa.com.ar/logo.jpeg"
         />
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#000000" />
       </Head>
       <Navbar
         isInvert={navbarInvert || navbarInvert2}
