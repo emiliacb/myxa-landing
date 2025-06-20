@@ -42,13 +42,10 @@ export default function Home() {
     if (typeof window === "undefined") return;
 
     const themeColor = navbarInvert || navbarInvert2 ? "#000000" : "#ffffff";
-    let metaThemeColor = document.querySelector("meta[name=theme-color]");
-    if (!metaThemeColor) {
-      metaThemeColor = document.createElement("meta");
-      metaThemeColor.setAttribute("name", "theme-color");
-      document.head.appendChild(metaThemeColor);
+    const metaThemeColor = document.querySelector("meta[name=theme-color]");
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute("content", themeColor);
     }
-    metaThemeColor.setAttribute("content", themeColor);
   }, [navbarInvert, navbarInvert2]);
 
   function handleInput(e) {
@@ -149,6 +146,7 @@ export default function Home() {
           property="twitter:image"
           content="https://www.myxa.com.ar/logo.jpeg"
         />
+        <meta name="theme-color" content="#ffffff" />
       </Head>
       <Navbar
         isInvert={navbarInvert || navbarInvert2}
