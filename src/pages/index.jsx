@@ -146,7 +146,7 @@ export default function Home() {
           id="nosotros"
           className="md:py-22 relative flex max-h-[90vh] min-h-[90vh] w-full max-w-[1200px] flex-col items-center justify-center pt-32 lg:min-h-[90vh] lg:flex-row"
         >
-          <div className="left-0 z-10 flex max-w-md flex-col rounded-[30px] bg-white/70 backdrop-blur-sm lg:absolute lg:top-[30vh] lg:mb-0 lg:mr-auto lg:p-8">
+          <div className="left-0 z-20 flex max-w-md flex-col rounded-[30px] bg-white/70 backdrop-blur-sm lg:absolute lg:top-[30vh] lg:mb-0 lg:mr-auto lg:p-8">
             <h3 className="mb-4 text-center md:text-left lg:mb-6">
               <span className="text-xl">
                 Tableros y equipos de presurizacion
@@ -157,7 +157,7 @@ export default function Home() {
               </strong>
             </h3>
             <p
-              className="lg:text-md text-pretty text-small text-center font-light md:text-left"
+              className="text-pretty text-md text-center font-light md:text-left lg:text-sm"
               style={{ textWrap: "pretty" }}
             >
               Nuestro equipo con 20 años en el rubro brinda equipos de
@@ -165,13 +165,13 @@ export default function Home() {
               personalizado que aseguran la máxima operatividad de los equipos.
             </p>
             <Link
-              className="mx-auto mt-6 flex w-fit items-center rounded-md border border-red-drtb px-2 py-1 text-red-drtb hover:bg-red-drtb hover:text-white md:mx-0"
+              className="mx-auto mt-6 flex w-fit items-center rounded-md border border-red-drtb px-2 py-1 text-red-drtb hover:bg-red-drtb hover:text-white md:mx-0 lg:mt-8"
               href={"#contacto"}
             >
               Más información
             </Link>
           </div>
-          <div className="relative -mb-12 -ml-8 -mr-8 flex h-[60vh] min-w-[calc(100%+32px)] items-center justify-center overflow-hidden md:-ml-6 md:-mr-10 lg:h-[100vh] lg:justify-end">
+          <div className="relative z-10 -mb-12 -ml-8 -mr-8 flex h-[60vh] min-w-[calc(100%+32px)] items-center justify-center overflow-hidden md:-ml-6 md:-mr-10 lg:h-[100vh] lg:justify-end">
             <Image
               src="/hero.webp"
               alt="Hero"
