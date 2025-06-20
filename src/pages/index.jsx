@@ -8,13 +8,16 @@ import Navbar from "../components/navbar";
 import Card from "../components/card";
 import Title from "../components/title";
 
-import ChevronRightIcon from "../icons/chevronRightIcon";
 import Link from "next/link";
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(false);
+
+  // TODO - Adhoc solution - Refactor inputs into a single state
   const [inputName, setInputName] = useState("");
   const [inputNumber, setInputNumber] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+
+  // TODO - Move to a single state in a separated component
   const [navbarInvert, setNavbarInvert] = useState(false);
   const [navbarInvert2, setNavbarInvert2] = useState(false);
 
@@ -171,9 +174,9 @@ export default function Home() {
               className="text-pretty text-md text-center font-light md:text-left lg:text-sm"
               style={{ textWrap: "pretty" }}
             >
-              Nuestro equipo con 20 años en el rubro brinda equipos de
-              <strong> alta calidad</strong> acompañados de un asesoramiento
-              personalizado que aseguran la máxima operatividad.
+              Nuestro equipo, con 20 años de experiencia en el sector, ofrece
+              sistemas de <strong> alta calidad</strong> acompañados de un
+              asesoramiento personalizado que aseguran su máxima operatividad.
             </p>
             <Link
               className="mx-auto mt-6 flex w-fit items-center rounded-md border border-red-drtb px-2 py-1 text-red-drtb hover:bg-red-drtb hover:text-white md:mx-0 lg:mt-8"
