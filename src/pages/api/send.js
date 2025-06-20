@@ -4,7 +4,9 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async (req, res) => {
   try {
-    const { phone, date } = req.query;
+    const { name, phone, date } = req.query;
+
+    console.log({ name, phone, date });
 
     const { data, error } = await resend.emails.send({
       from: "info@myxa.com.ar",
@@ -19,6 +21,7 @@ export default async (req, res) => {
             <div>
               <p style="font-size: 20px;">Una persona llenó el formulario para ser contactada.</p>
               <p style="font-size: 16px;">Fecha y Hora: ${date}</p>
+              <p style="font-size: 16px;">Nombre: ${name}</p>
               <p style="font-size: 16px;">Número: ${phone}</p>
             </div>
             <div style="min-width: 150px; width: 50%; max-width: 50vw; display: grid; place-content: center;">

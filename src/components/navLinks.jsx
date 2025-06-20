@@ -5,6 +5,7 @@ import ChevronRightIcon from "../icons/chevronRightIcon";
 export default function NavLinks({
   closeBottomSheet = null,
   vertical = false,
+  ctaDimished = false,
 }) {
   return (
     <>
@@ -41,7 +42,7 @@ export default function NavLinks({
       </Link>
 
       <Link
-        className="btn-primary pr-4"
+        className={`${!ctaDimished && "btn-primary"} pr-4`}
         style={{
           marginLeft: vertical ? "0" : "25px",
           marginTop: vertical ? "25px" : "0",
@@ -49,7 +50,7 @@ export default function NavLinks({
         href="#contacto"
         onClick={closeBottomSheet && closeBottomSheet}
       >
-        Contacto <ChevronRightIcon className="h-5 w-5" />
+        Contacto {!ctaDimished && <ChevronRightIcon className="h-5 w-5" />}
       </Link>
     </>
   );

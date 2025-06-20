@@ -9,9 +9,11 @@ import Card from "../components/card";
 import Title from "../components/title";
 
 import ChevronRightIcon from "../icons/chevronRightIcon";
+import Link from "next/link";
 
 export default function Home() {
-  const [input, setInput] = useState("");
+  const [inputName, setInputName] = useState("");
+  const [inputNumber, setInputNumber] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [navbarInvert, setNavbarInvert] = useState(false);
   const [navbarInvert2, setNavbarInvert2] = useState(false);
@@ -37,25 +39,34 @@ export default function Home() {
   });
 
   function handleInput(e) {
-    const { value } = e.target;
-    if (/^[0-9+-\s]*$/.test(value)) {
-      setInput(value);
+    const { value, name } = e.target;
+
+    const contactNumber = "contact-number";
+    const contactName = "contact-name";
+
+    if (name == contactNumber && /^[0-9+-\s]*$/.test(value)) {
+      setInputNumber(value);
+    }
+
+    if (name == contactName) {
+      setInputName(value);
     }
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (isLoading || !input) return;
+    if (isLoading || (!inputName && !inputNumber)) return;
 
     setIsLoading(true);
     const fetchPromise = fetch(
-      `/api/send?phone=${input}&date=${new Date().toLocaleString()}`,
+      `/api/send?name=${inputName}&phone=${inputNumber}&date=${new Date().toLocaleString()}`,
       { method: "POST" }
     );
     toast.promise(fetchPromise, {
       loading: "Enviando...",
       success: () => {
-        setInput("");
+        setInputNumber("");
+        setInputName("");
         return "Gracias!";
       },
       error: "Hubo un error!",
@@ -90,7 +101,7 @@ export default function Home() {
               name: "MYXA - Tableros de sistemas contra incendio",
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+54-11-2575-6572",
+                telephone: "+54-9-11-5815-1959",
                 contactType: "customer service",
               },
             }),
@@ -126,54 +137,54 @@ export default function Home() {
           content="https://www.myxa.com.ar/logo.jpeg"
         />
       </Head>
-      <Navbar isInvert={navbarInvert || navbarInvert2} />
+      <Navbar
+        isInvert={navbarInvert || navbarInvert2}
+        ctaDimished={navbarInvert2}
+      />
       <main className="flex flex-col items-center justify-center px-4 md:px-10">
         <section
           id="nosotros"
           className="md:py-22 relative flex max-h-[90vh] min-h-[90vh] w-full max-w-[1200px] flex-col items-center justify-center pt-32 lg:min-h-[90vh] lg:flex-row"
         >
-          <div className="left-0 z-10 flex max-w-md flex-col rounded-[30px] bg-white/70 backdrop-blur-sm lg:absolute lg:top-[30vh] lg:mb-0 lg:mr-auto lg:p-8 lg:shadow-sm">
-            <h3 className="mb-4 text-center lg:mb-8">
-              <span className="text-xl">Liderazgo y Experiencia en</span>
+          <div className="left-0 z-10 flex max-w-md flex-col rounded-[30px] bg-white/70 backdrop-blur-sm lg:absolute lg:top-[30vh] lg:mb-0 lg:mr-auto lg:p-8">
+            <h3 className="mb-4 text-center md:text-left lg:mb-6">
+              <span className="text-xl">
+                Tableros y equipos de presurizacion
+              </span>
               <br />
-              <strong className="text-2xl lg:text-3xl">
-                Sistemas Contra Incendio
+              <strong className="text-2xl lg:text-2xl">
+                para Sistemas Contra Incendio
               </strong>
             </h3>
             <p
-              className="lg:text-md text-pretty text-small text-center"
+              className="lg:text-md text-pretty text-small text-center font-light md:text-left"
               style={{ textWrap: "pretty" }}
             >
-              Con más de 20 años de experiencia, MYXA se especializa en tableros de comando y equipos de presurizacion para sistemas contra incendios.
+              Nuestro equipo con 20 años en el rubro brinda equipos de
+              <strong> alta calidad</strong> acompañados de un asesoramiento
+              personalizado que aseguran la máxima operatividad de los equipos.
             </p>
+            <Link
+              className="mx-auto mt-6 flex w-fit items-center rounded-md border border-red-drtb px-2 py-1 text-red-drtb hover:bg-red-drtb hover:text-white md:mx-0"
+              href={"#contacto"}
+            >
+              Más información
+            </Link>
           </div>
-          <div className="relative -mb-12 -ml-8 -mr-8 flex h-[60vh] min-w-[calc(100%+32px)] items-center justify-center overflow-hidden lg:h-[100vh] lg:justify-end">
+          <div className="relative -mb-12 -ml-6 -mr-10 flex h-[60vh] min-w-[calc(100%+32px)] items-center justify-center overflow-hidden lg:h-[100vh] lg:justify-end">
             <Image
               src="/hero.webp"
               alt="Hero"
               width={1200}
               height={600}
-              className="-mx-30 lg:max-w-auto absolute m-auto max-h-[400px] min-w-[300px] max-w-[750px] object-contain pl-[5%] md:max-h-[600px] lg:-mt-10 lg:ml-auto lg:mr-0 lg:max-h-[2000px] lg:max-w-[900px]"
+              className="lg:max-w-auto absolute m-auto max-h-[400px] min-w-[300px] max-w-[750px] object-contain pl-[5%] lg:-mr-8 lg:-mt-10 lg:ml-auto lg:max-h-[2000px] lg:max-w-[900px]"
             />
           </div>
-          {/*
-            <div className="mt-8 max-w-xl text-sm text-gray-700 dark:text-gray-300">
-            <p className="mb-3 text-justify">
-              Brindamos soluciones integrales que abarcan el diseño, la fabricación, instalación, mantenimiento y reparación de tableros de instalaciones contra incendios.
-            </p>
-            <p className="mb-3 text-justify">
-              Contamos con más de veinte años de experiencia en el diseño y fabricación de tableros según norma NFPA 20 e IRAM 3597.
-            </p>
-            <p className="mb-3 text-justify">
-              En MYXA, nos apasiona brindar el mejor servicio a cada cliente, garantizando un producto de alta calidad, acompañados de un asesoramiento personalizado, provisión eficiente, instalación precisa y un mantenimiento preventivo que asegura la máxima operatividad de los equipos.
-            </p>
-          </div>
-          */}
         </section>
         <section
           id="tableros"
           ref={darkSection1Ref}
-          className="flex min-h-screen w-screen flex-col items-center justify-center bg-black pt-28 text-white "
+          className="relative flex min-h-screen w-screen flex-col items-center justify-center bg-black pt-28 text-white "
         >
           <Title contents={"Tableros"} duration={90} delta={10} white />
           <div className="mt-24 flex max-w-[1200px] flex-col items-center gap-12 lg:flex-row">
@@ -344,9 +355,9 @@ export default function Home() {
                       className="rounded-md px-1 text-blue-300 hover:underline hover:underline-offset-4"
                       target="_blank"
                       rel="noopener noreferrer"
-                      href="https://wa.me/+541125756572"
+                      href="https://wa.me/+5491158151959"
                     >
-                      +54 11 2575-6572
+                      +54 9 11 5815-1959
                     </a>
                   </li>
                   <li className="mb-2">
@@ -390,19 +401,22 @@ export default function Home() {
                 </p>
                 <form
                   onSubmit={handleSubmit}
-                  className="m-auto flex max-w-lg items-end  justify-start gap-4"
+                  className="m-auto flex flex-col items-end justify-start gap-4 md:flex-row"
                 >
-                  <label className="flex w-full flex-col">
-                    <span className="mb-1 text-xs font-light text-gray-400">
-                      Número
-                    </span>
-                    <input
-                      value={input}
-                      placeholder="+54 112345678"
-                      onInput={handleInput}
-                      className="w-full rounded-md px-3 py-2 text-black ring-offset-black focus-visible:ring-2 focus-visible:ring-offset-2  "
-                    ></input>
-                  </label>
+                  <input
+                    value={inputName}
+                    placeholder="Nombre"
+                    name="contact-name"
+                    onInput={handleInput}
+                    className="w-full rounded-md px-3 py-2 text-black ring-offset-black focus-visible:ring-2 focus-visible:ring-offset-2  "
+                  ></input>
+                  <input
+                    value={inputNumber}
+                    placeholder="Teléfono"
+                    name="contact-number"
+                    onInput={handleInput}
+                    className="w-full rounded-md px-3 py-2 text-black ring-offset-black focus-visible:ring-2 focus-visible:ring-offset-2  "
+                  ></input>
                   <button
                     disabled={isLoading}
                     className="btn-primary disabled:contrast-50"
