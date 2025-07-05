@@ -1,13 +1,13 @@
-const getClonedElements = (contents, delta = 20) => {
+const getClonedElements = (contents) => {
+  const REPETITIONS = 5;
   let newContents = [];
 
   if (typeof contents === "string") {
-    newContents = new Array(delta).fill(contents);
-    return newContents;
+    return new Array(REPETITIONS).fill(contents);
   }
-  
-  for (let i = 0; i < (contents.length * delta); i++) {
-    newContents.push(contents.at(i % contents.length));
+
+  for (let i = 0; i < REPETITIONS; i++) {
+    newContents.push(...contents);
   }
 
   return newContents;

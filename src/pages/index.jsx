@@ -1,14 +1,15 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { toast } from "sonner";
-import { useScroll, useMotionValueEvent } from "framer-motion";
 
 import Navbar from "../components/navbar";
 import Card from "../components/card";
 import Title from "../components/title";
 
 import Link from "next/link";
+
+import { useSectionInView } from "../hooks/useSectionInView";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -17,29 +18,8 @@ export default function Home() {
   const [inputName, setInputName] = useState("");
   const [inputNumber, setInputNumber] = useState("");
 
-  // TODO - Move to a single state in a separated component
-  const [navbarInvert, setNavbarInvert] = useState(false);
-  const [navbarInvert2, setNavbarInvert2] = useState(false);
-
-  const darkSection1Ref = useRef(null);
-  const { scrollYProgress: scrollYProgress1 } = useScroll({
-    target: darkSection1Ref,
-    offset: ["start 66px", "end 66px"],
-  });
-
-  useMotionValueEvent(scrollYProgress1, "change", (latest) => {
-    setNavbarInvert(latest > 0 && latest < 1);
-  });
-
-  const darkSection2Ref = useRef(null);
-  const { scrollYProgress: scrollYProgress2 } = useScroll({
-    target: darkSection2Ref,
-    offset: ["start 66px", "end 66px"],
-  });
-
-  useMotionValueEvent(scrollYProgress2, "change", (latest) => {
-    setNavbarInvert2(latest > 0 && latest < 1);
-  });
+  const [darkSection1Ref, navbarInvert] = useSectionInView();
+  const [darkSection2Ref, navbarInvert2] = useSectionInView();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -163,7 +143,7 @@ export default function Home() {
           <div className="left-0 z-20 flex max-w-md flex-col rounded-[30px] bg-white/70 backdrop-blur-sm lg:absolute lg:top-[30vh] lg:mb-0 lg:mr-auto lg:p-8">
             <h3 className="mb-4 text-center md:text-left lg:mb-6">
               <span className="text-xl">
-                Tableros y equipos de presurizacion
+                Tableros y equipos de presurización
               </span>
               <br />
               <strong className="text-2xl lg:text-2xl">
@@ -200,7 +180,7 @@ export default function Home() {
           ref={darkSection1Ref}
           className="relative flex min-h-screen w-screen flex-col items-center justify-center bg-black pt-28 text-white "
         >
-          <Title contents={"Tableros"} duration={90} delta={10} white />
+          <Title contents={"Tableros"} white />
           <div className="mt-24 flex max-w-[1200px] flex-col items-center gap-12 lg:flex-row">
             <div className="flex-1 p-4 md:w-2/3 lg:w-1/2">
               <h3 className="mb-4 text-lg font-bold">
