@@ -61,8 +61,8 @@ export default function Navbar({ isInvert, ctaDimished }) {
             Menú
           </span>
         </button>
-        <div className="hidden w-full max-w-[700px] items-center justify-between gap-2 lg:flex">
-          <NavLinks ctaDimished={ctaDimished} />
+        <div className="hidden w-full max-w-[580px] items-center justify-between gap-2 lg:flex">
+          <NavLinks />
         </div>
         <Bottomsheet isOpen={isOpen} onClose={() => toggleIsOpen(false)}>
           <div className="flex flex-col items-center justify-center gap-6">
