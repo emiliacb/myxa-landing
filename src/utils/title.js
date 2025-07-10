@@ -1,5 +1,5 @@
 const getClonedElements = (contents) => {
-  const REPETITIONS = 5;
+  const REPETITIONS = 10;
   let newContents = [];
 
   if (typeof contents === "string") {

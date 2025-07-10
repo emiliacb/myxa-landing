@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
    <url>
       <loc>http://www.myxa.com.ar</loc>
-      <lastmod>2024-05-19</lastmod>
+      <lastmod>2025-07-10</lastmod>
    </url>
    <url>
-      <loc>http://www.myxa.com.ar#tableros</loc>
-      <lastmod>2024-05-19</lastmod>
+      <loc>http://www.myxa.com.ar/servicios</loc>
+      <lastmod>2025-07-10</lastmod>
+   </url>
+   <url>
+      <loc>http://www.myxa.com.ar/tableros</loc>
+      <lastmod>2025-07-10</lastmod>
       <priority>1.0</priority>
       <image:image>
          <image:loc>http://www.myxa.com.ar/tablero-1.png</image:loc>
@@ -18,23 +22,11 @@
       </image:image>
    </url>
    <url>
-      <loc>http://www.myxa.com.ar#nosotros</loc>
-      <lastmod>2024-05-19</lastmod>
+      <loc>http://www.myxa.com.ar/presurizacion</loc>
+      <lastmod>2025-07-10</lastmod>
    </url>
    <url>
-      <loc>http://www.myxa.com.ar#instalacion</loc>
-      <lastmod>2024-05-19</lastmod>
-   </url>
-   <url>
-      <loc>http://www.myxa.com.ar#mantenimiento</loc>
-      <lastmod>2024-05-19</lastmod>
-   </url>
-   <url>
-      <loc>http://www.myxa.com.ar#reparacion</loc>
-      <lastmod>2024-05-19</lastmod>
-   </url>
-   <url>
-      <loc>http://www.myxa.com.ar#contacto</loc>
-      <lastmod>2024-05-19</lastmod>
+      <loc>http://www.myxa.com.ar/contacto</loc>
+      <lastmod>2025-07-10</lastmod>
    </url>
 </urlset>

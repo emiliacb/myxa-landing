@@ -9,46 +9,45 @@ export default function NavLinks({
 }) {
   return (
     <>
-      {/* <Link className="px-3 py-1 hover-rotate rounded-md" href="#nosotros" onClick={closeBottomSheet}>
-        Nosotros
-      </Link> */}
       <Link
-        className="hover-rotate rounded-md px-3 py-1"
-        href="#tableros"
+        className="hover-rotate rounded-md px-3 py-1 text-2xl md:text-base"
+        href="/"
+        onClick={closeBottomSheet}
+      >
+        Inicio
+      </Link>
+      <Link
+        className="hover-rotate rounded-md px-3 py-1 text-2xl md:text-base"
+        href="/tableros"
         onClick={closeBottomSheet}
       >
         Tableros
       </Link>
       <Link
-        className="hover-rotate rounded-md px-3 py-1"
-        href="#instalacion"
+        className="hover-rotate rounded-md px-3 py-1 text-2xl md:text-base"
+        href="/presurizacion"
         onClick={closeBottomSheet}
       >
-        Instalación
+        Presurización
       </Link>
       <Link
-        className="hover-rotate rounded-md px-3 py-1"
-        href="#mantenimiento"
+        className="hover-rotate rounded-md px-3 py-1 text-2xl md:text-base"
+        href="/servicios"
         onClick={closeBottomSheet}
       >
-        Mantenimiento
-      </Link>
-      <Link
-        className="hover-rotate rounded-md px-3 py-1"
-        href="#reparacion"
-        onClick={closeBottomSheet}
-      >
-        Reparación
+        Servicios
       </Link>
 
       <Link
-        className={`${!ctaDimished && "btn-primary"} pr-4`}
+        className={`${
+          !ctaDimished && "btn-primary"
+        } pr-4 text-2xl md:text-base`}
         style={{
           marginLeft: vertical ? "0" : "25px",
           marginTop: vertical ? "25px" : "0",
         }}
-        href="#contacto"
-        onClick={closeBottomSheet && closeBottomSheet}
+        href="/contacto"
+        onClick={closeBottomSheet}
       >
         Contacto {!ctaDimished && <ChevronRightIcon className="h-5 w-5" />}
       </Link>
