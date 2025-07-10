@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Navbar from "../components/navbar";
-import Title from "../components/title";
+import { SERVICIOS } from "../utils/constants";
 import Image from "next/image";
+import Card from "../components/card";
 
 export default function Servicios() {
   return (
@@ -15,124 +16,36 @@ export default function Servicios() {
       </Head>
       <Navbar />
       <main className="flex flex-col items-center justify-center px-4 md:px-10">
-        <section
-          id="servicios-detalles"
-          className="relative flex min-h-screen w-screen flex-col items-center justify-center bg-white py-12 pt-24 text-black"
-        >
-          <h2 className="text-4xl md:text-6xl lg:text-8xl">Servicios</h2>
-          <div className="mt-8 w-full max-w-[1200px] items-center px-4 md:px-10 lg:mt-20">
-            <div className="flex flex-col gap-12 lg:flex-row">
-              <div className="flex-1 p-4 md:w-2/3 lg:w-1/2">
-                <h3 className="mb-4 text-lg font-bold">
-                  Instalación, capacitación y puesta en marcha
-                </h3>
-                <p className="text-justify">
-                  Entendemos la importancia de una instalación adecuada para el
-                  éxito operativo de cualquier sistema contra incendios. Por
-                  ello, aseguramos que la instalación de nuestros tableros de
-                  comando se realice de manera estratégica, promoviendo un
-                  acceso fácil para mantenimientos y reparaciones futuras.
-                  Además, ofrecemos una capacitación detallada para que su
-                  equipo esté plenamente preparado para manejar y mantener el
-                  sistema eficientemente desde el día uno.
-                </p>
+        <h1 className="pt-[9rem] text-4xl md:text-6xl">Servicios</h1>
+        {SERVICIOS.map((servicio) => (
+          <section
+            key={servicio.id}
+            id={servicio.id}
+            className="flex w-full max-w-[1200px] flex-col items-center justify-center gap-16 py-16"
+          >
+            <Card>
+              <div className="items-center">
+                <div className="flex w-full flex-col justify-between md:gap-10 lg:flex-row lg:gap-16">
+                  <div className="flex-1 p-4 md:w-2/3">
+                    <h3 className="mb-4 text-2xl font-bold">
+                      {servicio.title}
+                    </h3>
+                    <p className="text-justify text-lg">
+                      {servicio.full_description}
+                    </p>
+                  </div>
+                  <Image
+                    alt={servicio.title}
+                    src={servicio.image}
+                    width={300}
+                    height={200}
+                    className="m-auto rounded-lg"
+                  />
+                </div>
               </div>
-              <Image
-                alt="Picture of the author"
-                src="/instalaciones.jpg"
-                width={600}
-                height={400}
-                className="m-auto rounded-lg"
-              />
-            </div>
-          </div>
-        </section>
-        <section
-          id="mantenimiento"
-          className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center gap-16 py-16 md:py-24"
-        >
-          <div className="mt-8 w-full max-w-[1200px] items-center px-4 md:px-10 lg:mt-20">
-            <div className="flex w-full flex-col justify-between md:gap-10 lg:flex-row lg:gap-16">
-              <div className="flex-1 p-4 md:w-2/3 lg:w-1/2">
-                <h3 className="mb-4 text-lg font-bold">
-                  Revisión y mantenimiento
-                </h3>
-                <p className="text-justify">
-                  Nuestro servicio de mantenimiento está diseñado para asegurar
-                  que su sistema contraincendios esté siempre en condiciones
-                  óptimas de funcionamiento. A través de revisiones técnicas
-                  regulares, anticipamos cualquier problema potencial,
-                  extendiendo la vida útil de su inversión y garantizando que su
-                  sistema se encuentre operativo ante cualquier situación que lo
-                  requiera.
-                </p>
-              </div>
-              <Image
-                alt="Picture of the author"
-                src="/tablero-3.jpg"
-                width={380}
-                height={250}
-                className="m-auto rounded-lg brightness-110 contrast-[.9]"
-              />
-            </div>
-          </div>
-          <div className="mt-8 w-full max-w-[1200px] items-center px-4 md:px-10 lg:mt-20">
-            <div className="flex flex-col gap-12 lg:flex-row">
-              <div className="flex-1 p-4 md:w-2/3 lg:w-1/2">
-                <h3 className="mb-4 text-lg font-bold">
-                  Instalación, capacitación y puesta en marcha
-                </h3>
-                <p className="text-justify">
-                  Entendemos la importancia de una instalación adecuada para el
-                  éxito operativo de cualquier sistema contra incendios. Por
-                  ello, aseguramos que la instalación de nuestros tableros de
-                  comando se realice de manera estratégica, promoviendo un
-                  acceso fácil para mantenimientos y reparaciones futuras.
-                  Además, ofrecemos una capacitación detallada para que su
-                  equipo esté plenamente preparado para manejar y mantener el
-                  sistema eficientemente desde el día uno.
-                </p>
-              </div>
-              <Image
-                alt="Picture of the author"
-                src="/instalaciones.jpg"
-                width={600}
-                height={400}
-                className="m-auto rounded-lg"
-              />
-            </div>
-          </div>
-        </section>
-        <section
-          id="mantenimiento"
-          className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center gap-16 py-16 md:py-24"
-        >
-          <div className="mt-8 w-full max-w-[1200px] items-center px-4 md:px-10 lg:mt-20">
-            <div className="flex w-full flex-col justify-between md:gap-10 lg:flex-row lg:gap-16">
-              <div className="flex-1 p-4 md:w-2/3 lg:w-1/2">
-                <h3 className="mb-4 text-lg font-bold">
-                  Revisión y mantenimiento
-                </h3>
-                <p className="text-justify">
-                  Nuestro servicio de mantenimiento está diseñado para asegurar
-                  que su sistema contraincendios esté siempre en condiciones
-                  óptimas de funcionamiento. A través de revisiones técnicas
-                  regulares, anticipamos cualquier problema potencial,
-                  extendiendo la vida útil de su inversión y garantizando que su
-                  sistema se encuentre operativo ante cualquier situación que lo
-                  requiera.
-                </p>
-              </div>
-              <Image
-                alt="Picture of the author"
-                src="/tablero-3.jpg"
-                width={380}
-                height={250}
-                className="m-auto rounded-lg brightness-110 contrast-[.9]"
-              />
-            </div>
-          </div>
-        </section>
+            </Card>
+          </section>
+        ))}
       </main>
       <footer className="w-full bg-white px-4 py-8 text-black">
         <div className="m-auto flex max-w-[1200px] flex-col items-center justify-between text-sm md:flex-row">

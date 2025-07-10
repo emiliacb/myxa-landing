@@ -17,17 +17,17 @@ export default function Tableros() {
       <main className="flex flex-col items-center justify-center px-4 md:px-10">
         <section
           id="tableros-detalles"
-          className="relative flex min-h-screen w-screen flex-col items-center justify-center bg-black py-12 pt-32 text-white"
+          className="relative flex min-h-screen w-screen flex-col items-center justify-center bg-black px-4 py-12 pt-32 text-white"
         >
-          <h2 className="text-4xl md:text-6xl lg:text-8xl">
+          <h1 className="pt-[1rem] text-center text-4xl md:text-6xl">
             Tableros de Control
-          </h2>
+          </h1>
           <div className="mt-24 flex max-w-[1200px] flex-col items-center gap-12 lg:flex-row">
             <div className="flex-1 p-4 md:w-2/3 lg:w-1/2">
               <h3 className="mb-4 text-lg font-bold">
                 Diseño y fabricación de tableros
               </h3>
-              <p className="mb-2 text-justify">
+              <p className="mb-2 max-w-4xl text-justify">
                 En MYXA, diseñamos y fabricamos tableros de control que son el
                 corazón de su sistema contra incendios. Cumpliendo rigurosamente
                 con las normativas NFPA 20 e IRAM 3597, garantizamos la máxima
@@ -39,62 +39,65 @@ export default function Tableros() {
               </p>
             </div>
           </div>
-          <div className="mt-24 flex max-w-[1200px] flex-col-reverse items-center gap-12 lg:flex-row">
+          <div className="mt-24 flex max-w-[1200px] flex-col items-start gap-12 lg:flex-row">
             <Image
               alt="Picture of the author"
-              src="/tablero-1.png"
-              width={600}
+              src="/tableros_2.png"
+              width={400}
               height={400}
-              className="max-w-md"
+              className="top-24 max-w-md rounded-md bg-[rgba(100,100,100,0.25)] p-4 md:sticky"
             />
-            <div className="flex-1 p-4">
-              <ul className="list-disc pl-5">
+            <div className="max-w-md flex-1 p-4">
+              <ul className="flex list-none flex-col gap-12">
                 <li>
-                  <strong>Arranque Optimizado:</strong> Soluciones de arranque
-                  directo para bombas de hasta 15HP y arranque
-                  estrella-triángulo para potencias superiores, asegurando un
-                  funcionamiento eficiente y prolongando la vida útil de sus
-                  equipos.
+                  <p className="text-lg">Arranque Optimizado:</p>
+                  <br /> Soluciones de arranque directo para bombas de hasta
+                  15HP y arranque estrella-triángulo para potencias superiores,
+                  asegurando un funcionamiento eficiente y prolongando la vida
+                  útil de sus equipos.
                 </li>
                 <li>
-                  <strong>Protección Superior:</strong> Gabinete metálico IP40
-                  en rojo bermellón, diseñado para resistir entornos
-                  industriales exigentes y proteger los componentes internos.
+                  <p className="text-lg">Protección Superior:</p>
+                  <br /> Gabinete metálico IP40 en rojo bermellón, diseñado para
+                  resistir entornos industriales exigentes y proteger los
+                  componentes internos.
                 </li>
                 <li>
-                  <strong>Seguridad Eléctrica Avanzada:</strong> Incorpora llave
-                  seccionadora y fusibles tipo NH para bombas de alta potencia,
-                  además de llaves termomagnéticas para protección de bombas de
-                  hasta 15HP y circuitos de comando, garantizando la integridad
-                  de su instalación.
+                  <p className="text-lg">Seguridad Eléctrica Avanzada:</p>
+                  <br /> Incorpora llave seccionadora y fusibles tipo NH para
+                  bombas de alta potencia, además de llaves termomagnéticas para
+                  protección de bombas de hasta 15HP y circuitos de comando,
+                  garantizando la integridad de su instalación.
                 </li>
                 <li>
-                  <strong>Control Versátil:</strong> Llaves selectoras para
-                  arranque automático y manual por cada bomba, ofreciendo
-                  flexibilidad operativa y control total sobre su sistema.
+                  <p className="text-lg">Control Versátil:</p>
+                  <br /> Llaves selectoras para arranque automático y manual por
+                  cada bomba, ofreciendo flexibilidad operativa y control total
+                  sobre su sistema.
                 </li>
                 <li>
-                  <strong>Circuito de Comando Seguro:</strong> Transformador de
-                  24V para un circuito de comando de baja tensión, minimizando
-                  riesgos eléctricos y aumentando la seguridad del personal.
+                  <p className="text-lg">Circuito de Comando Seguro:</p>
+                  <br /> Transformador de 24V para un circuito de comando de
+                  baja tensión, minimizando riesgos eléctricos y aumentando la
+                  seguridad del personal.
                 </li>
                 <li>
-                  <strong>Monitoreo Intuitivo:</strong> Pilotos LED de 220V para
-                  indicación de presencia de fases, estado de marcha de bombas y
-                  fallas en bomba Jockey, permitiendo una supervisión rápida y
-                  eficaz.
+                  <p className="text-lg">Monitoreo Intuitivo:</p>
+                  <br /> Pilotos LED de 220V para indicación de presencia de
+                  fases, estado de marcha de bombas y fallas en bomba Jockey,
+                  permitiendo una supervisión rápida y eficaz.
                 </li>
                 <li>
-                  <strong>Conectividad Simplificada:</strong> Borneras dedicadas
-                  para una conexión rápida y segura de alimentación, señal
-                  remota (contacto seco), presostatos y motores, facilitando la
-                  instalación y el mantenimiento.
+                  <p className="text-lg">Conectividad Simplificada:</p>
+                  <br /> Borneras dedicadas para una conexión rápida y segura de
+                  alimentación, señal remota (contacto seco), presostatos y
+                  motores, facilitando la instalación y el mantenimiento.
                 </li>
                 <li>
-                  <strong>Documentación Completa:</strong> Incluye planos
-                  detallados de cableado y conexionado (físico y digital),
-                  asegurando una comprensión clara del sistema y agilizando
-                  futuras intervenciones.
+                  <p className="text-lg">Documentación Completa:</p>
+                  <br /> Incluye planos detallados de cableado y conexionado
+                  (físico y digital), asegurando una comprensión clara del
+                  sistema y agilizando futuras intervenciones.
                 </li>
               </ul>
             </div>

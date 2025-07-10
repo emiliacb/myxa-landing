@@ -30,17 +30,17 @@ function Title({ contents, white, scrollRef, size = _SIZES.xl }) {
             <Fragment key={index}>
               <div
                 className="h-1 w-12 md:mt-6 md:h-4 md:w-52"
-                style={{ backgroundColor: white ? "white" : "black" }}
+                style={{ backgroundColor: white ? "#EEE" : "#222" }}
               />
               <h2
                 className={`mx-4 w-max text-5xl font-bold md:text-[180px] ${size}`}
-                style={{ color: white ? "white" : "black" }}
+                style={{ color: white ? "#EEE" : "#222" }}
               >
                 {content}
               </h2>
               <div
                 className="h-1 w-12 md:mt-6 md:h-4 md:w-52"
-                style={{ backgroundColor: white ? "white" : "black" }}
+                style={{ backgroundColor: white ? "#EEE" : "#222" }}
               />
             </Fragment>
           ))}

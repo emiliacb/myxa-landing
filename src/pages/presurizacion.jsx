@@ -19,14 +19,14 @@ export default function Presurizacion() {
           id="presurizacion-detalles"
           className="relative flex min-h-screen w-screen flex-col items-center justify-center bg-white py-12 pt-32 text-black"
         >
-          <h2 className="text-4xl md:text-6xl lg:text-8xl">
+          <h1 className="text-center text-4xl md:text-6xl">
             Equipos de Presurización
-          </h2>
+          </h1>
           <div className="mt-8 w-full max-w-[1200px] items-center px-4 md:px-10 lg:mt-20">
             <div className="flex w-full flex-col justify-between md:gap-10 lg:flex-row lg:gap-16">
               <Image
                 alt="Picture of the author"
-                src="/tablero-4.jpeg"
+                src="/instalaciones_1.jpg"
                 width={380}
                 height={250}
                 className="m-auto rounded-lg"

@@ -8,7 +8,7 @@ import Bottomsheet from "./bottomsheet";
 import LogoIcon from "../icons/logoIcon";
 import HamburguerIcon from "../icons/hamburguerIcon";
 
-export default function Navbar({ isInvert, ctaDimished }) {
+export default function Navbar({ isInvert }) {
   const [isOpen, toggleIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();

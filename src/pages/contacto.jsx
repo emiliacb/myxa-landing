@@ -65,7 +65,7 @@ export default function Contacto() {
           id="contacto-detalles"
           className="relative flex min-h-screen w-screen flex-col items-center justify-center bg-black py-12 pt-24 text-white"
         >
-          <h2 className="text-4xl md:text-6xl lg:text-8xl">Contacto</h2>
+          <h1 className="text-4xl md:text-6xl">Contacto</h1>
           <div className="mt-8 w-full max-w-[1200px] items-center px-4 md:px-10 lg:mt-20">
             <div className="flex w-full flex-col justify-between md:gap-10 lg:flex-row lg:gap-16">
               <div className="max-w-2xl flex-1 p-4">
