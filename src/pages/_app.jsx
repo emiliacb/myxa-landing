@@ -1,9 +1,9 @@
 import Head from "next/head";
 import Script from "next/script";
+import { Toaster } from "sonner";
 
 import "../styles/globals.css";
-
-import { Toaster } from "sonner";
+import "@fontsource-variable/plus-jakarta-sans";
 
 const MyApp = ({ Component, pageProps }) => {
   return (

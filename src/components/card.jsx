@@ -1,7 +1,17 @@
-export default function Card({ title, children }) {
+import cs from "classnames";
+
+export default function Card({ title, isInvert = false, children }) {
   return (
-    <div className="flex overflow-hidden h-fit flex-col items-center justify-center gap-10 rounded-3xl bg-gray-200 py-10 md:py-20 px-3 md:px-14 mr-3 shadow-[10px_11px_0px_0px_rgba(0,0,0,0.25)]">
-      {title && <h2 className="text-4xl mb-6 px-4">{title}</h2>}
+    <div
+      className={cs(
+        "mr-3 flex h-fit flex-col items-center justify-center gap-10 overflow-hidden rounded-3xl bg-gray-200 px-3 py-10 shadow-[10px_11px_0px_0px_rgba(0,0,0,0.25)] md:px-14 md:py-20",
+        {
+          "border border-[rgba(100,100,100,0.25)] bg-transparent shadow-[10px_11px_0px_0px_rgba(100,100,100,0.25)]":
+            isInvert,
+        }
+      )}
+    >
+      {title && <h2 className="mb-6 px-4 text-4xl">{title}</h2>}
       {children}
     </div>
   );
