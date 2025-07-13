@@ -36,3 +36,119 @@ export const SERVICIOS = [
     image: "/servicios_2.png",
   },
 ];
+
+export const TABLERO_FEATURES = [
+  {
+    id: "proteccion-superior",
+    title: "Protección Superior",
+    description:
+      "Gabinete metálico IP40 en rojo bermellón, diseñado para resistir entornos industriales exigentes y proteger los componentes internos.",
+  },
+  {
+    id: "control-versatil",
+    title: "Control Versátil",
+    description:
+      "Llaves selectoras para arranque automático y manual por cada bomba, ofreciendo flexibilidad operativa y control total sobre su sistema.",
+  },
+  {
+    id: "monitoreo-intuitivo",
+    title: "Monitoreo Intuitivo",
+    description:
+      "Pilotos LED de 220V para indicación de presencia de fases, estado de marcha de bombas y fallas en bomba Jockey, permitiendo una supervisión rápida y eficaz.",
+  },
+  {
+    id: "arranque-optimizado",
+    title: "Arranque Optimizado",
+    description:
+    "Soluciones de arranque directo para bombas de hasta 15HP y arranque estrella-triángulo para potencias superiores, asegurando un funcionamiento eficiente y prolongando la vida útil de sus equipos.",
+  },
+  {
+    id: "conectividad-simplificada",
+    title: "Conectividad Simplificada",
+    description:
+      "Borneras dedicadas para una conexión rápida y segura de alimentación, señal remota (contacto seco), presostatos y motores, facilitando la instalación y el mantenimiento.",
+  },
+  {
+    id: "seguridad-electrica-avanzada",
+    title: "Seguridad Eléctrica Avanzada",
+    description:
+      "Incorpora llave seccionadora y fusibles tipo NH para bombas de alta potencia, además de llaves termomagnéticas para protección de bombas de hasta 15HP y circuitos de comando, garantizando la integridad de su instalación.",
+  },
+  {
+    id: "circuito-de-comando-seguro",
+    title: "Circuito de Comando Seguro",
+    description:
+      "Transformador de 24V para un circuito de comando de baja tensión, minimizando riesgos eléctricos y aumentando la seguridad del personal.",
+  },
+  {
+    id: "documentacion-completa",
+    title: "Documentación Completa",
+    description:
+      "Incluye planos detallados de cableado y conexionado (físico y digital), asegurando una comprensión clara del sistema y agilizando futuras intervenciones.",
+  },
+];
+
+export const DEFAULT_IMAGE_IDX = 2;
+
+export const DEFAULT_FEATURE = {
+  image: DEFAULT_IMAGE_IDX,
+  styles: { transform: "scale(1.2) translate(-5%,0)" },
+};
+
+export const FEATURES_IMAGE_TRANSFORMS = {
+  "proteccion-superior": {
+    image: 0,
+    styles: {
+      transform: "translate(0,0)",
+    },
+  },
+  "control-versatil": {
+    image: 1,
+    styles: {
+      transform: "scale(1.4) rotate(1deg) translate(5%, -3%)",
+    },
+  },
+  "monitoreo-intuitivo": {
+    image: 1,
+    styles: {
+      transform: "scale(2.3) rotate(1deg) translate(5%, -10%)",
+    },
+  },
+  "arranque-optimizado": {
+    image: 2,
+    styles: {
+      transform: "scale(1.5) translate(-21%,2%)",
+    },
+  },
+  "conectividad-simplificada": {
+    image: 3,
+    styles: {
+      transform: "scale(1.6)",
+    },
+  },
+  "seguridad-electrica-avanzada": {
+    image: 2,
+    styles: {
+      transform: "scale(2.5) translate(-18%,15%)",
+    },
+  },
+  "circuito-de-comando-seguro": {
+    image: 2,
+    styles: {
+      transform: "scale(2.5) translate(-25%,4%)",
+    },
+  },
+  "documentacion-completa": {
+    image: 2,
+    styles: {
+      transform: "scale(3) translate(20%,-4%)",
+    },
+  },
+};
+
+export const TABLEROS_IMAGES = [
+  "/tableros_1.png",
+  "/tableros_4.png",
+  "/tableros_2.png",
+  "/tableros_5.png",
+];

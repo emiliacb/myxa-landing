@@ -29,7 +29,7 @@ export default function Presurizacion() {
                 src="/instalaciones_1.jpg"
                 width={380}
                 height={250}
-                className="m-auto rounded-lg"
+                className="w-1/2 m-auto rounded-lg"
               />
               <div className="flex-1 p-4 md:w-2/3 lg:w-1/2">
                 <h3 className="mb-4 text-lg font-bold">

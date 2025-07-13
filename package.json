@@ -9,7 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@fontsource/plus-jakarta-sans": "^5.0.18",
+    "@fontsource-variable/plus-jakarta-sans": "^5.2.6",
     "classnames": "^2.5.1",
     "framer-motion": "^10.16.16",
     "next": "^13.4.2",

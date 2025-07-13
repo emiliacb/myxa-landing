@@ -1,12 +1,26 @@
-@import "@fontsource/plus-jakarta-sans";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans Variable', sans-serif;
+}
+
+*:focus-visible {
+  @apply outline-none ring-4 ring-red-600 ring-offset-2 transition-all duration-100;
+}
+
+strong {
+  @apply font-semibold;
+}
+
 @layer components {
   .btn-primary {
-    @apply flex h-fit w-fit items-center justify-center gap-2 rounded-md bg-gradient-to-r from-red-500 to-purple-700 px-6 py-2 text-white;
+    @apply flex h-fit w-fit items-center justify-center gap-2 rounded-md bg-gradient-to-r from-red-500 to-purple-700 px-6 py-2 text-white font-semibold;
     @apply transition-all duration-200 lg:hover:rotate-1 lg:active:scale-[.98] lg:active:to-purple-800;
   }
 }
@@ -15,12 +29,8 @@
   .hover-rotate {
     @apply hover:rotate-1 hover:underline hover:underline-offset-8 hover:transition hover:duration-100 active:scale-[.98];
   }
-}
 
-html {
-  @apply scroll-smooth;
-}
-
-*:focus-visible {
-  @apply outline-none ring-4 ring-red-600 ring-offset-2 transition-all duration-100;
+  .text-pretty {
+    text-wrap: pretty;
+  }
 }

@@ -1,13 +1,13 @@
 import { useState, useRef } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 
-export function useSectionInView(offset = ["start 66px", "end 66px"]) {
+export function useSectionInView({ offset } = {}) {
   const sectionRef = useRef(null);
   const [isInView, setIsInView] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: offset,
+    offset: offset || ["start 66px", "end 66px"],
   });
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {

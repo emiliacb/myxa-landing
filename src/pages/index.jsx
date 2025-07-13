@@ -88,23 +88,22 @@ export default function Home() {
           id="nosotros"
           className="md:py-22 relative flex max-h-[90vh] min-h-[90vh] w-full max-w-[1200px] flex-col items-center justify-center pt-32 lg:min-h-[90vh] lg:flex-row"
         >
-          <div className="left-0 z-20 flex max-w-md flex-col rounded-[30px] bg-white/70 backdrop-blur-sm lg:absolute lg:top-[26vh] lg:mb-0 lg:mr-auto lg:max-w-lg lg:p-8">
+          <div className="left-0 z-20 flex max-w-md flex-col rounded-[30px] bg-white/70 backdrop-blur-sm lg:absolute lg:top-[26vh] lg:mb-0 lg:mr-auto lg:max-w-[40rem] lg:p-8">
             <h1 className="mb-4 text-center md:text-left lg:mb-6">
               <span className="text-xl lg:text-2xl">
                 Tableros y equipos de presurización
               </span>
               <br />
-              <strong className="text-2xl lg:text-3xl">
+              <strong className="text-[22px] lg:text-4xl text-pretty font-semibold">
                 para Sistemas Contra Incendio
               </strong>
             </h1>
             <p
-              className="text-pretty text-md text-center font-light md:text-left"
+              className="text-pretty text-sm md:text-lg text-center font-light md:text-left"
               style={{ textWrap: "pretty" }}
             >
-              Nuestro equipo, con 20 años de experiencia en el sector, ofrece
-              sistemas de <strong> alta calidad</strong> acompañados de un
-              asesoramiento personalizado que aseguran su máxima operatividad.
+              Ofrecemos sistemas de <strong>alta calidad</strong> acompañados de un {" "}
+              <strong>asesoramiento personalizado</strong> que aseguran su máxima operatividad.
             </p>
             <div className="m-auto flex w-fit gap-2 md:m-0">
               <Link
@@ -137,7 +136,7 @@ export default function Home() {
           className="relative flex min-h-screen flex-col items-center justify-center bg-black pt-28 text-white lg:mb-24"
         >
           <Title contents={"Tableros"} size={Title.SIZES.lg} white />
-          <div className="min-h-screen w-full max-w-[1200px] py-12 md:py-24">
+          <div className="min-h-screen w-full max-w-[1200px] pt-12 pb-24 md:pt-24 lg:pb-0 lg:-mb-32">
             <Card isInvert>
               <div className="flex flex-col-reverse items-center gap-12 lg:flex-row">
                 <Image
@@ -176,6 +175,7 @@ export default function Home() {
           className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center gap-16 py-12 md:py-24"
         >
           <Title contents={"Presurización"} size={Title.SIZES.md} />
+          <div className="mt-5" />
           <Card>
             <div className="flex flex-col gap-12 lg:flex-row">
               <Image
@@ -217,10 +217,11 @@ export default function Home() {
               <Link
                 className="rounded-lg border px-2 py-3 hover:bg-gray-200 hover:text-gray-900"
                 href={`/servicios#${servicio.id}`}
+                key={servicio.id}
               >
                 <div className="flex flex-1 flex-col p-2">
                   <h3 className="mb-2 text-lg font-bold">{servicio.title}</h3>
-                  <p className="text-justify text-sm">
+                  <p className="text-left font-light text-sm md:text-base">
                     {servicio.short_description}
                   </p>
                 </div>

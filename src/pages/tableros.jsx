@@ -1,9 +1,61 @@
+import { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
-import Navbar from "../components/navbar";
-import Title from "../components/title";
 import Image from "next/image";
+import cs from "classnames";
+
+import Navbar from "../components/navbar";
+import { useSectionInView } from "../hooks/useSectionInView";
+import {
+  TABLERO_FEATURES,
+  DEFAULT_IMAGE_IDX,
+  DEFAULT_FEATURE,
+  FEATURES_IMAGE_TRANSFORMS,
+  TABLEROS_IMAGES,
+} from "../utils/constants";
+
+export function TableroFeature({ id, title, description, onView }) {
+  const [featureRef, isFeatureInView] = useSectionInView({
+    offset: ["start 250px", "end 230px"],
+  });
+
+  useEffect(() => {
+    if (isFeatureInView) onView(id);
+  }, [isFeatureInView]);
+
+  return (
+    <li
+      ref={featureRef}
+      className={cs("rounded-lg px-8 py-6 bg-black text-white transition duration-[300ms]", {
+        "bg-white !text-black": isFeatureInView,
+      })}
+    >
+      <p className="text-lg font-bold mb-3">{title}:</p>
+      <p className="font-light">{description}</p>
+    </li>
+  );
+}
 
 export default function Tableros() {
+  const [startSectionRef, isStartSectionInView] = useSectionInView();
+  const [currentFeature, setCurrentFeature] = useState(null);
+
+  const currentImageIdx = currentFeature
+    ? FEATURES_IMAGE_TRANSFORMS[currentFeature]?.image
+    : DEFAULT_IMAGE_IDX;
+  const imageSrc = TABLEROS_IMAGES[currentImageIdx];
+
+  useEffect(() => {
+    isStartSectionInView && setCurrentFeature(null);
+  }, [isStartSectionInView]);
+
+  const imageStyles = useMemo(() => {
+    if (!currentFeature) return DEFAULT_FEATURE.styles;
+    return (
+      FEATURES_IMAGE_TRANSFORMS[currentFeature]?.styles ||
+      DEFAULT_FEATURE.styles
+    );
+  }, [currentFeature]);
+
   return (
     <>
       <Head>
@@ -14,16 +66,19 @@ export default function Tableros() {
         />
       </Head>
       <Navbar isInvert />
-      <main className="flex flex-col items-center justify-center px-4 md:px-10">
+      <main className="flex flex-col items-center justify-center px-4 lg:px-10">
         <section
           id="tableros-detalles"
           className="relative flex min-h-screen w-screen flex-col items-center justify-center bg-black px-4 py-12 pt-32 text-white"
         >
-          <h1 className="pt-[1rem] text-center text-4xl md:text-6xl">
+          <h1
+            className="pt-[1rem] text-center text-4xl lg:text-6xl"
+            ref={startSectionRef}
+          >
             Tableros de Control
           </h1>
           <div className="mt-24 flex max-w-[1200px] flex-col items-center gap-12 lg:flex-row">
-            <div className="flex-1 p-4 md:w-2/3 lg:w-1/2">
+            <div className="flex-1 p-4 lg:w-1/2 lg:w-2/3">
               <h3 className="mb-4 text-lg font-bold">
                 Diseño y fabricación de tableros
               </h3>
@@ -39,76 +94,38 @@ export default function Tableros() {
               </p>
             </div>
           </div>
-          <div className="mt-24 flex max-w-[1200px] flex-col items-start gap-12 lg:flex-row">
-            <Image
-              alt="Picture of the author"
-              src="/tableros_2.png"
-              width={400}
-              height={400}
-              className="top-24 max-w-md rounded-md bg-[rgba(100,100,100,0.25)] p-4 md:sticky"
-            />
-            <div className="max-w-md flex-1 p-4">
-              <ul className="flex list-none flex-col gap-12">
-                <li>
-                  <p className="text-lg">Arranque Optimizado:</p>
-                  <br /> Soluciones de arranque directo para bombas de hasta
-                  15HP y arranque estrella-triángulo para potencias superiores,
-                  asegurando un funcionamiento eficiente y prolongando la vida
-                  útil de sus equipos.
-                </li>
-                <li>
-                  <p className="text-lg">Protección Superior:</p>
-                  <br /> Gabinete metálico IP40 en rojo bermellón, diseñado para
-                  resistir entornos industriales exigentes y proteger los
-                  componentes internos.
-                </li>
-                <li>
-                  <p className="text-lg">Seguridad Eléctrica Avanzada:</p>
-                  <br /> Incorpora llave seccionadora y fusibles tipo NH para
-                  bombas de alta potencia, además de llaves termomagnéticas para
-                  protección de bombas de hasta 15HP y circuitos de comando,
-                  garantizando la integridad de su instalación.
-                </li>
-                <li>
-                  <p className="text-lg">Control Versátil:</p>
-                  <br /> Llaves selectoras para arranque automático y manual por
-                  cada bomba, ofreciendo flexibilidad operativa y control total
-                  sobre su sistema.
-                </li>
-                <li>
-                  <p className="text-lg">Circuito de Comando Seguro:</p>
-                  <br /> Transformador de 24V para un circuito de comando de
-                  baja tensión, minimizando riesgos eléctricos y aumentando la
-                  seguridad del personal.
-                </li>
-                <li>
-                  <p className="text-lg">Monitoreo Intuitivo:</p>
-                  <br /> Pilotos LED de 220V para indicación de presencia de
-                  fases, estado de marcha de bombas y fallas en bomba Jockey,
-                  permitiendo una supervisión rápida y eficaz.
-                </li>
-                <li>
-                  <p className="text-lg">Conectividad Simplificada:</p>
-                  <br /> Borneras dedicadas para una conexión rápida y segura de
-                  alimentación, señal remota (contacto seco), presostatos y
-                  motores, facilitando la instalación y el mantenimiento.
-                </li>
-                <li>
-                  <p className="text-lg">Documentación Completa:</p>
-                  <br /> Incluye planos detallados de cableado y conexionado
-                  (físico y digital), asegurando una comprensión clara del
-                  sistema y agilizando futuras intervenciones.
-                </li>
+          <div className="flex max-w-[1200px] flex-col items-start gap-12 lg:mt-24 lg:flex-row">
+            <div className="max-w-sd sticky left-[100%] top-[calc(100vh_-_216px)] grid h-[200px] w-full place-content-center overflow-hidden rounded-md bg-gray-800 lg:left-auto lg:top-24 lg:h-[550px] lg:w-[450px] ">
+              <Image
+                alt="Picture of the author"
+                src={imageSrc}
+                width={400}
+                height={400}
+                className="h-[280px] w-[280px] object-contain transition duration-[300ms] lg:h-[500px] lg:w-[500px] lg:max-w-md"
+                style={imageStyles}
+              />
+            </div>
+            <div className="max-w-md flex-1 p-4 pt-0">
+              <ul className="mb-[300px] flex list-none flex-col gap-8 lg:mb-[500px]">
+                {TABLERO_FEATURES.map((feature) => (
+                  <TableroFeature
+                    id={feature.id}
+                    key={feature.id}
+                    title={feature.title}
+                    description={feature.description}
+                    onView={setCurrentFeature}
+                  />
+                ))}
               </ul>
             </div>
           </div>
         </section>
       </main>
-      <footer className="w-full bg-black px-4 py-8 text-neutral-100">
-        <div className="m-auto flex max-w-[1200px] flex-col items-center justify-between text-sm md:flex-row">
-          <div className="flex w-full flex-col justify-between gap-4 md:flex-row md:items-center  ">
-            <nav className="mb-4 md:mb-0">
-              <ul className="flex flex-row flex-wrap justify-center gap-4 md:items-center md:space-x-4">
+      <footer className="w-full bg-black bg-black px-4 py-8 text-neutral-100">
+        <div className="m-auto flex w-full flex-col items-center justify-between text-sm lg:flex-row">
+          <div className="flex w-full flex-col justify-between gap-4 lg:flex-row lg:items-center  ">
+            <nav className="mb-4 lg:mb-0">
+              <ul className="flex flex-row flex-wrap justify-center gap-4 lg:items-center lg:space-x-4">
                 <li>
                   <a href="/#nosotros" className="hover:underline">
                     Nosotros
@@ -136,7 +153,7 @@ export default function Tableros() {
                 </li>
               </ul>
             </nav>
-            <div className="mb-4 text-center text-xs md:mb-0 md:ml-8 md:text-left">
+            <div className="mb-4 w-fit text-center text-xs lg:mb-0 lg:ml-8 lg:text-left">
               <p>
                 © {new Date().getFullYear()} MYXA - Todos los derechos
                 reservados.
