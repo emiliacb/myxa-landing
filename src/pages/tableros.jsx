@@ -14,16 +14,22 @@ import {
   TABLEROS_IMAGES,
 } from "../utils/constants";
 
-export function TableroFeature({ id, title, description, onView, currentFeature }) {
+export function TableroFeature({
+  id,
+  title,
+  description,
+  onView,
+  currentFeature,
+}) {
   const [featureRef, isFeatureInView] = useSectionInView({
     offset: ["start 280px", "end 230px"],
   });
 
   const isSelected = currentFeature === id;
-  
+
   function handleClick() {
     if (isTouchDevice()) return;
-    onView(id)
+    onView(id);
   }
 
   useEffect(() => {
@@ -35,7 +41,7 @@ export function TableroFeature({ id, title, description, onView, currentFeature 
       ref={featureRef}
       onClick={handleClick}
       className={cs(
-        "cursor-pointer rounded-lg px-8 py-6 text-white opacity-25 md:opacity-100 transition duration-[300ms] md:bg-black select-none border border-transparent md:hover:border-white",
+        "cursor-pointer select-none rounded-lg border border-transparent px-8 py-6 text-white opacity-25 transition duration-[300ms] md:bg-black md:opacity-100 md:hover:border-white",
         {
           "!bg-white !text-black !opacity-100": isSelected,
         }
@@ -48,7 +54,9 @@ export function TableroFeature({ id, title, description, onView, currentFeature 
 }
 
 export default function Tableros() {
-  const [startSectionRef, isStartSectionInView] = useSectionInView();
+  const [startSectionRef, isStartSectionInView] = useSectionInView(["start 280px", "end 230px"]);
+  const [endSectionRef, isEndSectionInView] = useSectionInView(["start 280px", "end 230px"]);
+
   const [currentFeature, setCurrentFeature] = useState(null);
 
   const currentImageIdx = currentFeature
@@ -58,7 +66,8 @@ export default function Tableros() {
 
   useEffect(() => {
     isStartSectionInView && setCurrentFeature(null);
-  }, [isStartSectionInView]);
+    isEndSectionInView && setCurrentFeature(null);
+  }, [isStartSectionInView, isEndSectionInView]);
 
   const imageStyles = useMemo(() => {
     if (!currentFeature) return DEFAULT_FEATURE.styles;
@@ -83,10 +92,7 @@ export default function Tableros() {
           id="tableros-detalles"
           className="relative flex min-h-screen w-screen flex-col items-center justify-center bg-black py-12 pt-32 text-white md:px-4"
         >
-          <h1
-            className="pt-[1rem] text-center text-4xl lg:text-6xl"
-            ref={startSectionRef}
-          >
+          <h1 className="pt-[1rem] text-center text-4xl lg:text-6xl">
             Tableros de Control
           </h1>
           <div className="mt-24 flex max-w-[1200px] flex-col items-center gap-12 lg:flex-row">
@@ -94,6 +100,7 @@ export default function Tableros() {
               <h3 className="mb-4 text-lg font-bold">
                 Diseño y fabricación de tableros
               </h3>
+              <div ref={startSectionRef} className="w-full h-4"></div>
               <p className="mb-2 max-w-4xl text-justify">
                 En MYXA, diseñamos y fabricamos tableros de control que son el
                 corazón de su sistema contra incendios. Cumpliendo rigurosamente
@@ -109,9 +116,10 @@ export default function Tableros() {
           <div className="flex max-w-[1200px] flex-col items-start lg:mt-24 lg:flex-row">
             <div
               className={cs(
-                "z-10 max-w-sd sticky left-[100%] top-[calc(50vh_-_20vh)] grid h-[40vh] w-[calc(100%_-_1rem)] mr-[0.5rem] items-center justify-items-center overflow-hidden rounded-md md:place-content-center md:bg-gray-900 lg:left-auto lg:top-24 lg:h-[550px] lg:w-[450px]",
+                "max-w-sd sticky left-[100%] top-[calc(50vh_-_20vh)] z-10 mr-[0.5rem] grid h-[50vh] w-[calc(100%_-_1rem)] items-center justify-items-center overflow-hidden rounded-md md:place-content-center md:bg-gray-900 lg:left-auto lg:top-24 lg:h-[550px] lg:w-[450px]",
                 {
-                  "bg-gray-900 !items-end !top-[75dvh] !h-[calc(25dvh_-_0.5rem)] lg:!top-24 lg:!h-[550px] lg:!w-[450px] transition-all duration-200": currentFeature,
+                  "!top-[75dvh] !h-[calc(25dvh_-_0.5rem)] !items-end bg-gray-900 transition-all duration-200 lg:!top-24 lg:!h-[550px] lg:!w-[450px]":
+                    currentFeature,
                 }
               )}
             >
@@ -120,7 +128,7 @@ export default function Tableros() {
                 src={imageSrc}
                 width={400}
                 height={400}
-                className="h-[35vh] w-[35vh] pb-6 md:pb-0 md:mt-10 object-contain transition duration-[300ms] lg:h-[500px] lg:w-[500px] lg:max-w-md"
+                className="h-[35vh] w-[35vh] object-contain pb-6 transition duration-[300ms] md:mt-10 md:pb-0 lg:h-[500px] lg:w-[500px] lg:max-w-md"
                 style={imageStyles}
               />
             </div>
@@ -136,6 +144,7 @@ export default function Tableros() {
                     currentFeature={currentFeature}
                   />
                 ))}
+                <div ref={endSectionRef} className="w-full h-4"></div>
               </ul>
             </div>
           </div>
