@@ -5,6 +5,7 @@ import cs from "classnames";
 
 import Navbar from "../components/navbar";
 import { useSectionInView } from "../hooks/useSectionInView";
+import { isTouchDevice } from "../utils/device";
 import {
   TABLERO_FEATURES,
   DEFAULT_IMAGE_IDX,
@@ -21,6 +22,7 @@ export function TableroFeature({ id, title, description, onView, currentFeature 
   const isSelected = currentFeature === id;
   
   function handleClick() {
+    if (isTouchDevice()) return;
     onView(id)
   }
 
@@ -33,7 +35,7 @@ export function TableroFeature({ id, title, description, onView, currentFeature 
       ref={featureRef}
       onClick={handleClick}
       className={cs(
-        "cursor-pointer rounded-lg px-8 py-6 text-white opacity-25 md:opacity-100 transition duration-[300ms] md:bg-black select-none border border-transparent hover:border-white",
+        "cursor-pointer rounded-lg px-8 py-6 text-white opacity-25 md:opacity-100 transition duration-[300ms] md:bg-black select-none border border-transparent md:hover:border-white",
         {
           "!bg-white !text-black !opacity-100": isSelected,
         }
