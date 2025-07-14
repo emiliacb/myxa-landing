@@ -99,7 +99,7 @@ export const FEATURES_IMAGE_TRANSFORMS = {
   "proteccion-superior": {
     image: 0,
     styles: {
-      transform: "translate(0,0)",
+      transform: "translate(0,-5%)",
     },
   },
   "control-versatil": {
@@ -117,7 +117,7 @@ export const FEATURES_IMAGE_TRANSFORMS = {
   "arranque-optimizado": {
     image: 2,
     styles: {
-      transform: "scale(1.5) translate(-21%,2%)",
+      transform: "scale(1.8) translate(-21%,2%)",
     },
   },
   "conectividad-simplificada": {

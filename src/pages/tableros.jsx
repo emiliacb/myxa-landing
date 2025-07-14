@@ -109,7 +109,7 @@ export default function Tableros() {
               className={cs(
                 "z-10 max-w-sd sticky left-[100%] top-[calc(50vh_-_20vh)] grid h-[40vh] w-full items-center justify-items-center overflow-hidden rounded-md md:place-content-center md:bg-gray-900 lg:left-auto lg:top-24 lg:h-[550px] lg:w-[450px]",
                 {
-                  "bg-gray-900 !items-end top-[calc(60vh)] transition-all duration-200": currentFeature,
+                  "bg-gray-900 !items-end top-[calc(75vh)] h-[25vh] transition-all duration-200": currentFeature,
                 }
               )}
             >
@@ -118,7 +118,7 @@ export default function Tableros() {
                 src={imageSrc}
                 width={400}
                 height={400}
-                className="h-[280px] w-[280px] object-contain transition duration-[300ms] lg:h-[500px] lg:w-[500px] lg:max-w-md"
+                className="h-[35vh] w-[35vh] pb-6 md:pb-0 md:mt-10 object-contain transition duration-[300ms] lg:h-[500px] lg:w-[500px] lg:max-w-md"
                 style={imageStyles}
               />
             </div>
