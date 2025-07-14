@@ -109,9 +109,9 @@ export default function Tableros() {
           <div className="flex max-w-[1200px] flex-col items-start lg:mt-24 lg:flex-row">
             <div
               className={cs(
-                "z-10 max-w-sd sticky left-[100%] top-[calc(50vh_-_20vh)] grid h-[40vh] w-full items-center justify-items-center overflow-hidden rounded-md md:place-content-center md:bg-gray-900 lg:left-auto lg:top-24 lg:h-[550px] lg:w-[450px]",
+                "z-10 max-w-sd sticky left-[100%] top-[calc(50vh_-_20vh)] grid h-[40vh] w-[calc(100%_-_1rem)] mr-[0.5rem] items-center justify-items-center overflow-hidden rounded-md md:place-content-center md:bg-gray-900 lg:left-auto lg:top-24 lg:h-[550px] lg:w-[450px]",
                 {
-                  "bg-gray-900 !items-end !top-[75dvh] !h-[25dvh] transition-all duration-200": currentFeature,
+                  "bg-gray-900 !items-end !top-[75dvh] !h-[calc(25dvh_-_0.5rem)] lg:!top-24 lg:!h-[550px] lg:!w-[450px] transition-all duration-200": currentFeature,
                 }
               )}
             >
