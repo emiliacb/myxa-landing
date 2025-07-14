@@ -111,7 +111,7 @@ export default function Tableros() {
               className={cs(
                 "z-10 max-w-sd sticky left-[100%] top-[calc(50vh_-_20vh)] grid h-[40vh] w-full items-center justify-items-center overflow-hidden rounded-md md:place-content-center md:bg-gray-900 lg:left-auto lg:top-24 lg:h-[550px] lg:w-[450px]",
                 {
-                  "bg-gray-900 !items-end top-[calc(75vh)] h-[25vh] transition-all duration-200": currentFeature,
+                  "bg-gray-900 !items-end top-[calc(75svh)] h-[25svh] transition-all duration-200": currentFeature,
                 }
               )}
             >
