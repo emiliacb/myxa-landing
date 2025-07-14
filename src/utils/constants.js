@@ -92,7 +92,7 @@ export const DEFAULT_IMAGE_IDX = 2;
 
 export const DEFAULT_FEATURE = {
   image: DEFAULT_IMAGE_IDX,
-  styles: { transform: "scale(1.2) translate(-5%,0)" },
+  styles: { transform: "scale(1.2) translate(0%,0)" },
 };
 
 export const FEATURES_IMAGE_TRANSFORMS = {
@@ -105,7 +105,7 @@ export const FEATURES_IMAGE_TRANSFORMS = {
   "control-versatil": {
     image: 1,
     styles: {
-      transform: "scale(1.4) rotate(1deg) translate(5%, -3%)",
+      transform: "scale(1.4) rotate(1deg) translate(0%, -3%)",
     },
   },
   "monitoreo-intuitivo": {

@@ -13,10 +13,16 @@ import {
   TABLEROS_IMAGES,
 } from "../utils/constants";
 
-export function TableroFeature({ id, title, description, onView }) {
+export function TableroFeature({ id, title, description, onView, currentFeature }) {
   const [featureRef, isFeatureInView] = useSectionInView({
-    offset: ["start 250px", "end 230px"],
+    offset: ["start 280px", "end 230px"],
   });
+
+  const isSelected = currentFeature === id;
+  
+  function handleClick() {
+    onView(id)
+  }
 
   useEffect(() => {
     if (isFeatureInView) onView(id);
@@ -25,11 +31,15 @@ export function TableroFeature({ id, title, description, onView }) {
   return (
     <li
       ref={featureRef}
-      className={cs("rounded-lg px-8 py-6 bg-black text-white transition duration-[300ms]", {
-        "bg-white !text-black": isFeatureInView,
-      })}
+      onClick={handleClick}
+      className={cs(
+        "cursor-pointer rounded-lg px-8 py-6 text-white opacity-25 md:opacity-100 transition duration-[300ms] md:bg-black select-none border border-transparent hover:border-white",
+        {
+          "!bg-white !text-black !opacity-100": isSelected,
+        }
+      )}
     >
-      <p className="text-lg font-bold mb-3">{title}:</p>
+      <p className="mb-3 text-lg font-bold">{title}:</p>
       <p className="font-light">{description}</p>
     </li>
   );
@@ -66,10 +76,10 @@ export default function Tableros() {
         />
       </Head>
       <Navbar isInvert />
-      <main className="flex flex-col items-center justify-center px-4 lg:px-10">
+      <main className="flex flex-col items-center justify-center lg:px-10">
         <section
           id="tableros-detalles"
-          className="relative flex min-h-screen w-screen flex-col items-center justify-center bg-black px-4 py-12 pt-32 text-white"
+          className="relative flex min-h-screen w-screen flex-col items-center justify-center bg-black py-12 pt-32 text-white md:px-4"
         >
           <h1
             className="pt-[1rem] text-center text-4xl lg:text-6xl"
@@ -94,8 +104,15 @@ export default function Tableros() {
               </p>
             </div>
           </div>
-          <div className="flex max-w-[1200px] flex-col items-start gap-12 lg:mt-24 lg:flex-row">
-            <div className="max-w-sd sticky left-[100%] top-[calc(100vh_-_216px)] grid h-[200px] w-full place-content-center overflow-hidden rounded-md bg-gray-800 lg:left-auto lg:top-24 lg:h-[550px] lg:w-[450px] ">
+          <div className="flex max-w-[1200px] flex-col items-start lg:mt-24 lg:flex-row">
+            <div
+              className={cs(
+                "z-10 max-w-sd sticky left-[100%] top-[calc(50vh_-_20vh)] grid h-[40vh] w-full items-center justify-items-center overflow-hidden rounded-md md:place-content-center md:bg-gray-900 lg:left-auto lg:top-24 lg:h-[550px] lg:w-[450px]",
+                {
+                  "bg-gray-900 !items-end top-[calc(60vh)] transition-all duration-200": currentFeature,
+                }
+              )}
+            >
               <Image
                 alt="Picture of the author"
                 src={imageSrc}
@@ -105,8 +122,8 @@ export default function Tableros() {
                 style={imageStyles}
               />
             </div>
-            <div className="max-w-md flex-1 p-4 pt-0">
-              <ul className="mb-[300px] flex list-none flex-col gap-8 lg:mb-[500px]">
+            <div className="sticky max-w-md flex-1 p-4 pt-0">
+              <ul className="mb-[500px] flex list-none flex-col gap-8 lg:mb-[800px]">
                 {TABLERO_FEATURES.map((feature) => (
                   <TableroFeature
                     id={feature.id}
@@ -114,6 +131,7 @@ export default function Tableros() {
                     title={feature.title}
                     description={feature.description}
                     onView={setCurrentFeature}
+                    currentFeature={currentFeature}
                   />
                 ))}
               </ul>
