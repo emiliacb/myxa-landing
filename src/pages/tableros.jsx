@@ -5,6 +5,7 @@ import cs from "classnames";
 
 import Navbar from "../components/navbar";
 import { useSectionInView } from "../hooks/useSectionInView";
+import { useScrollDetection } from "../hooks/useScrollDetection";
 import { isTouchDevice } from "../utils/device";
 import {
   TABLERO_FEATURES,
@@ -22,7 +23,7 @@ export function TableroFeature({
   currentFeature,
 }) {
   const [featureRef, isFeatureInView] = useSectionInView({
-    offset: ["start 280px", "end 230px"],
+    offset: ["start 300px", "end 250px"],
   });
 
   const isSelected = currentFeature === id;
@@ -41,8 +42,9 @@ export function TableroFeature({
       ref={featureRef}
       onClick={handleClick}
       className={cs(
-        "cursor-pointer select-none rounded-lg border border-transparent px-8 py-6 text-white opacity-25 transition duration-[300ms] md:bg-black md:opacity-100 md:hover:border-white",
+        "cursor-pointer select-none rounded-lg border border-transparent px-8 py-6 text-white transition duration-[300ms] md:bg-black md:opacity-100 md:hover:border-white",
         {
+          "opacity-25": !!currentFeature,
           "!bg-white !text-black !opacity-100": isSelected,
         }
       )}
@@ -54,8 +56,15 @@ export function TableroFeature({
 }
 
 export default function Tableros() {
-  const [startSectionRef, isStartSectionInView] = useSectionInView(["start 280px", "end 230px"]);
-  const [endSectionRef, isEndSectionInView] = useSectionInView(["start 280px", "end 230px"]);
+  const [startSectionRef, isStartSectionInView] = useSectionInView([
+    "start 280px",
+    "end 230px",
+  ]);
+  const [endSectionRef, isEndSectionInView] = useSectionInView([
+    "start 280px",
+    "end 230px",
+  ]);
+  const isScrolled = useScrollDetection(1000);
 
   const [currentFeature, setCurrentFeature] = useState(null);
 
@@ -100,7 +109,7 @@ export default function Tableros() {
               <h3 className="mb-4 text-lg font-bold">
                 Diseño y fabricación de tableros
               </h3>
-              <div ref={startSectionRef} className="w-full h-4"></div>
+              <div ref={startSectionRef} className="h-4 w-full"></div>
               <p className="mb-2 max-w-4xl text-justify">
                 En MYXA, diseñamos y fabricamos tableros de control que son el
                 corazón de su sistema contra incendios. Cumpliendo rigurosamente
@@ -116,9 +125,10 @@ export default function Tableros() {
           <div className="flex max-w-[1200px] flex-col items-start lg:mt-24 lg:flex-row">
             <div
               className={cs(
-                "max-w-sd sticky left-[100%] top-[calc(50vh_-_20vh)] z-10 mr-[0.5rem] grid h-[50vh] w-[calc(100%_-_1rem)] items-center justify-items-center overflow-hidden rounded-md md:place-content-center md:bg-gray-900 lg:left-auto lg:top-24 lg:h-[550px] lg:w-[450px]",
+                "max-w-sd left-[100%] top-[calc(50vh_-_20vh)] z-10 mr-[0.5rem] grid h-[50vh] w-[calc(100%_-_1rem)] items-center justify-items-center overflow-hidden rounded-md md:place-content-center md:bg-gray-900 lg:left-auto lg:top-24 lg:h-[550px] lg:w-[450px]",
                 {
-                  "!top-[75dvh] !h-[calc(25dvh_-_0.5rem)] !items-end bg-gray-900 transition-all duration-200 lg:!top-24 lg:!h-[550px] lg:!w-[450px]":
+                  sticky: currentFeature || isScrolled,
+                  "!top-[75dvh] !h-[calc(25dvh_-_0.5rem)] !items-end bg-gray-900 lg:!top-24 lg:!h-[550px] lg:!w-[450px]":
                     currentFeature,
                 }
               )}
@@ -144,7 +154,7 @@ export default function Tableros() {
                     currentFeature={currentFeature}
                   />
                 ))}
-                <div ref={endSectionRef} className="w-full h-4"></div>
+                <div ref={endSectionRef} className="h-4 w-full"></div>
               </ul>
             </div>
           </div>

@@ -15,7 +15,7 @@ export default function Servicios() {
         />
       </Head>
       <Navbar />
-      <main className="flex flex-col items-center justify-center px-4 md:px-10">
+      <main className="flex flex-col items-center justify-center px-4 md:px-10 bg-white">
         <h1 className="pt-[9rem] text-4xl md:text-6xl">Servicios</h1>
         {SERVICIOS.map((servicio) => (
           <section

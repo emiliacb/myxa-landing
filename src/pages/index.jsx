@@ -83,12 +83,12 @@ export default function Home() {
         <meta name="theme-color" content="#000000" />
       </Head>
       <Navbar isInvert={isNavInverted} />
-      <main className="flex flex-col items-center justify-center px-4 md:px-10">
+      <main className="flex flex-col items-center justify-center px-4 md:px-10 bg-white">
         <section
           id="nosotros"
           className="md:py-22 relative flex max-h-[90vh] min-h-[90vh] w-full max-w-[1200px] flex-col items-center justify-center pt-32 lg:min-h-[90vh] lg:flex-row"
         >
-          <div className="left-0 z-20 flex max-w-md flex-col rounded-[30px] bg-white/70 backdrop-blur-sm lg:absolute lg:top-[26vh] lg:mb-0 lg:mr-auto lg:max-w-[40rem] lg:p-8">
+          <div className="left-0 z-20 flex max-w-md flex-col rounded-[30px] bg-white/70 backdrop-blur-sm lg:absolute lg:top-[26vh] lg:mb-0 lg:mr-auto lg:max-w-[40rem] lg:p-8 drop-shadow-md">
             <h1 className="mb-4 text-center md:text-left lg:mb-6">
               <span className="text-xl lg:text-2xl">
                 Tableros y equipos de presurización
