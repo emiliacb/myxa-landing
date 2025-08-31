@@ -26,10 +26,10 @@ export default function Presurizacion() {
             <div className="flex w-full flex-col justify-between md:gap-10 lg:flex-row lg:gap-16">
               <Image
                 alt="Picture of the author"
-                src="/instalaciones_1.jpg"
-                width={380}
+                src="/instalaciones_1.jpeg"
+                width={330}
                 height={250}
-                className="w-1/2 m-auto rounded-lg w-full max-w-md"
+                className="w-1/2 m-auto rounded-lg w-full max-w-lg"
               />
               <div className="flex-1 p-4 md:w-2/3 lg:w-1/2">
                 <h3 className="mb-4 text-lg font-bold">
@@ -41,7 +41,7 @@ export default function Presurizacion() {
                   rapidez y eficacia. Coordinamos visitas técnicas para evaluar
                   el sistema, identificar la causa de la falla y, si es
                   necesario, proporcionar una cotización transparente y justa
-                  para la modificación y/o reparación realizando las siguientes
+                  para la modificación y/o reparación, realizando las siguientes
                   tareas:
                 </p>
                 <ul className="list-disc pl-5 text-justify">
@@ -49,7 +49,7 @@ export default function Presurizacion() {
                     Modificación y armado de colectores de aspiración e
                     impulsión
                   </li>
-                  <li>Reparación de perdidas en cañería</li>
+                  <li>Reparación de pérdidas en cañerías</li>
                   <li>Cambio de válvulas e instrumentos de medición</li>
                   <li>Cambio y reparación de bombas</li>
                 </ul>

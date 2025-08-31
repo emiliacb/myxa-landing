@@ -1,3 +1,5 @@
+import { transform } from "framer-motion";
+
 export const SERVICIOS = [
   {
     id: "instalacion",
@@ -46,13 +48,13 @@ export const TABLERO_FEATURES = [
   },
   {
     id: "control-versatil",
-    title: "Control Versátil",
+    title: "Control",
     description:
       "Llaves selectoras para arranque automático y manual por cada bomba, ofreciendo flexibilidad operativa y control total sobre su sistema.",
   },
   {
-    id: "monitoreo-intuitivo",
-    title: "Monitoreo Intuitivo",
+    id: "senalizacion",
+    title: "Señalización",
     description:
       "Pilotos LED de 220V para indicación de presencia de fases, estado de marcha de bombas y fallas en bomba Jockey, permitiendo una supervisión rápida y eficaz.",
   },
@@ -60,19 +62,19 @@ export const TABLERO_FEATURES = [
     id: "arranque-optimizado",
     title: "Arranque Optimizado",
     description:
-    "Soluciones de arranque directo para bombas de hasta 15HP y arranque estrella-triángulo para potencias superiores, asegurando un funcionamiento eficiente y prolongando la vida útil de sus equipos.",
+      "Soluciones de arranque directo para bombas de hasta 15HP y arranque estrella-triángulo para potencias superiores, asegurando un funcionamiento eficiente y prolongando la vida útil de sus equipos.",
   },
   {
-    id: "conectividad-simplificada",
-    title: "Conectividad Simplificada",
+    id: "conexionado",
+    title: "Conexionado",
     description:
-      "Borneras dedicadas para una conexión rápida y segura de alimentación, señal remota (contacto seco), presostatos y motores, facilitando la instalación y el mantenimiento.",
+      "Borneras para conexión rápida y segura de alimentación al tablero, motores de bombas, presostatos y contacto seco para señal de incendio a distancia.",
   },
   {
     id: "seguridad-electrica-avanzada",
-    title: "Seguridad Eléctrica Avanzada",
+    title: "Protección Eléctrica",
     description:
-      "Incorpora llave seccionadora y fusibles tipo NH para bombas de alta potencia, además de llaves termomagnéticas para protección de bombas de hasta 15HP y circuitos de comando, garantizando la integridad de su instalación.",
+      "Incorpora llave seccionadora y fusibles tipo NH para bombas de alta potencia, además de llaves termomagnéticas para protección de los circuitos de potencia y comando, garantizando la integridad de su instalación.",
   },
   {
     id: "circuito-de-comando-seguro",
@@ -81,10 +83,10 @@ export const TABLERO_FEATURES = [
       "Transformador de 24V para un circuito de comando de baja tensión, minimizando riesgos eléctricos y aumentando la seguridad del personal.",
   },
   {
-    id: "documentacion-completa",
-    title: "Documentación Completa",
+    id: "planos",
+    title: "Planos",
     description:
-      "Incluye planos detallados de cableado y conexionado (físico y digital), asegurando una comprensión clara del sistema y agilizando futuras intervenciones.",
+      "Incluye plano multifilar del cableado y conexionado en formato físico y digital (QR) asegurando una compresión clara del sistema para su instalación y conexionado, mantenimiento y futuras intervenciones.",
   },
 ];
 
@@ -108,10 +110,10 @@ export const FEATURES_IMAGE_TRANSFORMS = {
       transform: "scale(1.4) rotate(1deg) translate(0%, -3%)",
     },
   },
-  "monitoreo-intuitivo": {
-    image: 1,
+  senalizacion: {
+    image: 7,
     styles: {
-      transform: "scale(2.3) rotate(1deg) translate(5%, -10%)",
+      transform: "scale(1.2)",
     },
   },
   "arranque-optimizado": {
@@ -120,35 +122,41 @@ export const FEATURES_IMAGE_TRANSFORMS = {
       transform: "scale(1.8) translate(-21%,2%)",
     },
   },
-  "conectividad-simplificada": {
-    image: 3,
+  conexionado: {
+    image: 6,
     styles: {
       transform: "scale(1.6)",
     },
   },
   "seguridad-electrica-avanzada": {
-    image: 2,
+    image: 5,
     styles: {
-      transform: "scale(2.5) translate(-18%,15%)",
+      transform: "scale(1.1) translateY(-4%)",
     },
   },
   "circuito-de-comando-seguro": {
-    image: 2,
+    image: 4,
     styles: {
-      transform: "scale(2.5) translate(-25%,4%)",
+      objectFit: "cover",
+      transform: "translateY(-5%)",
     },
   },
-  "documentacion-completa": {
-    image: 2,
+  planos: {
+    image: 8,
     styles: {
-      transform: "scale(3) translate(20%,-4%)",
+      transform: "scale(1.2)",
     },
   },
 };
 
-export const TABLEROS_IMAGES = [
-  "/tableros_1.png",
-  "/tableros_4.png",
-  "/tableros_2.png",
-  "/tableros_5.png",
-];
+export const TABLEROS_IMAGES = Object.values({
+  0: "/tableros_1.png",
+  1: "/tableros_4.png",
+  2: "/tableros_2.png",
+  3: "/tableros_5.png",
+  4: "/tableros_6.jpeg",
+  5: "/tableros_7.png",
+  6: "/tableros_8.jpg",
+  7: "/tableros_9.png",
+  8: "/tableros_10.png",
+});

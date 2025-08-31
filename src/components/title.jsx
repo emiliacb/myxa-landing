@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { getClonedElements } from "../utils/title";
+import cl from "classnames";
 
 const _SIZES = {
   xl: "text-5xl md:text-[180px]",
@@ -9,7 +10,7 @@ const _SIZES = {
   sm: "text-2xl md:text-3xl lg:text-4xl",
 };
 
-function Title({ contents, white, scrollRef, size = _SIZES.xl }) {
+function Title({ contents, white, scrollRef, size = _SIZES.xl, className }) {
   const { scrollYProgress } = useScroll({
     target: scrollRef,
     offset: ["start end", "end start"],
@@ -20,7 +21,7 @@ function Title({ contents, white, scrollRef, size = _SIZES.xl }) {
   let contentsElements = getClonedElements(contents);
 
   return (
-    <div className="w-screen overflow-hidden">
+    <div className={cl("w-screen overflow-hidden", className)}>
       <motion.div
         className="flex w-fit items-center justify-start"
         style={{ x }}
