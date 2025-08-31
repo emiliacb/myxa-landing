@@ -176,7 +176,7 @@ export default function Home() {
             <div className="flex flex-col gap-12 lg:flex-row">
               <Image
                 alt="Picture of the author"
-                src="/instalaciones_1.jpg"
+                src="/instalaciones_1.jpeg"
                 height={400}
                 width={400}
                 className="m-auto rounded-lg"
