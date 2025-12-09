@@ -4,6 +4,7 @@ import { Toaster } from "sonner";
 
 import "../styles/globals.css";
 import "@fontsource-variable/plus-jakarta-sans";
+import WhatsappFab from "../components/whatsappFab";
 
 const MyApp = ({ Component, pageProps }) => {
   return (
@@ -19,6 +20,7 @@ const MyApp = ({ Component, pageProps }) => {
         />
       </Head>
       <Toaster richColors />
+      <WhatsappFab />
       <Component {...pageProps} />
     </>
   );
