@@ -42,7 +42,7 @@ export function TableroFeature({
       ref={featureRef}
       onClick={handleClick}
       className={cs(
-        "cursor-pointer select-none rounded-lg border border-transparent px-8 py-6 text-white transition duration-[300ms] md:bg-black md:opacity-100 md:hover:border-white",
+        "cursor-pointer select-none rounded-lg border border-transparent px-8 py-6 text-white transition duration-[300ms] md:bg-black md:opacity-100",
         {
           "opacity-25": !!currentFeature,
           "!bg-white !text-black !opacity-100": isSelected,
@@ -94,6 +94,9 @@ export default function Tableros() {
           name="description"
           content="Detalles técnicos y características de los tableros de control para sistemas contra incendio de MYXA, cumpliendo con NFPA 20 e IRAM 3597."
         />
+        {TABLEROS_IMAGES.map((src) => (
+          <link key={src} rel="preload" as="image" href={src} />
+        ))}
       </Head>
       <Navbar isInvert />
       <main className="flex flex-col items-center justify-center lg:px-10">
