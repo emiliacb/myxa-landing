@@ -131,7 +131,7 @@ export default function Home() {
         <section
           id="tableros"
           ref={tablerosRef}
-          className="relative flex min-h-screen flex-col items-center justify-center bg-black text-white"
+          className="relative flex min-h-screen flex-col items-center justify-center bg-black pb-16 text-white lg:pb-24"
         >
           <Title contents={"Tableros"} size={Title.SIZES.lg} white className="py-16 md:py-24" />
           <div className="w-full max-w-[1200px]">
@@ -169,7 +169,7 @@ export default function Home() {
         </section>
         <section
           id="presurizacion"
-          className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center"
+          className="flex min-h-screen w-full max-w-[1200px] flex-col items-center justify-center pb-16 lg:pb-24"
         >
           <Title contents={"Presurización"} size={Title.SIZES.lg} className="py-16 md:py-24" />
           <Card>
@@ -205,7 +205,7 @@ export default function Home() {
         <section
           id="servicios"
           ref={serviciosRef}
-          className="flex min-h-screen w-screen flex-col items-center justify-center bg-black text-white"
+          className="flex min-h-screen w-screen flex-col items-center justify-center bg-black pb-16 text-white lg:pb-24"
         >
           <Title contents={"Servicios"} size={Title.SIZES.lg} white className="py-16 md:py-24" />
           <div className="grid max-w-[1200px] grid-cols-1 gap-6 px-4 md:grid-cols-2 lg:grid-cols-4">
