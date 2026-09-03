@@ -137,8 +137,8 @@ Para `/tableros` conviene acortar a menos de 65 caracteres si se prioriza que no
 |---|---|
 | `/` | Fabricamos tableros de control para bombas contra incendio según NFPA 20 e IRAM 3597 e instalamos y mantenemos equipos de presurización. José C. Paz, Buenos Aires. (157) |
 | `/tableros` | Tableros de comando para bombas principales y jockey: gabinete IP40, arranque directo hasta 15 HP o estrella-triángulo, comando a 24 V y planos con QR. Pedí tu presupuesto. (158) |
-| `/presurizacion` | Diagnóstico y reparación de equipos de presurización contra incendio: colectores, cañerías, válvulas y bombas. Visita técnica y cotización en menos de 48 horas. (154) |
-| `/servicios` | Instalación, puesta en marcha, capacitación y mantenimiento preventivo de sistemas contra incendio en Buenos Aires y todo el país. Informe certificado de puesta en marcha. (156) |
+| `/presurizacion` | Diagnóstico y reparación de equipos de presurización contra incendio: colectores, cañerías, válvulas y bombas. Visita técnica y cotización transparente. (152) |
+| `/servicios` | Instalación, puesta en marcha, capacitación y mantenimiento de sistemas contra incendio, con informe detallado de puesta en marcha. José C. Paz, Buenos Aires. (158) |
 | `/contacto` | Consultas y presupuestos de tableros y equipos contra incendio. WhatsApp +54 9 11 5815-1959, info@myxa.com.ar. Respondemos en menos de 48 horas. (145) |
 
 ### 5.3 Encabezados
@@ -209,8 +209,8 @@ Los nueve métodos del estudio de Princeton sobre optimización para motores gen
 | Método | Mejora de visibilidad estimada | Estado en MYXA | Acción |
 |---|---|---|---|
 | Citar fuentes | +40 % | Menciona NFPA 20 e IRAM 3597 sin explicarlas ni enlazarlas | Explicar cada norma en una oración y enlazar a NFPA e IRAM |
-| Agregar estadísticas | +37 % | Hay datos técnicos (IP40, 15 HP, 24 V, 220 V) pero ninguna cifra de negocio visible | Años de trayectoria, tableros entregados, tiempo de respuesta, garantía |
-| Citas de expertos | +30 % | Ninguna | Testimonios con nombre, cargo y empresa; cita del responsable técnico |
+| Agregar estadísticas | +37 % | Hay datos técnicos (IP40, 15 HP, 24 V, 220 V) pero ninguna cifra de negocio visible | Solo cifras reales confirmadas por MYXA (por ejemplo años de trayectoria o tableros entregados, si están documentados); no publicar estimaciones |
+| Citas de expertos | +30 % | Ninguna | Testimonios reales y autorizados por escrito (nombre, cargo y empresa); si no los hay, omitir |
 | Tono autoritativo | +25 % | Correcto en `/tableros`, genérico en el resto | Reescribir `/servicios` y `/presurizacion` con procesos, plazos y entregables |
 | Fácil de entender | +20 % | Párrafos largos justificados | Párrafos de 2 a 3 oraciones, definiciones, listas |
 | Términos técnicos | +18 % | Bien en `/tableros` | Mantener y extender a presurización (bomba jockey, presostato, colector) |
@@ -390,7 +390,7 @@ Cada ítem indica el impacto esperado, el esfuerzo y el archivo del repositorio 
 | 11 | Convertir y redimensionar imágenes (WebP/AVIF, máximo 1200 px, menos de 200 KB) | Alto | Medio | `public/` |
 | 12 | JSON-LD `Organization`+`LocalBusiness`, `WebSite`, `BreadcrumbList` en todas; `Product` en `/tableros`; `Service` en `/servicios` y `/presurizacion` | Alto | Medio | `src/components/seo.jsx`, `src/utils/schema.js` |
 | 13 | Página de preguntas frecuentes con `FAQPage` (10 preguntas, respuesta primero) | Alto (GEO) | Medio | nuevo `src/pages/preguntas-frecuentes.jsx` |
-| 14 | Página "Nosotros": historia, planta en José C. Paz, equipo, normas, cifras (años, tableros entregados) | Alto (E-E-A-T) | Medio | nuevo `src/pages/nosotros.jsx` |
+| 14 | Página "Nosotros": historia, planta en José C. Paz, equipo, normas, cifras solo si están confirmadas | Alto (E-E-A-T) | Medio | nuevo `src/pages/nosotros.jsx` |
 | 15 | Ampliar `/tableros` (tabla de especificaciones, modelos por cantidad de bombas, ficha técnica PDF) y `/presurizacion` (proceso, plazos, fotos con epígrafe) | Alto | Medio | `tableros.jsx`, `presurizacion.jsx`, `public/fichas/` |
 | 16 | Crear y verificar Google Business Profile; consistencia NAP; alta en directorios industriales | Alto (local) | Bajo | Externo |
 | 17 | Encabezados: marquesina `aria-hidden`, un H2 real por sección, H3 en las características | Medio | Bajo | `title.jsx`, `index.jsx`, `tableros.jsx` |
@@ -403,7 +403,7 @@ Cada ítem indica el impacto esperado, el esfuerzo y el archivo del repositorio 
 | # | Acción | Impacto | Esfuerzo | Dónde |
 |---|---|---|---|---|
 | 21 | Blog o sección de recursos técnicos: un artículo mensual (NFPA 20 explicada, IRAM 3597, mantenimiento de bombas, bomba jockey) con `Article` y autor | Alto (cola larga y GEO) | Alto | nuevo `src/pages/recursos/` |
-| 22 | Casos de obra y testimonios con nombre, cargo y empresa | Medio | Medio | `nosotros.jsx`, home |
+| 22 | Casos de obra y testimonios reales, con autorización escrita del cliente | Medio | Medio | `nosotros.jsx`, home |
 | 23 | LinkedIn activo: dos publicaciones al mes enlazando al sitio; invitar clientes a seguir la página | Medio | Medio | Externo |
 | 24 | Endurecer `/api/send`: POST con cuerpo JSON, validación, honeypot o Turnstile, límite por IP | Seguridad | Bajo | `src/pages/api/send.js` |
 | 25 | Reducir JavaScript: marquesina y bottom sheet con CSS en lugar de framer-motion | Bajo | Medio | `title.jsx`, `bottomsheet.jsx` |
@@ -673,33 +673,25 @@ No incluir `offers` sin precio: Google lo marca como error en la prueba de resul
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "¿Qué componentes tiene un tablero de comando MYXA para bombas contra incendio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gabinete metálico IP40 en rojo bermellón; llaves selectoras de arranque automático y manual por cada bomba; pilotos LED de 220 V para presencia de fases, marcha de bombas y falla de bomba jockey; arranque directo para bombas de hasta 15 HP y estrella-triángulo para potencias superiores; borneras para alimentación, motores, presostatos y contacto seco de señal de incendio; llave seccionadora y fusibles NH; llaves termomagnéticas; transformador de 24 V para el circuito de comando; plano multifilar en formato físico y digital (QR)."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "¿Qué es un tablero NFPA 20?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Es el tablero de comando de las bombas de un sistema contra incendio construido según la norma NFPA 20 (Standard for the Installation of Stationary Pumps for Fire Protection). Debe arrancar la bomba en forma automática ante una caída de presión, permitir el arranque manual, señalizar el estado y proteger los circuitos de potencia y comando."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué es una bomba jockey y por qué es necesaria?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La bomba jockey es una bomba pequeña que mantiene presurizada la red contra incendio y compensa pérdidas menores, para que la bomba principal solo arranque ante una demanda real. Su tablero incluye presostato, arranque automático y señalización de falla."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cada cuánto se debe hacer mantenimiento a una bomba contra incendio?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "NFPA 25 recomienda una prueba de arranque semanal para bombas diésel y mensual para eléctricas, además de una prueba anual de caudal. MYXA ofrece planes de mantenimiento preventivo con informe de cada visita."
+        "text": "[Respuesta redactada y validada por el equipo técnico de MYXA]"
       }
     }
   ]
 }
 ```
 
-Las respuestas deben coincidir palabra por palabra con el texto visible en la página.
+La primera respuesta está armada únicamente con las características que hoy publica `/tableros`. Las demás debe redactarlas o validarlas el equipo técnico de MYXA, sin citar detalles de normas (NFPA 20, NFPA 25, IRAM 3597) que no se hayan verificado en el texto de la norma. Las respuestas deben coincidir palabra por palabra con el texto visible en la página.
 
 ### A.7 `_app.jsx`: PostHog fuera de `<Head>`
 
