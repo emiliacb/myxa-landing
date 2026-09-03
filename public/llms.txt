@@ -1,0 +1,17 @@
+# MYXA
+
+> Fabricante de tableros de control para bombas contra incendio e instalador de equipos de presurización, en Buenos Aires, Argentina.
+
+MYXA diseña y fabrica tableros de control para bombas contra incendio según las normas NFPA 20 e IRAM 3597, e instala, pone en marcha y mantiene equipos de presurización contra incendio.
+
+## Páginas
+
+- [Inicio](https://www.myxa.com.ar/): presentación de MYXA, tableros y equipos de presurización.
+- [Tableros](https://www.myxa.com.ar/tableros): especificaciones técnicas de los tableros de control (gabinete metálico IP40, arranque directo hasta 15 HP o estrella-triángulo, circuito de comando a 24 V, planos multifilares con QR).
+- [Presurización](https://www.myxa.com.ar/presurizacion): diagnóstico y reparación de equipos de presurización contra incendio (colectores, cañerías, válvulas y bombas).
+- [Servicios](https://www.myxa.com.ar/servicios): instalación, capacitación, puesta en marcha y mantenimiento de sistemas contra incendio.
+- [Contacto](https://www.myxa.com.ar/contacto): WhatsApp +54 9 11 5815-1959, info@myxa.com.ar. MYXA se comunica en menos de 48 horas con quien deja su número.
+
+## Contacto
+
+Dr. Enrique Finochietto 5345, José C. Paz, Buenos Aires, Argentina.

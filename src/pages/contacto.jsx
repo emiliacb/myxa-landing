@@ -1,7 +1,9 @@
-import Head from "next/head";
 import Navbar from "../components/navbar";
+import Footer from "../components/footer";
+import Seo from "../components/seo";
 import { useState } from "react";
 import { toast } from "sonner";
+import { trackEvent } from "../utils/analytics";
 
 export default function Contacto() {
   const [isLoading, setIsLoading] = useState(false);
@@ -39,6 +41,7 @@ export default function Contacto() {
       success: () => {
         setInputNumber("");
         setInputName("");
+        trackEvent("contacto_enviado");
         return "Gracias!";
       },
       error: "Hubo un error!",
@@ -52,13 +55,11 @@ export default function Contacto() {
 
   return (
     <>
-      <Head>
-        <title>MYXA - Contacto</title>
-        <meta
-          name="description"
-          content="Contáctenos para consultas y presupuestos sobre sistemas contra incendio."
-        />
-      </Head>
+      <Seo
+        title="Contacto y presupuestos · MYXA, Buenos Aires"
+        description="Consultas y presupuestos de tableros y equipos contra incendio. WhatsApp +54 9 11 5815-1959, info@myxa.com.ar. Nos comunicamos en menos de 48 horas."
+        path="/contacto"
+      />
       <Navbar isInvert />
       <main className="flex flex-col items-center justify-center px-4 md:px-10">
         <section
@@ -88,6 +89,9 @@ export default function Contacto() {
                       target="_blank"
                       rel="noopener noreferrer"
                       href="https://wa.me/+5491158151959"
+                      onClick={() =>
+                        trackEvent("whatsapp_click", { source: "contacto" })
+                      }
                     >
                       +54 9 11 5815-1959
                     </a>
@@ -151,55 +155,7 @@ export default function Contacto() {
           </div>
         </section>
       </main>
-      <footer className="w-full bg-black px-4 py-8 text-neutral-100">
-        <div className="m-auto flex max-w-[1200px] flex-col items-center justify-between text-sm md:flex-row">
-          <div className="flex w-full flex-col justify-between gap-4 md:flex-row md:items-center  ">
-            <nav className="mb-4 md:mb-0">
-              <ul className="flex flex-row flex-wrap justify-center gap-4 md:items-center md:space-x-4">
-                <li>
-                  <a href="/#nosotros" className="hover:underline">
-                    Nosotros
-                  </a>
-                </li>
-                <li>
-                  <a href="/#tableros" className="hover:underline">
-                    Tableros
-                  </a>
-                </li>
-                <li>
-                  <a href="/#instalacion" className="hover:underline">
-                    Instalación
-                  </a>
-                </li>
-                <li>
-                  <a href="/#mantenimiento" className="hover:underline">
-                    Mantenimiento
-                  </a>
-                </li>
-                <li>
-                  <a href="/#reparacion" className="hover:underline">
-                    Reparación
-                  </a>
-                </li>
-                <li>
-                  <a href="/#contacto" className="hover:underline">
-                    Contacto
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <div className="mb-4 text-center text-xs md:mb-0 md:ml-8 md:text-left">
-              <p>
-                © {new Date().getFullYear()} MYXA - Todos los derechos
-                reservados.
-              </p>
-              <p className="mt-2">
-                Dr. Enrique Finochietto 5345, José C. Paz, Buenos Aires
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

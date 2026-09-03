@@ -1,9 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
-import Head from "next/head";
 import Image from "next/image";
 import { toast } from "sonner";
 
 import Navbar from "../components/navbar";
+import Footer from "../components/footer";
+import Seo from "../components/seo";
 import Card from "../components/card";
 import Title from "../components/title";
 
@@ -11,6 +12,18 @@ import Link from "next/link";
 
 import { useSectionInView } from "../hooks/useSectionInView";
 import { SERVICIOS } from "../utils/constants";
+
+const ORGANIZATION_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  url: "https://www.myxa.com.ar/",
+  name: "MYXA",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+54-9-11-5815-1959",
+    contactType: "customer service",
+  },
+};
 
 export default function Home() {
   const [tablerosRef, tablerosInView] = useSectionInView();
@@ -20,65 +33,12 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>MYXA - Sistemas contra incendio</title>
-        <meta
-          name="description"
-          content="MYXA: Expertos en sistemas contra incendio con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de sistemas y tableros de control contra incendios conforme a normas NFPA 20 e IRAM 3597."
-        />
-        <meta
-          name="description"
-          content="MYXA: Expertos en sistemas contra incendio con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de sistemas y tableros de control contra incendios conforme a normas NFPA 20 e IRAM 3597."
-        />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="canonical" href="https://www.myxa.com.ar" />
-
-        {/* Schema Markup */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            url: "http://www.myxa.com.ar",
-            name: "MYXA - Sistemas contra incendio",
-            contactPoint: {
-              "@type": "ContactPoint",
-              telephone: "+54-9-11-5815-1959",
-              contactType: "customer service",
-            },
-          })}
-        </script>
-
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.myxa.com.ar/" />
-        <meta
-          property="og:description"
-          content="MYXA: Expertos en sistemas contra incendio con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de sistemas y tableros de control contra incendios conforme a normas NFPA 20 e IRAM 3597."
-        />
-        <meta
-          name="description"
-          content="MYXA: Expertos en sistemas contra incendio con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de sistemas y tableros de control contra incendios conforme a normas NFPA 20 e IRAM 3597."
-        />
-        <meta property="og:image" content="https://www.myxa.com.ar/logo.jpeg" />
-
-        {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://www.myxa.com.ar/" />
-        <meta
-          property="twitter:title"
-          content="MYXA - Sistemas contra incendio"
-        />
-        <meta
-          property="twitter:description"
-          content="MYXA: Expertos en sistemas contra incendio con más de 20 años de experiencia. Ofrecemos diseño, instalación y mantenimiento de sistemas y tableros de control contra incendios conforme a normas NFPA 20 e IRAM 3597."
-        />
-        <meta
-          property="twitter:image"
-          content="https://www.myxa.com.ar/logo.jpeg"
-        />
-        <meta name="theme-color" content="#000000" />
-      </Head>
+      <Seo
+        title="Tableros para bombas contra incendio NFPA 20 · MYXA Argentina"
+        description="Fabricamos tableros de control para bombas contra incendio según NFPA 20 e IRAM 3597 e instalamos y mantenemos equipos de presurización. Buenos Aires."
+        path="/"
+        jsonLd={ORGANIZATION_JSON_LD}
+      />
       <Navbar isInvert={isNavInverted} />
       <main className="flex flex-col items-center justify-center bg-white px-4 md:px-10">
         <section
@@ -121,9 +81,11 @@ export default function Home() {
           <div className="relative z-10 -mb-12 -ml-8 -mr-8 flex h-[60vh] min-w-[calc(100%+32px)] items-center justify-center overflow-hidden md:-ml-6 md:-mr-10 lg:h-[100vh] lg:justify-end">
             <Image
               src="/hero.webp"
-              alt="Hero"
+              alt="Tablero de control MYXA para bombas de sistema contra incendio, gabinete rojo bermellón"
               width={1200}
               height={600}
+              priority
+              sizes="(max-width: 1024px) 100vw, 900px"
               className="lg:max-w-auto absolute m-auto max-h-[400px] min-w-[300px] max-w-[750px] object-contain pl-[5%] lg:-mr-8 lg:-mt-10 lg:ml-auto lg:max-h-[2000px] lg:max-w-[900px]"
             />
           </div>
@@ -138,7 +100,7 @@ export default function Home() {
             <Card isInvert>
               <div className="flex flex-col-reverse items-center gap-12 lg:flex-row">
                 <Image
-                  alt="Picture of the author"
+                  alt="Tablero de comando MYXA para bomba contra incendio, vista frontal con pilotos LED"
                   src="/tableros_1.png"
                   className="rounded-md bg-[rgba(100,100,100,0.25)] p-4"
                   height={400}
@@ -175,7 +137,7 @@ export default function Home() {
           <Card>
             <div className="flex flex-col gap-12 lg:flex-row">
               <Image
-                alt="Picture of the author"
+                alt="Equipo de presurización contra incendio: bombas, colector y válvulas"
                 src="/instalaciones_1.jpeg"
                 height={400}
                 width={500}
@@ -226,50 +188,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="w-full bg-black px-4 py-8 text-neutral-100">
-        <div className="m-auto flex max-w-[1200px] flex-col items-center justify-between text-sm md:flex-row">
-          <div className="flex w-full flex-col justify-between gap-4 md:flex-row md:items-center  ">
-            <nav className="mb-4 md:mb-0">
-              <ul className="flex flex-row flex-wrap justify-center gap-4 md:items-center md:space-x-4">
-                <li>
-                  <a href="/#nosotros" className="hover:underline">
-                    Nosotros
-                  </a>
-                </li>
-                <li>
-                  <a href="/tableros" className="hover:underline">
-                    Tableros
-                  </a>
-                </li>
-                <li>
-                  <a href="/presurizacion" className="hover:underline">
-                    Presurización
-                  </a>
-                </li>
-                <li>
-                  <a href="/servicios" className="hover:underline">
-                    Servicios
-                  </a>
-                </li>
-                <li>
-                  <a href="/contacto" className="hover:underline">
-                    Contacto
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <div className="mb-4 text-center text-xs md:mb-0 md:ml-8 md:text-left">
-              <p>
-                © {new Date().getFullYear()} MYXA - Todos los derechos
-                reservados.
-              </p>
-              <p className="mt-2">
-                Dr. Enrique Finochietto 5345, José C. Paz, Buenos Aires
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

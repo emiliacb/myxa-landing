@@ -95,6 +95,7 @@ export const DEFAULT_IMAGE_IDX = 2;
 export const DEFAULT_FEATURE = {
   image: DEFAULT_IMAGE_IDX,
   styles: { transform: "scale(1.2) translate(0%,0)" },
+  imageAlt: "Tablero de comando MYXA con arranque directo y estrella-triángulo",
 };
 
 export const FEATURES_IMAGE_TRANSFORMS = {
@@ -103,36 +104,45 @@ export const FEATURES_IMAGE_TRANSFORMS = {
     styles: {
       transform: "translate(0,-5%)",
     },
+    imageAlt:
+      "Tablero de comando MYXA con gabinete metálico IP40 en rojo bermellón",
   },
   "control-versatil": {
     image: 1,
     styles: {
       transform: "scale(1.4) rotate(1deg) translate(0%, -3%)",
     },
+    imageAlt:
+      "Llaves selectoras de arranque automático y manual en el tablero MYXA",
   },
   senalizacion: {
     image: 7,
     styles: {
       transform: "scale(1.2)",
     },
+    imageAlt: "Pilotos LED de señalización en el tablero de comando MYXA",
   },
   "arranque-optimizado": {
     image: 2,
     styles: {
       transform: "scale(1.8) translate(-21%,2%)",
     },
+    imageAlt:
+      "Tablero de comando MYXA con arranque directo y estrella-triángulo",
   },
   conexionado: {
     image: 6,
     styles: {
       transform: "scale(1.6)",
     },
+    imageAlt: "Borneras de conexionado del tablero de comando MYXA",
   },
   "seguridad-electrica-avanzada": {
     image: 5,
     styles: {
       transform: "scale(1.1) translateY(-4%)",
     },
+    imageAlt: "Interior del tablero: llave seccionadora y fusibles NH",
   },
   "circuito-de-comando-seguro": {
     image: 4,
@@ -140,12 +150,15 @@ export const FEATURES_IMAGE_TRANSFORMS = {
       objectFit: "cover",
       transform: "translateY(-5%)",
     },
+    imageAlt:
+      "Transformador de 24V del circuito de comando del tablero MYXA",
   },
   planos: {
     image: 8,
     styles: {
       transform: "scale(1.2)",
     },
+    imageAlt: "Plano multifilar de cableado del tablero de comando MYXA",
   },
 };
 
