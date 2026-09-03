@@ -4,6 +4,21 @@ import Seo from "../components/seo";
 import { useState } from "react";
 import { toast } from "sonner";
 import { trackEvent } from "../utils/analytics";
+import {
+  buildGraph,
+  buildBreadcrumbList,
+  getOrganization,
+  getWebsite,
+} from "../utils/schema";
+
+const CONTACTO_JSON_LD = buildGraph([
+  getOrganization(),
+  getWebsite(),
+  buildBreadcrumbList([
+    { name: "Inicio", path: "/" },
+    { name: "Contacto", path: "/contacto" },
+  ]),
+]);
 
 export default function Contacto() {
   const [isLoading, setIsLoading] = useState(false);
@@ -11,12 +26,14 @@ export default function Contacto() {
   // TODO - Adhoc solution - Refactor inputs into a single state
   const [inputName, setInputName] = useState("");
   const [inputNumber, setInputNumber] = useState("");
+  const [inputWebsite, setInputWebsite] = useState("");
 
   function handleInput(e) {
     const { value, name } = e.target;
 
     const contactNumber = "contact-number";
     const contactName = "contact-name";
+    const contactWebsite = "contact-website";
 
     if (name == contactNumber && /^[0-9+-\s]*$/.test(value)) {
       setInputNumber(value);
@@ -25,6 +42,10 @@ export default function Contacto() {
     if (name == contactName) {
       setInputName(value);
     }
+
+    if (name == contactWebsite) {
+      setInputWebsite(value);
+    }
   }
 
   async function handleSubmit(e) {
@@ -32,10 +53,18 @@ export default function Contacto() {
     if (isLoading || (!inputName && !inputNumber)) return;
 
     setIsLoading(true);
-    const fetchPromise = fetch(
-      `/api/send?name=${inputName}&phone=${inputNumber}&date=${new Date().toLocaleString()}`,
-      { method: "POST" }
-    );
+    const fetchPromise = fetch("/api/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: inputName,
+        phone: inputNumber,
+        website: inputWebsite,
+      }),
+    }).then((response) => {
+      if (!response.ok) throw response;
+      return response;
+    });
     toast.promise(fetchPromise, {
       loading: "Enviando...",
       success: () => {
@@ -59,6 +88,8 @@ export default function Contacto() {
         title="Contacto y presupuestos · MYXA, Buenos Aires"
         description="Consultas y presupuestos de tableros y equipos contra incendio. WhatsApp +54 9 11 5815-1959, info@myxa.com.ar. Nos comunicamos en menos de 48 horas."
         path="/contacto"
+        image="https://www.myxa.com.ar/og/contacto.jpg"
+        jsonLd={CONTACTO_JSON_LD}
       />
       <Navbar isInvert />
       <main className="flex flex-col items-center justify-center px-4 md:px-10">
@@ -70,7 +101,7 @@ export default function Contacto() {
           <div className="mt-8 w-full max-w-[1200px] items-center px-4 md:px-10 lg:mt-20">
             <div className="flex w-full flex-col justify-between md:gap-10 lg:flex-row lg:gap-16">
               <div className="max-w-2xl flex-1 p-4">
-                <h3 className="mb-4 text-xl font-extrabold">Consultas</h3>
+                <h2 className="mb-4 text-xl font-extrabold">Consultas</h2>
                 <p className="mb-6 md:text-justify">
                   En <span className="text-red-500">MYXA</span>, estamos
                   dedicados a proteger lo que más importa: su tranquilidad, su
@@ -119,7 +150,7 @@ export default function Contacto() {
                 </ul>
               </div>
               <div className="flex-1 p-4">
-                <h3 className="mb-4 text-lg">...O déjenos su número</h3>
+                <h2 className="mb-4 text-lg">...O déjenos su número</h2>
 
                 <p className="mb-6 md:text-justify">
                   Y nos comunicamos con usted en menos de 48 horas.
@@ -128,6 +159,15 @@ export default function Contacto() {
                   onSubmit={handleSubmit}
                   className="m-auto flex flex-col items-end justify-start gap-4 md:flex-row"
                 >
+                  <input
+                    value={inputWebsite}
+                    name="contact-website"
+                    onInput={handleInput}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    className="absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0"
+                  ></input>
                   <input
                     value={inputName}
                     placeholder="Nombre"

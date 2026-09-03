@@ -4,6 +4,23 @@ import Seo from "../components/seo";
 import { SERVICIOS } from "../utils/constants";
 import Image from "next/image";
 import Card from "../components/card";
+import {
+  buildGraph,
+  buildBreadcrumbList,
+  getOrganization,
+  getWebsite,
+  getServiciosServices,
+} from "../utils/schema";
+
+const SERVICIOS_JSON_LD = buildGraph([
+  getOrganization(),
+  getWebsite(),
+  buildBreadcrumbList([
+    { name: "Inicio", path: "/" },
+    { name: "Servicios", path: "/servicios" },
+  ]),
+  ...getServiciosServices(),
+]);
 
 export default function Servicios() {
   return (
@@ -12,6 +29,8 @@ export default function Servicios() {
         title="Instalación y mantenimiento de sistemas contra incendio · MYXA"
         description="Instalación, puesta en marcha, capacitación y mantenimiento de sistemas contra incendio, con informe detallado de puesta en marcha. Buenos Aires."
         path="/servicios"
+        image="https://www.myxa.com.ar/og/servicios.jpg"
+        jsonLd={SERVICIOS_JSON_LD}
       />
       <Navbar />
       <main className="flex flex-col items-center justify-center px-4 md:px-10 bg-white">
@@ -26,9 +45,9 @@ export default function Servicios() {
               <div className="items-center">
                 <div className="flex w-full flex-col justify-between md:gap-10 lg:flex-row lg:gap-16">
                   <div className="flex-1 p-4 md:w-2/3">
-                    <h3 className="mb-4 text-2xl font-bold">
+                    <h2 className="mb-4 text-2xl font-bold">
                       {servicio.title}
-                    </h3>
+                    </h2>
                     <p className="text-justify text-lg">
                       {servicio.full_description}
                     </p>

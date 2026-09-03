@@ -15,6 +15,23 @@ import {
   FEATURES_IMAGE_TRANSFORMS,
   TABLEROS_IMAGES,
 } from "../utils/constants";
+import {
+  buildGraph,
+  buildBreadcrumbList,
+  getOrganization,
+  getWebsite,
+  getTablerosProduct,
+} from "../utils/schema";
+
+const TABLEROS_JSON_LD = buildGraph([
+  getOrganization(),
+  getWebsite(),
+  buildBreadcrumbList([
+    { name: "Inicio", path: "/" },
+    { name: "Tableros", path: "/tableros" },
+  ]),
+  getTablerosProduct(),
+]);
 
 export function TableroFeature({
   id,
@@ -50,7 +67,7 @@ export function TableroFeature({
         }
       )}
     >
-      <p className="mb-3 text-lg font-bold">{title}:</p>
+      <h3 className="mb-3 text-lg font-bold">{title}:</h3>
       <p className="font-light">{description}</p>
     </li>
   );
@@ -101,6 +118,8 @@ export default function Tableros() {
         title="Tableros de comando para bombas contra incendio · NFPA 20 e IRAM 3597 · MYXA"
         description="Tableros de comando para bombas principales y jockey: gabinete IP40, arranque directo hasta 15 HP o estrella-triángulo, comando a 24 V y planos con QR."
         path="/tableros"
+        image="https://www.myxa.com.ar/og/tableros.jpg"
+        jsonLd={TABLEROS_JSON_LD}
       />
       <Navbar isInvert />
       <main className="flex flex-col items-center justify-center lg:px-10">
@@ -113,9 +132,9 @@ export default function Tableros() {
           </h1>
           <div className="mt-24 flex max-w-[1200px] flex-col items-center gap-12 lg:flex-row">
             <div className="flex-1 p-4 lg:w-1/2 lg:w-2/3">
-              <h3 className="mb-4 text-lg font-bold">
+              <h2 className="mb-4 text-lg font-bold">
                 Diseño y fabricación de tableros
-              </h3>
+              </h2>
               <div ref={startSectionRef} className="h-4 w-full"></div>
               <p className="mb-2 max-w-4xl text-justify">
                 En MYXA, diseñamos y fabricamos tableros de control que son el
@@ -150,6 +169,9 @@ export default function Tableros() {
               />
             </div>
             <div className="sticky max-w-md flex-1 p-4 pt-0">
+              <h2 className="mb-6 text-xl font-bold text-white">
+                Características técnicas
+              </h2>
               <ul className="mb-[500px] flex list-none flex-col gap-8 lg:mb-[800px]">
                 {TABLERO_FEATURES.map((feature) => (
                   <TableroFeature

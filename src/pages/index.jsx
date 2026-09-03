@@ -12,18 +12,9 @@ import Link from "next/link";
 
 import { useSectionInView } from "../hooks/useSectionInView";
 import { SERVICIOS } from "../utils/constants";
+import { buildGraph, getOrganization, getWebsite } from "../utils/schema";
 
-const ORGANIZATION_JSON_LD = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  url: "https://www.myxa.com.ar/",
-  name: "MYXA",
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+54-9-11-5815-1959",
-    contactType: "customer service",
-  },
-};
+const HOME_JSON_LD = buildGraph([getOrganization(), getWebsite()]);
 
 export default function Home() {
   const [tablerosRef, tablerosInView] = useSectionInView();
@@ -37,7 +28,7 @@ export default function Home() {
         title="Tableros para bombas contra incendio NFPA 20 · MYXA Argentina"
         description="Fabricamos tableros de control para bombas contra incendio según NFPA 20 e IRAM 3597 e instalamos y mantenemos equipos de presurización. Buenos Aires."
         path="/"
-        jsonLd={ORGANIZATION_JSON_LD}
+        jsonLd={HOME_JSON_LD}
       />
       <Navbar isInvert={isNavInverted} />
       <main className="flex flex-col items-center justify-center bg-white px-4 md:px-10">
@@ -101,7 +92,7 @@ export default function Home() {
               <div className="flex flex-col-reverse items-center gap-12 lg:flex-row">
                 <Image
                   alt="Tablero de comando MYXA para bomba contra incendio, vista frontal con pilotos LED"
-                  src="/tableros_1.png"
+                  src="/tableros_1.webp"
                   className="rounded-md bg-[rgba(100,100,100,0.25)] p-4"
                   height={400}
                   width={400}
@@ -138,7 +129,7 @@ export default function Home() {
             <div className="flex flex-col gap-12 lg:flex-row">
               <Image
                 alt="Equipo de presurización contra incendio: bombas, colector y válvulas"
-                src="/instalaciones_1.jpeg"
+                src="/instalaciones_1.webp"
                 height={400}
                 width={500}
                 className="m-auto rounded-lg"
