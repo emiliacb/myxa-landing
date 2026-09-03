@@ -5,6 +5,7 @@ import Footer from "../components/footer";
 import Seo from "../components/seo";
 import Card from "../components/card";
 import Title from "../components/title";
+import HeroVideo from "../components/heroVideo";
 
 import Link from "next/link";
 
@@ -68,13 +69,8 @@ export default function Home() {
             </div>
           </div>
           <div className="relative z-10 -mb-12 -ml-8 -mr-8 flex h-[60vh] min-w-[calc(100%+32px)] items-center justify-center overflow-hidden md:-ml-6 md:-mr-10 lg:h-[100vh] lg:justify-end">
-            <Image
-              src="/hero.webp"
-              alt="Tablero de control MYXA para bombas de sistema contra incendio, gabinete rojo bermellón"
-              width={1200}
-              height={600}
-              priority
-              sizes="(max-width: 1024px) 100vw, 900px"
+            <HeroVideo
+              alt="Tablero de control MYXA para bombas de sistema contra incendio, gabinete rojo bermellón, rotando 360 grados"
               className="lg:max-w-auto absolute m-auto max-h-[400px] min-w-[300px] max-w-[750px] object-contain pl-[5%] lg:-mr-8 lg:-mt-10 lg:ml-auto lg:max-h-[2000px] lg:max-w-[900px]"
             />
           </div>
