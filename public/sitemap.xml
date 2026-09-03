@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
    <url>
-      <loc>http://www.myxa.com.ar</loc>
-      <lastmod>2025-07-10</lastmod>
-   </url>
-   <url>
-      <loc>http://www.myxa.com.ar/servicios</loc>
-      <lastmod>2025-07-10</lastmod>
-   </url>
-   <url>
-      <loc>http://www.myxa.com.ar/tableros</loc>
-      <lastmod>2025-07-10</lastmod>
+      <loc>https://www.myxa.com.ar/</loc>
+      <lastmod>2026-07-14</lastmod>
       <priority>1.0</priority>
+   </url>
+   <url>
+      <loc>https://www.myxa.com.ar/tableros</loc>
+      <lastmod>2026-07-14</lastmod>
+      <priority>0.9</priority>
       <image:image>
-         <image:loc>http://www.myxa.com.ar/tablero-1.png</image:loc>
-         <image:title>Tablero de comando - Bomba individual</image:title>
+         <image:loc>https://www.myxa.com.ar/tableros_1.png</image:loc>
+         <image:title>Tablero de comando MYXA para bomba contra incendio, vista frontal con pilotos LED</image:title>
       </image:image>
       <image:image>
-         <image:loc>http://www.myxa.com.ar/tablero-2.jpg</image:loc>
-         <image:title>Tablero de comando - Equipo de tres bombas</image:title>
+         <image:loc>https://www.myxa.com.ar/tableros_2.png</image:loc>
+         <image:title>Tablero de comando MYXA con arranque directo y estrella-triángulo</image:title>
       </image:image>
    </url>
    <url>
-      <loc>http://www.myxa.com.ar/presurizacion</loc>
-      <lastmod>2025-07-10</lastmod>
+      <loc>https://www.myxa.com.ar/presurizacion</loc>
+      <lastmod>2025-08-31</lastmod>
+      <priority>0.8</priority>
    </url>
    <url>
-      <loc>http://www.myxa.com.ar/contacto</loc>
+      <loc>https://www.myxa.com.ar/servicios</loc>
+      <lastmod>2025-07-14</lastmod>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://www.myxa.com.ar/contacto</loc>
       <lastmod>2025-07-10</lastmod>
+      <priority>0.7</priority>
    </url>
 </urlset>
