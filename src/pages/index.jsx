@@ -1,6 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { toast } from "sonner";
 
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";

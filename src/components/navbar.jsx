@@ -20,6 +20,7 @@ export default function Navbar({ isInvert }) {
 
   return (
     <nav
+      aria-label="Principal"
       className={`fixed top-0 z-40 w-full px-4 py-3 transition-all duration-100 md:px-10 ${
         isInvert ? "bg-black text-white" : "bg-white text-black"
       }`}

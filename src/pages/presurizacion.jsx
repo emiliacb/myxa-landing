@@ -1,7 +1,6 @@
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Seo from "../components/seo";
-import Title from "../components/title";
 import Image from "next/image";
 import {
   buildGraph,

@@ -7,7 +7,7 @@ const DEFAULT_IMAGE = `${SITE_URL}/og/home.jpg`;
 export default function Seo({
   title,
   description,
-  path = "/",
+  path,
   image = DEFAULT_IMAGE,
   jsonLd = null,
 }) {
@@ -21,6 +21,7 @@ export default function Seo({
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="MYXA" />
       <meta property="og:locale" content="es_AR" />
       <meta property="og:url" content={canonical} />
       <meta property="og:title" content={title} />
@@ -37,7 +38,9 @@ export default function Seo({
       {jsonLd && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
         />
       )}
     </Head>

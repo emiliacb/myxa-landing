@@ -53,7 +53,7 @@ export default function Servicios() {
                     </p>
                   </div>
                   <Image
-                    alt={servicio.title}
+                    alt={servicio.imageAlt}
                     src={servicio.image}
                     width={300}
                     height={200}

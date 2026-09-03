@@ -10,7 +10,7 @@ export default function Footer({ dark = true }) {
     >
       <div className="m-auto flex max-w-[1200px] flex-col items-center justify-between text-sm md:flex-row">
         <div className="flex w-full flex-col justify-between gap-4 md:flex-row md:items-center">
-          <nav className="mb-4 md:mb-0">
+          <nav aria-label="Pie de página" className="mb-4 md:mb-0">
             <ul className="flex flex-row flex-wrap justify-center gap-4 md:items-center md:space-x-4">
               <li>
                 <a href="/#nosotros" className="hover:underline">
