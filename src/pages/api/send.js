@@ -8,10 +8,24 @@ const PHONE_PATTERN = /^[0-9+\-\s]+$/;
 
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 5;
+const MAX_TRACKED_IPS = 5000;
 const requestsByIp = new Map();
+
+function pruneExpiredIps(now) {
+  for (const [trackedIp, timestamps] of requestsByIp) {
+    if (!timestamps.some((t) => now - t < RATE_LIMIT_WINDOW_MS)) {
+      requestsByIp.delete(trackedIp);
+    }
+  }
+}
 
 function isRateLimited(ip) {
   const now = Date.now();
+
+  if (requestsByIp.size > MAX_TRACKED_IPS) {
+    pruneExpiredIps(now);
+  }
+
   const timestamps = (requestsByIp.get(ip) || []).filter(
     (t) => now - t < RATE_LIMIT_WINDOW_MS
   );
@@ -24,6 +38,14 @@ function isRateLimited(ip) {
   timestamps.push(now);
   requestsByIp.set(ip, timestamps);
   return false;
+}
+
+function escapeHtml(value) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
 function getClientIp(req) {
@@ -92,8 +114,8 @@ export default async (req, res) => {
             <div>
               <p style="font-size: 20px;">Una persona llenó el formulario para ser contactada.</p>
               <p style="font-size: 16px;">Fecha y Hora: ${date}</p>
-              <p style="font-size: 16px;">Nombre: ${trimmedName}</p>
-              <p style="font-size: 16px;">Número: ${trimmedPhone}</p>
+              <p style="font-size: 16px;">Nombre: ${escapeHtml(trimmedName)}</p>
+              <p style="font-size: 16px;">Número: ${escapeHtml(trimmedPhone)}</p>
             </div>
             <div style="min-width: 150px; width: 50%; max-width: 50vw; display: grid; place-content: center;">
               <img width="50" style="width: 100%; object-fit: cover;" src="https://myxa.com.ar/phone.png">

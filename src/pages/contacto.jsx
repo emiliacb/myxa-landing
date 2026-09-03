@@ -61,6 +61,9 @@ export default function Contacto() {
         phone: inputNumber,
         website: inputWebsite,
       }),
+    }).then((response) => {
+      if (!response.ok) throw response;
+      return response;
     });
     toast.promise(fetchPromise, {
       loading: "Enviando...",
