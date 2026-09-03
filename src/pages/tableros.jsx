@@ -115,7 +115,7 @@ export default function Tableros() {
   return (
     <>
       <Seo
-        title="Tableros de comando para bombas contra incendio · NFPA 20 e IRAM 3597 · MYXA"
+        title="Tableros de comando para bombas contra incendio NFPA 20 · MYXA"
         description="Tableros de comando para bombas principales y jockey: gabinete IP40, arranque directo hasta 15 HP o estrella-triángulo, comando a 24 V y planos con QR."
         path="/tableros"
         image="https://www.myxa.com.ar/og/tableros.jpg"
