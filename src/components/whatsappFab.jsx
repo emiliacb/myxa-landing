@@ -1,3 +1,5 @@
+import { trackEvent } from "../utils/analytics";
+
 export default function WhatsappFab() {
   const whatsappNumber = "+5491158151959";
   const whatsappUrl = `https://wa.me/${whatsappNumber}`;
@@ -7,6 +9,7 @@ export default function WhatsappFab() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => trackEvent("whatsapp_click", { source: "fab" })}
       className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl lg:hidden"
       aria-label="Contactar por WhatsApp"
     >
