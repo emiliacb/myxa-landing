@@ -24,7 +24,7 @@ export default function Home() {
     <>
       <Seo
         title="Tableros para bombas contra incendio NFPA 20 · MYXA Argentina"
-        description="Fabricamos tableros de control para bombas contra incendio según NFPA 20 e IRAM 3597 e instalamos y mantenemos equipos de presurización. Buenos Aires."
+        description="Fabricamos tableros de control para bombas contra incendio con diseño basado en NFPA 20 e IRAM 3597 e instalamos equipos de presurización. Buenos Aires."
         path="/"
         jsonLd={HOME_JSON_LD}
       />

@@ -51,7 +51,7 @@ export function getTablerosProduct() {
     "@type": "Product",
     name: "Tablero de comando para bombas contra incendio",
     description:
-      "Tablero de comando para bombas principales y jockey de sistemas contra incendio, fabricado según NFPA 20 e IRAM 3597.",
+      "Tablero de comando para bombas principales y jockey de sistemas contra incendio, con diseño basado en los lineamientos de NFPA 20 e IRAM 3597.",
     brand: { "@id": ORGANIZATION_ID },
     manufacturer: { "@id": ORGANIZATION_ID },
     additionalProperty: TABLERO_FEATURES.map((feature) => ({
