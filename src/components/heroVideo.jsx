@@ -3,6 +3,10 @@ import { useEffect, useRef } from "react";
 // Matches the source encode (see scripts used to generate /public/hero-video.mp4).
 const FRAME_RATE = 24;
 
+// Higher = slower rotation: this many video-heights of scrolling are needed
+// to go through the whole 360 degrees.
+const SCROLL_HEIGHTS_PER_ROTATION = 6;
+
 export default function HeroVideo({ className }) {
   const videoRef = useRef(null);
 
@@ -16,10 +20,7 @@ export default function HeroVideo({ className }) {
     const saveData = navigator.connection?.saveData;
     if (reducedMotion || saveData) return undefined;
 
-    // Anchor progress=0 to the video's position at mount (i.e. page load),
-    // and let one video-height of scrolling cover the whole rotation - that
-    // roughly matches how long the video stays on screen, on mobile too,
-    // where it only occupies the lower half of the hero section.
+    // Anchor progress=0 to the video's position at mount (i.e. page load).
     const startTop = video.getBoundingClientRect().top;
     let lastFrame = -1;
     let seeking = false;
@@ -28,7 +29,10 @@ export default function HeroVideo({ className }) {
     const getScrollProgress = () => {
       const top = video.getBoundingClientRect().top;
       const height = video.getBoundingClientRect().height || 1;
-      return Math.min(1, Math.max(0, (startTop - top) / height));
+      return Math.min(
+        1,
+        Math.max(0, (startTop - top) / (height * SCROLL_HEIGHTS_PER_ROTATION))
+      );
     };
 
     const applyProgress = (progress) => {
