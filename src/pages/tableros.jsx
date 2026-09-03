@@ -138,13 +138,11 @@ export default function Tableros() {
               <div ref={startSectionRef} className="h-4 w-full"></div>
               <p className="mb-2 max-w-4xl text-justify">
                 En MYXA, diseñamos y fabricamos tableros de control que son el
-                corazón de su sistema contra incendios. Cumpliendo rigurosamente
-                con las normativas NFPA 20 e IRAM 3597, garantizamos la máxima
-                seguridad y eficiencia operativa. Ofrecemos una amplia gama de
-                soluciones estandarizadas, así como diseños personalizados para
-                adaptarse perfectamente a las necesidades específicas de su
-                proyecto, asegurando un rendimiento inigualable y una protección
-                confiable.
+                corazón de su sistema contra incendios, con diseño basado en
+                los lineamientos de NFPA 20 e IRAM 3597. Ofrecemos una amplia
+                gama de soluciones estandarizadas, así como diseños
+                personalizados para adaptarse a las necesidades específicas de
+                su proyecto.
               </p>
             </div>
           </div>
