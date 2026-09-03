@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Head from "next/head";
 
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
@@ -29,6 +30,9 @@ export default function Home() {
         path="/"
         jsonLd={HOME_JSON_LD}
       />
+      <Head>
+        <link rel="preload" as="image" href="/hero-video-poster.webp" />
+      </Head>
       <Navbar isInvert={isNavInverted} />
       <main className="flex flex-col items-center justify-center bg-white px-4 md:px-10">
         <section
@@ -69,10 +73,7 @@ export default function Home() {
             </div>
           </div>
           <div className="relative z-10 -mb-12 -ml-8 -mr-8 flex h-[60vh] min-w-[calc(100%+32px)] items-center justify-center overflow-hidden md:-ml-6 md:-mr-10 lg:h-[100vh] lg:justify-end">
-            <HeroVideo
-              alt="Tablero de control MYXA para bombas de sistema contra incendio, gabinete rojo bermellón, rotando 360 grados"
-              className="lg:max-w-auto absolute m-auto max-h-[400px] min-w-[300px] max-w-[750px] object-contain pl-[5%] lg:-mr-8 lg:-mt-10 lg:ml-auto lg:max-h-[2000px] lg:max-w-[900px]"
-            />
+            <HeroVideo className="lg:max-w-auto absolute m-auto max-h-[400px] min-w-[300px] max-w-[750px] object-contain pl-[5%] lg:-mr-8 lg:-mt-10 lg:ml-auto lg:max-h-[2000px] lg:max-w-[900px]" />
           </div>
         </section>
         <section
