@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
-import Head from "next/head";
 import Image from "next/image";
 import cs from "classnames";
 
 import Navbar from "../components/navbar";
+import Footer from "../components/footer";
+import Seo from "../components/seo";
 import { useSectionInView } from "../hooks/useSectionInView";
 import { useScrollDetection } from "../hooks/useScrollDetection";
 import { isTouchDevice } from "../utils/device";
@@ -86,18 +87,21 @@ export default function Tableros() {
     );
   }, [currentFeature]);
 
+  const imageAlt = useMemo(() => {
+    if (!currentFeature) return DEFAULT_FEATURE.imageAlt;
+    return (
+      FEATURES_IMAGE_TRANSFORMS[currentFeature]?.imageAlt ||
+      DEFAULT_FEATURE.imageAlt
+    );
+  }, [currentFeature]);
+
   return (
     <>
-      <Head>
-        <title>MYXA - Tableros de Control</title>
-        <meta
-          name="description"
-          content="Detalles técnicos y características de los tableros de control para sistemas contra incendio de MYXA, cumpliendo con NFPA 20 e IRAM 3597."
-        />
-        {TABLEROS_IMAGES.map((src) => (
-          <link key={src} rel="preload" as="image" href={src} />
-        ))}
-      </Head>
+      <Seo
+        title="Tableros de comando para bombas contra incendio · NFPA 20 e IRAM 3597 · MYXA"
+        description="Tableros de comando para bombas principales y jockey: gabinete IP40, arranque directo hasta 15 HP o estrella-triángulo, comando a 24 V y planos con QR. Pedí tu presupuesto."
+        path="/tableros"
+      />
       <Navbar isInvert />
       <main className="flex flex-col items-center justify-center lg:px-10">
         <section
@@ -137,7 +141,7 @@ export default function Tableros() {
               )}
             >
               <Image
-                alt="Picture of the author"
+                alt={imageAlt}
                 src={imageSrc}
                 width={400}
                 height={400}
@@ -163,50 +167,7 @@ export default function Tableros() {
           </div>
         </section>
       </main>
-      <footer className="w-full bg-black bg-black px-4 py-8 text-neutral-100">
-        <div className="m-auto flex w-full flex-col items-center justify-between text-sm lg:flex-row">
-          <div className="flex w-full flex-col justify-between gap-4 lg:flex-row lg:items-center  ">
-            <nav className="mb-4 lg:mb-0">
-              <ul className="flex flex-row flex-wrap justify-center gap-4 lg:items-center lg:space-x-4">
-                <li>
-                  <a href="/#nosotros" className="hover:underline">
-                    Nosotros
-                  </a>
-                </li>
-                <li>
-                  <a href="/tableros" className="hover:underline">
-                    Tableros
-                  </a>
-                </li>
-                <li>
-                  <a href="/presurizacion" className="hover:underline">
-                    Presurización
-                  </a>
-                </li>
-                <li>
-                  <a href="/servicios" className="hover:underline">
-                    Servicios
-                  </a>
-                </li>
-                <li>
-                  <a href="/contacto" className="hover:underline">
-                    Contacto
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <div className="mb-4 w-fit text-center text-xs lg:mb-0 lg:ml-8 lg:text-left">
-              <p>
-                © {new Date().getFullYear()} MYXA - Todos los derechos
-                reservados.
-              </p>
-              <p className="mt-2">
-                Dr. Enrique Finochietto 5345, José C. Paz, Buenos Aires
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
