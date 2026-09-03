@@ -19,10 +19,13 @@ function Title({ contents, white, scrollRef, size = _SIZES.xl, className }) {
   const x = useTransform(scrollYProgress, [0, 1], ["2%", "-100%"]);
 
   let contentsElements = getClonedElements(contents);
+  const headingText = Array.isArray(contents) ? contents.join(" ") : contents;
 
   return (
     <div className={cl("w-screen overflow-hidden", className)}>
+      <h2 className="sr-only">{headingText}</h2>
       <motion.div
+        aria-hidden="true"
         className="flex w-fit items-center justify-start"
         style={{ x }}
       >
@@ -33,12 +36,12 @@ function Title({ contents, white, scrollRef, size = _SIZES.xl, className }) {
                 className="h-1 w-12 md:mt-6 md:h-4 md:w-52"
                 style={{ backgroundColor: white ? "#EEE" : "#222" }}
               />
-              <h2
+              <span
                 className={`mx-4 w-max text-5xl font-bold md:text-[180px] ${size}`}
                 style={{ color: white ? "#EEE" : "#222" }}
               >
                 {content}
-              </h2>
+              </span>
               <div
                 className="h-1 w-12 md:mt-6 md:h-4 md:w-52"
                 style={{ backgroundColor: white ? "#EEE" : "#222" }}
