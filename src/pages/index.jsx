@@ -34,7 +34,7 @@ export default function Home() {
           id="nosotros"
           className="relative flex max-h-[90vh] min-h-[90vh] w-full max-w-[1200px] flex-col items-center justify-center pt-[7rem] lg:min-h-[90vh] lg:flex-row lg:pt-0"
         >
-          <div className="left-0 z-20 flex max-w-md flex-col rounded-[30px] bg-white/70 drop-shadow-md backdrop-blur-sm lg:absolute lg:top-[26vh] lg:mb-0 lg:mr-auto lg:max-w-[40rem] lg:px-8 lg:py-12">
+          <div className="left-0 z-20 flex max-w-md flex-col rounded-[30px] bg-white/70 pb-6 drop-shadow-md backdrop-blur-sm md:pb-0 lg:absolute lg:top-[26vh] lg:mb-0 lg:mr-auto lg:max-w-[40rem] lg:px-8 lg:py-12">
             <h1 className="mb-4 text-center md:text-left lg:mb-6">
               <span className="text-xl lg:text-2xl">
                 Tableros y equipos de presurización
