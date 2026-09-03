@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prebuild": "node scripts/og.mjs",
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
@@ -20,10 +21,14 @@
     "sonner": "^1.4.3"
   },
   "devDependencies": {
+    "@fontsource/plus-jakarta-sans": "^5.3.0",
+    "@resvg/resvg-js": "^2.6.2",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.2.8",
+    "satori": "^0.33.4",
+    "sharp": "^0.35.4",
     "tailwindcss": "^3.3.0"
   },
   "ct3aMetadata": {

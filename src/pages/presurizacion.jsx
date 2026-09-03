@@ -3,6 +3,23 @@ import Footer from "../components/footer";
 import Seo from "../components/seo";
 import Title from "../components/title";
 import Image from "next/image";
+import {
+  buildGraph,
+  buildBreadcrumbList,
+  getOrganization,
+  getWebsite,
+  getPresurizacionService,
+} from "../utils/schema";
+
+const PRESURIZACION_JSON_LD = buildGraph([
+  getOrganization(),
+  getWebsite(),
+  buildBreadcrumbList([
+    { name: "Inicio", path: "/" },
+    { name: "Presurización", path: "/presurizacion" },
+  ]),
+  getPresurizacionService(),
+]);
 
 export default function Presurizacion() {
   return (
@@ -11,6 +28,8 @@ export default function Presurizacion() {
         title="Reparación de equipos de presurización contra incendio · MYXA"
         description="Diagnóstico y reparación de equipos de presurización contra incendio: colectores, cañerías, válvulas y bombas. Visita técnica y cotización transparente."
         path="/presurizacion"
+        image="https://www.myxa.com.ar/og/presurizacion.jpg"
+        jsonLd={PRESURIZACION_JSON_LD}
       />
       <Navbar />
       <main className="flex flex-col items-center justify-center px-4 md:px-10">
@@ -25,15 +44,15 @@ export default function Presurizacion() {
             <div className="flex w-full flex-col justify-between md:gap-10 lg:flex-row lg:gap-16">
               <Image
                 alt="Equipo de presurización contra incendio: bombas, colector y válvulas"
-                src="/instalaciones_1.jpeg"
+                src="/instalaciones_1.webp"
                 width={330}
                 height={250}
                 className="w-1/2 m-auto rounded-lg w-full max-w-lg"
               />
               <div className="flex-1 p-4 md:w-2/3 lg:w-1/2">
-                <h3 className="mb-4 text-lg font-bold">
+                <h2 className="mb-4 text-lg font-bold">
                   Respuesta Rápida y Efectiva
-                </h3>
+                </h2>
                 <p className="text-justify">
                   En el evento de una disfunción, nuestro equipo técnico está
                   listo para diagnosticar y resolver cualquier problema con

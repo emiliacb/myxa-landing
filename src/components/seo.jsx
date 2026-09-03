@@ -1,7 +1,8 @@
 import Head from "next/head";
 
-const SITE_URL = "https://www.myxa.com.ar";
-const DEFAULT_IMAGE = `${SITE_URL}/logo.jpeg`;
+import { SITE_URL } from "../utils/schema";
+
+const DEFAULT_IMAGE = `${SITE_URL}/og/home.jpg`;
 
 export default function Seo({
   title,
