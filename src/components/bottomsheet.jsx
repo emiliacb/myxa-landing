@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
-import { useAnimate, motion, useDragControls, useInView } from "framer-motion";
+import { motion, useDragControls, useInView } from "framer-motion";
 
 export function ContentComponent({ isOpen, onClose, children }) {
-  const [scope, animate] = useAnimate();
+  const scope = useRef(null);
   const isVisible = useInView(scope, { amount: 0.1 });
   const controls = useDragControls();
 
@@ -15,18 +15,12 @@ export function ContentComponent({ isOpen, onClose, children }) {
       onClose();
     }
   };
-  
+
   useEffect(() => {
     if(!isVisible) onClose()
   }, [isVisible])
 
   useEffect(() => {
-    animate(
-      scope.current,
-      { y: isOpen ? "0%" : "100%", opacity: isOpen ? 1 : 0 },
-      { duration: 0.3 }
-    );
-
     document.body.style.height = isOpen ? "100vh" : "auto";
     document.body.style.overflow = isOpen ? "hidden" : "auto";
   }, [isOpen]);
@@ -45,6 +39,9 @@ export function ContentComponent({ isOpen, onClose, children }) {
         dragControls={controls}
         dragConstraints={{ top: -150 }}
         onDragEnd={handleDragEnd}
+        initial={{ y: "100%", opacity: 0 }}
+        animate={{ y: isOpen ? "0%" : "100%", opacity: isOpen ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
         className="bg-red-30 fixed top-1/3 z-50 pb-[100vh] flex h-fit w-screen flex-col items-center justify-center gap-12 overflow-hidden rounded-t-3xl bg-gray-100 py-16"
       >
         <div className="absolute top-5 m-auto h-1 w-24 rounded-xl bg-gray-200" />

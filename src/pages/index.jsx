@@ -73,7 +73,10 @@ export default function Home() {
             </div>
           </div>
           <div className="relative z-10 -mb-12 -ml-8 -mr-8 flex h-[60vh] min-w-[calc(100%+32px)] items-center justify-center overflow-hidden md:-ml-6 md:-mr-10 lg:h-[100vh] lg:justify-end">
-            <HeroVideo className="lg:max-w-auto absolute m-auto max-h-[400px] min-w-[300px] max-w-[750px] object-contain pl-[5%] lg:-mr-8 lg:-mt-10 lg:ml-auto lg:max-h-[2000px] lg:max-w-[900px]" />
+            <HeroVideo
+              wrapperClassName="lg:max-w-auto absolute m-auto max-h-[400px] min-w-[300px] max-w-[750px] pl-[5%] lg:-mr-8 lg:-mt-10 lg:ml-auto lg:max-w-[900px]"
+              className="h-full w-full object-contain"
+            />
           </div>
         </section>
         <section

@@ -7,7 +7,7 @@ const FRAME_RATE = 24;
 // to go through the whole 360 degrees.
 const SCROLL_HEIGHTS_PER_ROTATION = 6;
 
-export default function HeroVideo({ className }) {
+export default function HeroVideo({ className, wrapperClassName }) {
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -98,15 +98,24 @@ export default function HeroVideo({ className }) {
   }, []);
 
   return (
-    <video
-      ref={videoRef}
-      src="/hero-video.mp4"
-      poster="/hero-video-poster.webp"
-      muted
-      playsInline
-      preload="auto"
-      aria-hidden="true"
-      className={className}
-    />
+    // clip-path instead of rounded-*/overflow-hidden: border-radius
+    // unreliably fails to clip this <video> in Chromium (also triggered by
+    // a responsive max-height override on the clipped element - avoid
+    // adding one back). clip-path clips it correctly and consistently.
+    <div
+      className={wrapperClassName}
+      style={{ clipPath: "inset(0 round 30px)" }}
+    >
+      <video
+        ref={videoRef}
+        src="/hero-video.mp4"
+        poster="/hero-video-poster.webp"
+        muted
+        playsInline
+        preload="auto"
+        aria-hidden="true"
+        className={className}
+      />
+    </div>
   );
 }
