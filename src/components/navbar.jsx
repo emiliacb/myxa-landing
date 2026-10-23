@@ -21,8 +21,8 @@ export default function Navbar({ isInvert }) {
   return (
     <nav
       aria-label="Principal"
-      className={`fixed top-0 z-40 w-full px-4 py-3 transition-all duration-100 md:px-10 ${
-        isInvert ? "bg-black text-white" : "bg-white text-black"
+      className={`fixed top-0 z-40 w-full border-b-4 border-red-drtb px-4 py-3 transition-all duration-100 md:px-10 ${
+        isInvert ? "bg-ink text-white" : "bg-white text-ink"
       }`}
     >
       <div className="m-auto flex w-full max-w-[1200px] justify-between gap-6">
@@ -32,7 +32,7 @@ export default function Navbar({ isInvert }) {
           }`}
           href="/"
         >
-          <div className="md:hover:animate-spin">
+          <div>
             <LogoIcon
               width={40}
               className={`${
@@ -43,7 +43,7 @@ export default function Navbar({ isInvert }) {
           <span
             className={`${
               !isScrolled ? "translate-x-8 scale-150" : "scale-100"
-            } text-2xl font-bold text-red-drtb transition-all duration-150`}
+            } font-display text-3xl font-extrabold tracking-wide text-red-drtb transition-all duration-150`}
           >
             MYXA
           </span>

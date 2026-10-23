@@ -4,6 +4,7 @@ import cs from "classnames";
 
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import CtaBand from "../components/ctaBand";
 import Seo from "../components/seo";
 import { useSectionInView } from "../hooks/useSectionInView";
 import { useScrollDetection } from "../hooks/useScrollDetection";
@@ -60,14 +61,16 @@ export function TableroFeature({
       ref={featureRef}
       onClick={handleClick}
       className={cs(
-        "cursor-pointer select-none rounded-lg border border-transparent px-8 py-6 text-white transition duration-[300ms] md:bg-black md:opacity-100",
+        "cursor-pointer select-none border-l-4 border-transparent px-8 py-6 text-white transition duration-[300ms] md:bg-ink md:opacity-100",
         {
           "opacity-25": !!currentFeature,
-          "!bg-white !text-black !opacity-100": isSelected,
+          "!border-white !bg-red-drtb !text-white !opacity-100": isSelected,
         }
       )}
     >
-      <h3 className="mb-3 text-lg font-bold">{title}:</h3>
+      <h3 className="mb-3 font-display text-2xl font-bold uppercase tracking-wide">
+        {title}
+      </h3>
       <p className="font-light">{description}</p>
     </li>
   );
@@ -125,18 +128,20 @@ export default function Tableros() {
       <main className="flex flex-col items-center justify-center lg:px-10">
         <section
           id="tableros-detalles"
-          className="relative flex min-h-screen w-screen flex-col items-center justify-center bg-black py-12 pt-32 text-white md:px-4"
+          className="relative flex min-h-screen w-screen flex-col items-center justify-center bg-ink py-12 pt-36 text-white md:px-4"
         >
-          <h1 className="pt-[1rem] text-center text-4xl lg:text-6xl">
+          <p className="eyebrow">NFPA 20 · IRAM 3597</p>
+          <h1 className="heading-sign mt-2 text-center text-6xl lg:text-[128px]">
             Tableros de Control
           </h1>
+          <div aria-hidden="true" className="hazard mt-8 h-4 w-40 text-red-drtb" />
           <div className="mt-24 flex max-w-[1200px] flex-col items-center gap-12 lg:flex-row">
             <div className="flex-1 p-4 lg:w-1/2 lg:w-2/3">
-              <h2 className="mb-4 text-lg font-bold">
+              <h2 className="heading-sign mb-4 text-4xl">
                 Diseño y fabricación de tableros
               </h2>
               <div ref={startSectionRef} className="h-4 w-full"></div>
-              <p className="mb-2 max-w-4xl text-justify">
+              <p className="text-pretty mb-2 max-w-4xl text-lg font-light">
                 En MYXA, diseñamos y fabricamos tableros de control que son el
                 corazón de su sistema contra incendios, con diseño basado en
                 los lineamientos de NFPA 20 e IRAM 3597. Ofrecemos una amplia
@@ -149,10 +154,10 @@ export default function Tableros() {
           <div className="flex max-w-[1200px] flex-col items-start lg:mt-24 lg:flex-row">
             <div
               className={cs(
-                "max-w-sd left-[100%] top-[calc(50vh_-_20vh)] z-10 mr-[0.5rem] grid h-[50vh] w-[calc(100%_-_1rem)] items-center justify-items-center overflow-hidden rounded-md md:place-content-center md:bg-gray-900 lg:left-auto lg:top-24 lg:h-[550px] lg:w-[450px]",
+                "max-w-sd left-[100%] top-[calc(50vh_-_20vh)] z-10 mr-[0.5rem] grid h-[50vh] w-[calc(100%_-_1rem)] items-center justify-items-center overflow-hidden md:place-content-center md:bg-neutral-900 lg:left-auto lg:top-24 lg:h-[550px] lg:w-[450px]",
                 {
                   sticky: currentFeature || isScrolled,
-                  "!top-[75dvh] !h-[calc(25dvh_-_0.5rem)] !items-end bg-gray-900 lg:!top-24 lg:!h-[550px] lg:!w-[450px]":
+                  "!top-[75dvh] !h-[calc(25dvh_-_0.5rem)] !items-end bg-neutral-900 lg:!top-24 lg:!h-[550px] lg:!w-[450px]":
                     currentFeature,
                 }
               )}
@@ -167,7 +172,7 @@ export default function Tableros() {
               />
             </div>
             <div className="sticky max-w-md flex-1 p-4 pt-0">
-              <h2 className="mb-6 text-xl font-bold text-white">
+              <h2 className="heading-sign mb-6 text-4xl text-white">
                 Características técnicas
               </h2>
               <ul className="mb-[500px] flex list-none flex-col gap-8 lg:mb-[800px]">
@@ -187,6 +192,7 @@ export default function Tableros() {
           </div>
         </section>
       </main>
+      <CtaBand />
       <Footer />
     </>
   );

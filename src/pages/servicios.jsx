@@ -1,5 +1,6 @@
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import CtaBand from "../components/ctaBand";
 import Seo from "../components/seo";
 import { SERVICIOS } from "../utils/constants";
 import Image from "next/image";
@@ -34,7 +35,11 @@ export default function Servicios() {
       />
       <Navbar />
       <main className="flex flex-col items-center justify-center px-4 md:px-10 bg-white">
-        <h1 className="pt-[9rem] text-4xl md:text-6xl">Servicios</h1>
+        <p className="eyebrow pt-36">Instalación · Puesta en marcha · Mantenimiento</p>
+        <h1 className="heading-sign mt-2 text-center text-6xl lg:text-[128px]">
+          Servicios
+        </h1>
+        <div aria-hidden="true" className="hazard mt-8 h-4 w-40 text-red-drtb" />
         {SERVICIOS.map((servicio) => (
           <section
             key={servicio.id}
@@ -45,10 +50,10 @@ export default function Servicios() {
               <div className="items-center">
                 <div className="flex w-full flex-col justify-between md:gap-10 lg:flex-row lg:gap-16">
                   <div className="flex-1 p-4 md:w-2/3">
-                    <h2 className="mb-4 text-2xl font-bold">
+                    <h2 className="heading-sign mb-4 text-4xl md:text-5xl">
                       {servicio.title}
                     </h2>
-                    <p className="text-justify text-lg">
+                    <p className="text-pretty text-lg font-light">
                       {servicio.full_description}
                     </p>
                   </div>
@@ -57,7 +62,7 @@ export default function Servicios() {
                     src={servicio.image}
                     width={300}
                     height={200}
-                    className="m-auto rounded-lg"
+                    className="m-auto"
                   />
                 </div>
               </div>
@@ -65,7 +70,8 @@ export default function Servicios() {
           </section>
         ))}
       </main>
-      <Footer dark={false} />
+      <CtaBand />
+      <Footer />
     </>
   );
 }

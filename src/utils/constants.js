@@ -43,6 +43,13 @@ export const SERVICIOS = [
   },
 ];
 
+export const PRESURIZACION_TAREAS = [
+  "Modificación y armado de colectores de aspiración e impulsión",
+  "Reparación de pérdidas en cañerías",
+  "Cambio de válvulas e instrumentos de medición",
+  "Cambio y reparación de bombas",
+];
+
 export const TABLERO_FEATURES = [
   {
     id: "proteccion-superior",
@@ -177,3 +184,11 @@ export const TABLEROS_IMAGES = Object.values({
   7: "/tableros_9.webp",
   8: "/tableros_10.webp",
 });
+
+export const CONTACT = {
+  email: "info@myxa.com.ar",
+  phone: "+54 9 11 5815-1959",
+  whatsappUrl: "https://wa.me/5491158151959",
+  address: "Dr. Enrique Finochietto 5345, José C. Paz, Buenos Aires",
+  linkedinUrl: "https://linkedin.com/company/myxa-incendio",
+};

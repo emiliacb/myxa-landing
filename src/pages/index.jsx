@@ -5,14 +5,37 @@ import Footer from "../components/footer";
 import Seo from "../components/seo";
 import Card from "../components/card";
 import Title from "../components/title";
+import CtaBand from "../components/ctaBand";
 
 import Link from "next/link";
 
 import { useSectionInView } from "../hooks/useSectionInView";
-import { SERVICIOS } from "../utils/constants";
+import {
+  SERVICIOS,
+  TABLERO_FEATURES,
+  PRESURIZACION_TAREAS,
+} from "../utils/constants";
 import { buildGraph, getOrganization, getWebsite } from "../utils/schema";
 
 const HOME_JSON_LD = buildGraph([getOrganization(), getWebsite()]);
+
+const HERO_SPECS = [
+  {
+    label: "Diseño basado en",
+    value: "NFPA 20 · IRAM 3597",
+    detail: "Tableros para bombas principales y jockey.",
+  },
+  {
+    label: "Arranque",
+    value: "Directo · Y-Δ",
+    detail: "Directo hasta 15 HP, estrella-triángulo para potencias mayores.",
+  },
+  {
+    label: "Comando",
+    value: "24 V",
+    detail: "Circuito de comando en baja tensión con transformador.",
+  },
+];
 
 export default function Home() {
   const [tablerosRef, tablerosInView] = useSectionInView();
@@ -32,57 +55,66 @@ export default function Home() {
       <main className="flex flex-col items-center justify-center bg-white px-4 md:px-10">
         <section
           id="nosotros"
-          className="relative flex max-h-[90vh] min-h-[90vh] w-full max-w-[1200px] flex-col items-center justify-center pt-[7rem] lg:min-h-[90vh] lg:flex-row lg:pt-0"
+          className="grid w-full max-w-[1200px] items-center gap-10 pb-16 pt-32 lg:min-h-[90vh] lg:grid-cols-[1fr_1.1fr] lg:pb-20 lg:pt-36"
         >
-          <div className="left-0 z-20 flex max-w-md flex-col rounded-[30px] bg-white/70 pb-6 drop-shadow-md backdrop-blur-sm md:pb-0 lg:absolute lg:top-[26vh] lg:mb-0 lg:mr-auto lg:max-w-[40rem] lg:px-8 lg:py-12">
-            <h1 className="mb-4 text-center md:text-left lg:mb-6">
-              <span className="text-xl lg:text-2xl">
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+            <h1 className="mb-6">
+              <span className="eyebrow block">
                 Tableros y equipos de presurización
               </span>
-              <br />
-              <strong className="text-pretty text-[18px] font-semibold lg:text-3xl">
+              <strong className="heading-sign mt-2 block text-5xl text-ink md:text-7xl lg:text-[88px]">
                 para Sistemas Contra Incendio
               </strong>
             </h1>
-            <p
-              className="text-pretty text-center text-sm font-light md:text-left md:text-lg"
-              style={{ textWrap: "pretty" }}
-            >
+            <p className="text-pretty max-w-lg text-lg font-light md:text-xl">
               Ofrecemos sistemas de <strong>alta calidad</strong> acompañados de
               un <strong>asesoramiento personalizado</strong> que aseguran su
               máxima operatividad.
             </p>
-            <div className="m-auto flex w-fit gap-2 md:m-0">
-              <Link
-                className="btn-primary mx-auto mt-6 flex w-fit items-center rounded-md border px-6 pb-[8px] pt-2 text-white hover:bg-red-drtb hover:text-white md:mx-0 lg:mt-8"
-                href={"/contacto"}
-              >
+            <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
+              <Link className="btn-primary" href={"/contacto"}>
                 Consultar
               </Link>
               <Link
-                className="mx-auto mt-6 flex w-fit items-center rounded-md border border-red-drtb px-5 pb-[4px] pt-1 text-red-drtb hover:bg-red-drtb hover:text-white md:mx-0 lg:mt-8"
+                className="btn-outline text-red-drtb hover:bg-red-drtb hover:text-white"
                 href={"/tableros"}
               >
                 Ver Tableros
               </Link>
             </div>
           </div>
-          <div className="relative z-10 -mb-12 -ml-8 -mr-8 flex h-[60vh] min-w-[calc(100%+32px)] items-center justify-center overflow-hidden md:-ml-6 md:-mr-10 lg:h-[100vh] lg:justify-end">
+          <div className="relative flex items-center justify-center">
             <Image
               src="/hero.webp"
               alt="Tablero de control MYXA para bombas de sistema contra incendio, gabinete rojo bermellón"
               width={1200}
               height={600}
               priority
-              sizes="(max-width: 1024px) 100vw, 900px"
-              className="lg:max-w-auto absolute m-auto max-h-[400px] min-w-[300px] max-w-[750px] object-contain pl-[5%] lg:-mr-8 lg:-mt-10 lg:ml-auto lg:max-h-[2000px] lg:max-w-[900px]"
+              sizes="(max-width: 1024px) 100vw, 660px"
+              className="w-full max-w-[660px] object-contain"
             />
           </div>
+          <dl className="grid w-full grid-cols-1 gap-px bg-ink sm:grid-cols-3 lg:col-span-2">
+            {HERO_SPECS.map((spec) => (
+              <div
+                key={spec.value}
+                className="flex flex-col gap-1 border-l-8 border-red-drtb bg-white px-5 py-4"
+              >
+                <dt className="font-display text-sm font-semibold uppercase tracking-widest text-neutral-500">
+                  {spec.label}
+                </dt>
+                <dd className="font-display text-3xl font-extrabold uppercase text-ink">
+                  {spec.value}
+                </dd>
+                <dd className="text-sm">{spec.detail}</dd>
+              </div>
+            ))}
+          </dl>
         </section>
         <section
           id="tableros"
           ref={tablerosRef}
-          className="relative flex min-h-screen flex-col items-center justify-center bg-black pb-16 text-white lg:pb-24"
+          className="relative flex min-h-screen w-screen flex-col items-center justify-center bg-ink px-4 pb-16 text-white md:px-10 lg:pb-24"
         >
           <Title contents={"Tableros"} size={Title.SIZES.lg} white className="py-16 md:py-24" />
           <div className="w-full max-w-[1200px]">
@@ -91,24 +123,35 @@ export default function Home() {
                 <Image
                   alt="Tablero de comando MYXA para bomba contra incendio, vista frontal con pilotos LED"
                   src="/tableros_1.webp"
-                  className="rounded-md bg-[rgba(100,100,100,0.25)] p-4"
+                  className="bg-neutral-800 p-4"
                   height={400}
                   width={400}
                 />
                 <div className="flex-1 p-4 md:w-2/3 lg:w-1/2">
-                  <h3 className="mb-4 text-xl font-extrabold">
+                  <h3 className="heading-sign mb-4 text-3xl md:text-4xl">
                     Diseño y fabricación de tableros normalizados para sistemas
                     contra incendios.
                   </h3>
-                  <p className="mb-2 text-justify">
+                  <p className="text-pretty mb-6 text-lg font-light">
                     Realizamos nuestros tableros personalizados según tu
                     proyecto con la seguridad, eficiencia y el rendimiento que
                     exigen las normativas vigentes. Para conocer todas las
                     especificaciones técnicas y características detalladas
                     visite nuestra página dedicada.
                   </p>
+                  <ul className="mb-8 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
+                    {TABLERO_FEATURES.map((feature) => (
+                      <li
+                        key={feature.id}
+                        className="flex items-center gap-3 font-display text-lg font-semibold uppercase tracking-wide"
+                      >
+                        <span aria-hidden="true" className="h-3 w-3 shrink-0 bg-red-drtb" />
+                        {feature.title}
+                      </li>
+                    ))}
+                  </ul>
                   <Link
-                    className="mx-auto mt-6 flex w-fit items-center rounded-md border border-white px-2 py-1 text-white hover:bg-white hover:text-black md:mx-0 lg:mt-8"
+                    className="btn-outline mx-auto text-white hover:bg-white hover:text-ink md:mx-0"
                     href={"/tableros"}
                   >
                     Más sobre nuestros tableros
@@ -130,21 +173,29 @@ export default function Home() {
                 src="/instalaciones_1.webp"
                 height={400}
                 width={500}
-                className="m-auto rounded-lg"
+                className="m-auto"
               />
               <div className="flex-1 p-4 md:w-2/3 lg:w-1/2">
-                <h3 className="mb-4 text-2xl font-bold">
+                <h3 className="heading-sign mb-4 text-3xl md:text-4xl">
                   Equipos de presurización
                 </h3>
-                <p className="text-justify">
+                <p className="text-pretty mb-6 text-lg font-light">
                   En MYXA, ofrecemos un servicio integral de diagnóstico y
                   reparación para sus equipos de presurización. Nuestro equipo
                   técnico altamente capacitado está listo para responder
                   rápidamente a cualquier disfunción, asegurando la continuidad
                   operativa de su sistema contra incendios.
                 </p>
+                <ul className="mb-8 flex flex-col gap-2">
+                  {PRESURIZACION_TAREAS.map((tarea) => (
+                    <li key={tarea} className="flex items-start gap-3">
+                      <span aria-hidden="true" className="mt-[7px] h-3 w-3 shrink-0 bg-red-drtb" />
+                      {tarea}
+                    </li>
+                  ))}
+                </ul>
                 <Link
-                  className="mx-auto mt-6 flex w-fit items-center rounded-md border border-red-drtb px-2 py-1 text-red-drtb hover:bg-red-drtb hover:text-white md:mx-0 lg:mt-8"
+                  className="btn-outline mx-auto text-red-drtb hover:bg-red-drtb hover:text-white md:mx-0"
                   href={"/presurizacion"}
                 >
                   Más sobre nuestros equipos
@@ -156,19 +207,28 @@ export default function Home() {
         <section
           id="servicios"
           ref={serviciosRef}
-          className="flex min-h-screen w-screen flex-col items-center justify-center bg-black pb-16 text-white lg:pb-24"
+          className="flex min-h-screen w-screen flex-col items-center justify-center bg-red-drtb pb-16 text-white lg:pb-24"
         >
           <Title contents={"Servicios"} size={Title.SIZES.lg} white className="py-16 md:py-24" />
           <div className="grid max-w-[1200px] grid-cols-1 gap-6 px-4 md:grid-cols-2 lg:grid-cols-4">
             {SERVICIOS.map((servicio) => (
               <Link
-                className="rounded-lg border px-2 py-3 hover:bg-gray-200 hover:text-gray-900"
+                className="group flex flex-col border-2 border-white transition-colors duration-150 hover:bg-white hover:text-red-drtb"
                 href={`/servicios#${servicio.id}`}
                 key={servicio.id}
               >
-                <div className="flex flex-1 flex-col p-2">
-                  <h3 className="mb-2 text-lg font-bold">{servicio.title}</h3>
-                  <p className="text-left text-sm font-light md:text-base">
+                <Image
+                  alt={servicio.imageAlt}
+                  src={servicio.image}
+                  width={300}
+                  height={200}
+                  className="aspect-[3/2] w-full object-cover"
+                />
+                <div className="flex flex-1 flex-col p-4">
+                  <h3 className="mb-2 font-display text-2xl font-bold uppercase leading-tight">
+                    {servicio.title}
+                  </h3>
+                  <p className="text-left text-sm md:text-base">
                     {servicio.short_description}
                   </p>
                 </div>
@@ -177,6 +237,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <CtaBand />
       <Footer />
     </>
   );

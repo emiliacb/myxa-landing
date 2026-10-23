@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 html {
-  @apply scroll-smooth bg-black;
+  @apply scroll-smooth bg-ink;
 }
 
 body {
-  font-family: 'Plus Jakarta Sans Variable', sans-serif;
+  @apply font-sans;
 }
 
 *:focus-visible {
@@ -20,17 +20,43 @@ strong {
 
 @layer components {
   .btn-primary {
-    @apply flex h-fit w-fit items-center justify-center gap-2 rounded-md bg-gradient-to-r from-red-500 to-purple-700 px-6 py-2 text-white font-semibold;
-    @apply transition-all duration-200 lg:hover:rotate-1 lg:active:scale-[.98] lg:active:to-purple-800;
+    @apply flex h-fit w-fit items-center justify-center gap-2 bg-red-drtb px-6 py-2 font-display text-lg font-bold uppercase tracking-wider text-white;
+    @apply transition-colors duration-150 hover:bg-red-deep;
+  }
+
+  .btn-outline {
+    @apply flex h-fit w-fit items-center justify-center gap-2 border-2 border-current px-5 py-[6px] font-display text-lg font-bold uppercase tracking-wider;
+    @apply transition-colors duration-150;
+  }
+
+  .eyebrow {
+    @apply font-display text-lg font-semibold uppercase tracking-wider text-red-drtb;
+  }
+
+  .heading-sign {
+    @apply text-balance font-display font-extrabold uppercase leading-[.95];
+  }
+
+  /* Franja de seguridad: diagonales del color actual sobre transparente */
+  .hazard {
+    background: repeating-linear-gradient(
+      -45deg,
+      currentColor 0 12px,
+      transparent 12px 24px
+    );
   }
 }
 
 @layer utilities {
   .hover-rotate {
-    @apply hover:rotate-1 hover:underline hover:underline-offset-8 hover:transition hover:duration-100 active:scale-[.98];
+    @apply underline-offset-8 hover:underline hover:decoration-red-drtb hover:decoration-[3px];
   }
 
   .text-pretty {
     text-wrap: pretty;
+  }
+
+  .text-balance {
+    text-wrap: balance;
   }
 }

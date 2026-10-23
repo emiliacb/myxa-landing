@@ -4,10 +4,10 @@ import { getClonedElements } from "../utils/title";
 import cl from "classnames";
 
 const _SIZES = {
-  xl: "text-5xl md:text-[180px]",
-  lg: "text-4xl md:text-6xl lg:text-8xl",
-  md: "text-3xl md:text-4xl lg:text-6xl",
-  sm: "text-2xl md:text-3xl lg:text-4xl",
+  xl: "text-6xl md:text-[160px]",
+  lg: "text-5xl md:text-7xl lg:text-[128px]",
+  md: "text-4xl md:text-5xl lg:text-7xl",
+  sm: "text-3xl md:text-4xl lg:text-5xl",
 };
 
 function Title({ contents, white, scrollRef, size = _SIZES.xl, className }) {
@@ -26,25 +26,31 @@ function Title({ contents, white, scrollRef, size = _SIZES.xl, className }) {
       <h2 className="sr-only">{headingText}</h2>
       <motion.div
         aria-hidden="true"
-        className="flex w-fit items-center justify-start"
+        className={cl(
+          "flex w-fit items-center justify-start",
+          white ? "text-white" : "text-ink"
+        )}
         style={{ x }}
       >
         {contentsElements &&
           contentsElements.map((content, index) => (
             <Fragment key={index}>
               <div
-                className="h-1 w-12 md:mt-6 md:h-4 md:w-52"
-                style={{ backgroundColor: white ? "#EEE" : "#222" }}
+                className={cl(
+                  "hazard h-3 w-16 md:h-5 md:w-56",
+                  white ? "text-white" : "text-red-drtb"
+                )}
               />
               <span
-                className={`mx-4 w-max text-5xl font-bold md:text-[180px] ${size}`}
-                style={{ color: white ? "#EEE" : "#222" }}
+                className={`mx-5 w-max font-display font-extrabold uppercase leading-none ${size}`}
               >
                 {content}
               </span>
               <div
-                className="h-1 w-12 md:mt-6 md:h-4 md:w-52"
-                style={{ backgroundColor: white ? "#EEE" : "#222" }}
+                className={cl(
+                  "hazard h-3 w-16 md:h-5 md:w-56",
+                  white ? "text-white" : "text-red-drtb"
+                )}
               />
             </Fragment>
           ))}

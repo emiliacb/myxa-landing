@@ -14,20 +14,21 @@ export default function NotFound() {
       />
       <Navbar isInvert />
       <main className="flex flex-col items-center justify-center px-4 md:px-10">
-        <section className="relative flex min-h-screen w-screen flex-col items-center justify-center gap-6 bg-black py-12 pt-24 text-center text-white">
-          <h1 className="text-4xl md:text-6xl">Página no encontrada</h1>
+        <section className="relative flex min-h-screen w-screen flex-col items-center justify-center gap-6 bg-ink py-12 pt-24 text-center text-white">
+          <div aria-hidden="true" className="hazard h-4 w-40 text-red-drtb" />
+          <h1 className="heading-sign text-6xl md:text-8xl">Página no encontrada</h1>
           <p className="max-w-md text-pretty">
             La página que buscás no existe o fue movida.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
-              className="btn-primary flex w-fit items-center rounded-md border px-6 pb-[8px] pt-2 text-white hover:bg-red-drtb hover:text-white"
+              className="btn-primary"
               href="/"
             >
               Volver al inicio
             </Link>
             <Link
-              className="flex w-fit items-center rounded-md border border-white px-5 pb-[4px] pt-1 text-white hover:bg-white hover:text-black"
+              className="btn-outline text-white hover:bg-white hover:text-ink"
               href="/contacto"
             >
               Contactanos

@@ -2,7 +2,13 @@ import Script from "next/script";
 import { Toaster } from "sonner";
 
 import "../styles/globals.css";
-import "@fontsource-variable/plus-jakarta-sans";
+import "@fontsource/barlow/300.css";
+import "@fontsource/barlow/400.css";
+import "@fontsource/barlow/500.css";
+import "@fontsource/barlow/600.css";
+import "@fontsource/barlow-condensed/600.css";
+import "@fontsource/barlow-condensed/700.css";
+import "@fontsource/barlow-condensed/800.css";
 import WhatsappFab from "../components/whatsappFab";
 
 const MyApp = ({ Component, pageProps }) => {

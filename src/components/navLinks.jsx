@@ -10,28 +10,28 @@ export default function NavLinks({
   return (
     <>
       <Link
-        className="hover-rotate rounded-md px-3 py-1 text-2xl md:text-base"
+        className="hover-rotate px-3 py-1 font-display text-3xl font-bold uppercase tracking-wider md:text-lg"
         href="/"
         onClick={closeBottomSheet}
       >
         Inicio
       </Link>
       <Link
-        className="hover-rotate rounded-md px-3 py-1 text-2xl md:text-base"
+        className="hover-rotate px-3 py-1 font-display text-3xl font-bold uppercase tracking-wider md:text-lg"
         href="/tableros"
         onClick={closeBottomSheet}
       >
         Tableros
       </Link>
       <Link
-        className="hover-rotate rounded-md px-3 py-1 text-2xl md:text-base"
+        className="hover-rotate px-3 py-1 font-display text-3xl font-bold uppercase tracking-wider md:text-lg"
         href="/presurizacion"
         onClick={closeBottomSheet}
       >
         Presurización
       </Link>
       <Link
-        className="hover-rotate rounded-md px-3 py-1 text-2xl md:text-base"
+        className="hover-rotate px-3 py-1 font-display text-3xl font-bold uppercase tracking-wider md:text-lg"
         href="/servicios"
         onClick={closeBottomSheet}
       >
@@ -41,7 +41,7 @@ export default function NavLinks({
       <Link
         className={`${
           !ctaDimished && "btn-primary"
-        } pr-4 text-2xl md:text-base`}
+        } pr-4 text-3xl md:text-lg`}
         style={{
           marginLeft: vertical ? "0" : "25px",
           marginTop: vertical ? "25px" : "0",

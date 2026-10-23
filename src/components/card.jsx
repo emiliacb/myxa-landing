@@ -4,14 +4,15 @@ export default function Card({ title, isInvert = false, children }) {
   return (
     <div
       className={cs(
-        "mr-3 flex h-fit flex-col items-center justify-center gap-10 overflow-hidden rounded-3xl bg-gray-200 px-3 py-10 shadow-[10px_11px_0px_0px_rgba(0,0,0,0.25)] md:px-14 md:py-20",
+        "mr-2 flex h-fit flex-col items-center justify-center gap-10 overflow-hidden bg-steel px-3 py-10 shadow-plate md:px-14 md:py-16",
         {
-          "border border-[rgba(100,100,100,0.5)] bg-transparent shadow-[10px_11px_0px_0px_rgba(100,100,100,0.5)]":
-            isInvert,
+          "border-2 border-white bg-transparent": isInvert,
         }
       )}
     >
-      {title && <h2 className="mb-6 px-4 text-4xl">{title}</h2>}
+      {title && (
+        <h2 className="heading-sign mb-6 px-4 text-4xl">{title}</h2>
+      )}
       {children}
     </div>
   );
