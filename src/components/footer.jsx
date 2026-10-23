@@ -24,7 +24,7 @@ export default function Footer() {
           </Link>
           <p className="max-w-xs text-sm">
             Tableros de control y equipos de presurización para sistemas contra
-            incendio. Diseño basado en NFPA 20 e IRAM 3597.
+            incendio.
           </p>
         </div>
         <nav aria-label="Pie de página">

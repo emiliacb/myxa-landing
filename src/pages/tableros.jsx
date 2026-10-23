@@ -130,7 +130,7 @@ export default function Tableros() {
           id="tableros-detalles"
           className="relative flex min-h-screen w-screen flex-col items-center justify-center bg-ink py-12 pt-36 text-white md:px-4"
         >
-          <p className="eyebrow">NFPA 20 · IRAM 3597</p>
+          <p className="eyebrow">Diseño y fabricación</p>
           <h1 className="heading-sign mt-2 text-center text-6xl lg:text-[128px]">
             Tableros de Control
           </h1>

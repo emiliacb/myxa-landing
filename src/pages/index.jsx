@@ -19,23 +19,6 @@ import { buildGraph, getOrganization, getWebsite } from "../utils/schema";
 
 const HOME_JSON_LD = buildGraph([getOrganization(), getWebsite()]);
 
-const HERO_SPECS = [
-  {
-    label: "Diseño basado en",
-    value: "NFPA 20 · IRAM 3597",
-    detail: "Tableros para bombas principales y jockey.",
-  },
-  {
-    label: "Arranque",
-    value: "Directo · Y-Δ",
-    detail: "Directo hasta 15 HP, estrella-triángulo para potencias mayores.",
-  },
-  {
-    label: "Comando",
-    value: "24 V",
-    detail: "Circuito de comando en baja tensión con transformador.",
-  },
-];
 
 export default function Home() {
   const [tablerosRef, tablerosInView] = useSectionInView();
@@ -94,22 +77,6 @@ export default function Home() {
               className="w-full max-w-[660px] object-contain"
             />
           </div>
-          <dl className="grid w-full grid-cols-1 gap-px bg-ink sm:grid-cols-3 lg:col-span-2">
-            {HERO_SPECS.map((spec) => (
-              <div
-                key={spec.value}
-                className="flex flex-col gap-1 border-l-8 border-red-drtb bg-white px-5 py-4"
-              >
-                <dt className="font-display text-sm font-semibold uppercase tracking-widest text-neutral-500">
-                  {spec.label}
-                </dt>
-                <dd className="font-display text-3xl font-extrabold uppercase text-ink">
-                  {spec.value}
-                </dd>
-                <dd className="text-sm">{spec.detail}</dd>
-              </div>
-            ))}
-          </dl>
         </section>
         <section
           id="tableros"
